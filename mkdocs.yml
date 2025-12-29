@@ -1,0 +1,30 @@
+site_name: RAG2F Docs
+site_description: Documentation hub for RAG2F microservices
+site_url: https://rag2f.github.io/docs/
+
+repo_url: https://github.com/rag2f/docs
+repo_name: rag2f/docs
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - RAG2F:
+      - Overview: rag2f/index.md
+      - Architecture: rag2f/architecture.md
+      - GitHub repo ↗: https://github.com/rag2f/rag2f
+  - Deep Thought:
+      - Overview: deep_thought/index.md
+      - Design notes: deep_thought/design-notes.md
+      - GitHub repo ↗: https://github.com/rag2f/rag2f_deep_thought
