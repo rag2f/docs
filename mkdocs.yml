@@ -1,30 +1,39 @@
 site_name: RAG2F Docs
 site_description: Documentation hub for RAG2F microservices
 site_url: https://rag2f.github.io/docs/
-
 repo_url: https://github.com/rag2f/docs
 repo_name: rag2f/docs
-
 theme:
   name: material
+  custom_dir: mkdocs/overrides
   features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - content.code.copy
-
+  - navigation.instant
+  - navigation.tracking
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - content.code.copy
+  - search.highlight
+  - search.suggest
+  - content.tabs.link
 plugins:
-  - search
-
+- search
+extra_css:
+- assets/stylesheets/extra.css
 nav:
-  - Home: index.md
-  - RAG2F:
-      - Overview: rag2f/index.md
-      - Architecture: rag2f/architecture.md
-      - GitHub repo ↗: https://github.com/rag2f/rag2f
-  - Deep Thought:
-      - Overview: deep_thought/index.md
-      - Design notes: deep_thought/design-notes.md
-      - GitHub repo ↗: https://github.com/rag2f/rag2f_deep_thought
+- Home: index.md
+- RAG2F:
+  - Overview: rag2f/index.md
+  - Quickstart: rag2f/quickstart.md
+  - Installation: rag2f/installation.md
+  - Configuration: rag2f/configuration.md
+  - Plugins: rag2f/plugins.md
+  - Hooks: rag2f/hooks.md
+  - Embedders: rag2f/embedders.md
+  - Repositories: rag2f/repositories.md
+  - Architecture: rag2f/architecture.md
+  - GitHub repo ↗: https://github.com/rag2f/rag2f
+- Deep Thought:
+  - Overview: deep_thought/index.md
+  - Design notes: deep_thought/design-notes.md
+  - GitHub repo ↗: https://github.com/rag2f/rag2f_deep_thought

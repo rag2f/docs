@@ -1,0 +1,63 @@
+# Installation
+
+## Requirements
+
+- Python **3.12+** (rag2f declares `requires-python = ">=3.12"`)
+- A Dev Container (recommended)
+
+## Install from source (dev)
+
+```bash
+git clone <your-rag2f-repo>
+cd rag2f
+# Recommended: Dev Container (VS Code / devcontainers CLI)
+# - Open the repo in the dev container and wait for the container to build
+pip install -e ".[dev]"
+```
+
+(If you prefer a local venv instead of a dev container: `python -m venv .venv && source .venv/bin/activate`.)
+
+## Install as a dependency
+
+If you publish rag2f to an index, install it like any other Python package:
+
+```bash
+pip install rag2f
+```
+
+## Project layout expectations
+
+rag2f assumes a “project root” (current working directory) and uses it to locate a default plugin folder:
+
+- default plugins folder: `./plugins` (relative to `os.getcwd()`)
+
+You can override this by passing `plugins_folder=...` when creating the `RAG2F` instance.
+
+## Local plugins folder
+
+For local development, create:
+
+```
+your_app/
+  config.json
+  plugins/
+    my_plugin/
+      plugin.json
+      my_plugin.py
+```
+
+Then:
+
+```python
+rag2f = await RAG2F.create(plugins_folder="plugins", config_path="config.json")
+```
+
+## Troubleshooting
+
+### “No plugins loaded”
+- Ensure your `plugins_folder` exists (or that you installed plugins via pip with entry points).
+- Check that each plugin has metadata (`plugin.json` and/or `pyproject.toml`) and Python files that define hooks/tools.
+
+### “Entry point plugin path returned site-packages”
+Some plugins may accidentally return the `site-packages` directory instead of their own plugin directory.
+rag2f tries to detect and recover from this, but the plugin should fix its `get_plugin_path()` factory.
