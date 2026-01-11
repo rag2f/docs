@@ -1,0 +1,24 @@
+{% if cards %}
+  <div class="card-grid">
+    {% for card in cards %}
+      {% set has_link = card.link is defined and card.link %}
+      {% if has_link %}
+        <a class="card" href="{{ card.link | url }}" aria-label="{{ card.title }}">
+      {% else %}
+        <div class="card" role="group" aria-label="{{ card.title }}">
+      {% endif %}
+          {% if card.icon %}
+            <span class="card__icon" aria-hidden="true">
+              {% include ".icons/" ~ card.icon ~ ".svg" %}
+            </span>
+          {% endif %}
+          <span class="card__title">{{ card.title }}</span>
+          <span class="card__desc">{{ card.description }}</span>
+      {% if has_link %}
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

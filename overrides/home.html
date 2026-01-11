@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+
+{% block content %}
+  {% set hero = page.meta.hero or {} %}
+  {% set cards = page.meta.cards or [] %}
+  {% set features = page.meta.features or [] %}
+
+  <div class="home">
+    <section class="home-hero">
+      <div class="md-grid home-hero__inner">
+        <div class="home-hero__content">
+          {% if hero.eyebrow %}
+            <p class="home-hero__eyebrow">{{ hero.eyebrow }}</p>
+          {% endif %}
+          <h1 class="home-hero__title">{{ hero.title or page.title }}</h1>
+          {% if hero.subtitle %}
+            <p class="home-hero__subtitle">{{ hero.subtitle }}</p>
+          {% endif %}
+          <div class="home-hero__actions">
+            {% if hero.cta_primary %}
+              <a class="home-cta home-cta--primary" href="{{ hero.cta_primary.link | url }}">{{ hero.cta_primary.label }}</a>
+            {% endif %}
+            {% if hero.cta_secondary %}
+              <a class="home-cta home-cta--secondary" href="{{ hero.cta_secondary.link | url }}">{{ hero.cta_secondary.label }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% if cards %}
+      <section class="home-section">
+        <div class="md-grid">
+          <h2 class="home-section__title">Quick links</h2>
+          {% include "partials/cards.html" %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if features %}
+      <section class="home-section home-why">
+        <div class="md-grid">
+          <h2 class="home-section__title">Why rag2f</h2>
+          <ul class="home-feature-list">
+            {% for item in features %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.content %}
+      <section class="home-section home-content">
+        <div class="md-grid">
+          {{ page.content }}
+        </div>
+      </section>
+    {% endif %}
+  </div>
+{% endblock %}
