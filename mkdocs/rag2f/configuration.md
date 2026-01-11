@@ -6,7 +6,10 @@ It supports:
 - **JSON config files** for structured settings
 - **Environment variables** for secrets and overrides
 - **Priority**: env overrides JSON
- - **Namespaced config** for plugins and core settings
+- **Namespaced config** for plugins and core settings
+
+> "The needs of the many outweigh the needs of the few."
+> - Spock, Star Trek II: The Wrath of Khan
 
 ## Config file
 

@@ -4,6 +4,9 @@ OptimusPrime is the embedder registry.
 
 Embedders are contributed by plugins and must satisfy the `Embedder` protocol (structural typing / duck typing).
 
+> "Freedom is the right of all sentient beings."
+> - Optimus Prime, Transformers
+
 ## The `Embedder` protocol
 
 An embedder must expose:

@@ -5,6 +5,9 @@ XFiles is rag2f’s registry for heterogeneous repositories: SQL, vector databas
 rag2f intentionally does **not** flatten every backend into a lowest-common-denominator API.
 Instead, it defines **minimal contracts** and lets repositories opt into richer protocols.
 
+> "The truth is out there."
+> - The X-Files
+
 ## Repository protocols
 
 A repository plugin implements one or more of these contracts:

@@ -4,6 +4,9 @@ rag2f is a kernel: it gives you the smallest stable set of components needed to 
 
 Everything volatile lives outside the core — in plugins or your application.
 
+> "No disassemble!"
+> - Johnny 5, Short Circuit
+
 ## High-level diagram
 
 ```text
