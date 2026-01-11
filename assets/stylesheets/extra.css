@@ -171,6 +171,10 @@ body {
   box-shadow: 0 12px 25px rgba(255, 107, 53, 0.35);
 }
 
+.md-typeset a.home-cta--primary {
+  color: #1a120c;
+}
+
 .home-cta--secondary {
   background: transparent;
   border-color: var(--rag2f-ink-soft);
@@ -185,6 +189,11 @@ body {
 
 .home-cta--primary:hover,
 .home-cta--primary:focus-visible {
+  color: #1a120c;
+}
+
+.md-typeset a.home-cta--primary:hover,
+.md-typeset a.home-cta--primary:focus-visible {
   color: #1a120c;
 }
 
