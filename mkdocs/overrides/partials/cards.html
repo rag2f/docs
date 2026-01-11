@@ -7,7 +7,7 @@
       {% else %}
         <div class="card" role="group" aria-label="{{ card.title }}">
       {% endif %}
-          <span class="card__icon" aria-hidden="true">{{ icon(card.icon) }}</span>
+          <span class="card__icon" aria-hidden="true">{{ card.icon | icon }}</span>
           <span class="card__title">{{ card.title }}</span>
           <span class="card__desc">{{ card.description }}</span>
       {% if has_link %}
