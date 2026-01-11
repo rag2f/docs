@@ -25,14 +25,18 @@ nav:
 - Home: index.md
 - RAG2F:
   - Overview: rag2f/index.md
+  - Concepts: rag2f/concepts.md
   - Quickstart: rag2f/quickstart.md
   - Installation: rag2f/installation.md
   - Configuration: rag2f/configuration.md
   - Plugins: rag2f/plugins.md
+  - Plugin anatomy: rag2f/plugin-anatomy.md
   - Hooks: rag2f/hooks.md
+  - Hooks reference: rag2f/hooks-reference.md
   - Embedders: rag2f/embedders.md
   - Repositories: rag2f/repositories.md
   - Architecture: rag2f/architecture.md
+  - Troubleshooting: rag2f/troubleshooting.md
   - GitHub repo ↗: https://github.com/rag2f/rag2f
 - Deep Thought:
   - Overview: deep_thought/index.md

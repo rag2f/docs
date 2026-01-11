@@ -1,25 +1,14 @@
-# Hello, dear 👋
+# rag2f overview
 
 **rag2f** is a *plugin-first, entry-point–driven kernel* for composing Retrieval-Augmented Generation (RAG) systems **without forcing a single pipeline shape**.
 
-It gives you a small, stable core (the “kernel”) and pushes volatile integrations (vector DBs, embedders, stores, orchestration) into plugins — so you can swap infrastructure without rewriting your whole app.
+It gives you a small, stable core (the “kernel”) and pushes volatile integrations (vector DBs, embedders, stores, orchestration) into plugins so you can swap infrastructure without rewriting your whole app.
 
 > rag2f is **not** a turnkey RAG pipeline.  
 > Pipelines live in plugins or in *your* application.
 
-## Quick links
-
-- [Quickstart](quickstart.md)
-- [Installation](installation.md)
-- [Configuration (Spock)](configuration.md)
-- [Plugins & hooks (Morpheus)](plugins.md)
-- [Repositories (XFiles)](repositories.md)
-- [Embedders (OptimusPrime)](embedders.md)
-- [Architecture](architecture.md)
-
 ## Why rag2f
 
-### Dependency volatility is real
 RAG stacks depend on fast-moving infrastructure (vector DBs, LLM SDKs, hosted services). That creates two recurring problems:
 
 - **Supply-chain risk**: dependency churn breaks builds, increases attack surface, and forces migrations.
@@ -30,7 +19,7 @@ rag2f addresses both by:
 - discovering integrations via **plugins**,
 - using **explicit contracts** (protocols) and **capability declarations**.
 
-## The core at a glance
+## What you get in core
 
 A `RAG2F` instance wires together a few intentionally-named components:
 
@@ -39,6 +28,28 @@ A `RAG2F` instance wires together a few intentionally-named components:
 - **OptimusPrime**: embedder registry (embedders contributed by plugins)
 - **XFiles**: repository registry (SQL/vector/graph/document repositories)
 - **Johnny5**: input manager (small deterministic pre-processing)
+
+## The typical lifecycle
+
+1. **Load configuration** (Spock) and validate basics.
+2. **Discover plugins** (Morpheus) from entry points and local folders.
+3. **Register capabilities** (embedders, repositories, hooks).
+4. **Compose a pipeline** in your app or via plugin hooks.
+5. **Execute** RAG workflows using the registries and hooks.
+
+This keeps the kernel stable while allowing your stack to evolve.
+
+## Quick links
+
+- [Quickstart](quickstart.md)
+- [Installation](installation.md)
+- [Configuration (Spock)](configuration.md)
+- [Plugins & hooks (Morpheus)](plugins.md)
+- [Hooks reference](hooks-reference.md)
+- [Embedders (OptimusPrime)](embedders.md)
+- [Repositories (XFiles)](repositories.md)
+- [Architecture](architecture.md)
+- [Troubleshooting](troubleshooting.md)
 
 ## License
 

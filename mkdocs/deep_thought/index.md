@@ -1,6 +1,10 @@
 # Deep Thought
 
-# Placeholder
+Deep Thought is a collection of design notes and experiments around the rag2f kernel.
+It is intentionally informal and focuses on:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- trade-offs and architecture rationale
+- plugin boundaries and contracts
+- future-facing ideas that may or may not land in core
+
+If you are building plugins or debating architecture choices, these notes are a good starting point.

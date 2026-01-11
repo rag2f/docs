@@ -2,7 +2,7 @@
 template: home.html
 hero:
   eyebrow: RAG2F Docs
-  title: Hello, dear
+  title: Build RAG systems you can swap
   subtitle: The plugin-first kernel for composing RAG systems, with a clean contract for repositories and embedders.
   cta_primary:
     label: Quickstart
@@ -27,6 +27,10 @@ cards:
     title: Architecture
     description: Understand the core runtime and its boundaries.
     link: rag2f/architecture/
+  - icon: material/shape-outline
+    title: Concepts
+    description: Learn the vocabulary behind the rag2f kernel.
+    link: rag2f/concepts/
 features:
   - Plugin-first core with a strict contract between orchestrators and tools.
   - Extensible repository layer with optional vector search capabilities.
@@ -37,6 +41,11 @@ features:
 ## RAG2F Documentation Hub
 
 This repository hosts docs for the **rag2f** ecosystem.
+
+## How the docs are organized
+
+- **RAG2F** covers the core kernel, registries, hooks, and plugin contracts.
+- **Deep Thought** collects design notes and future-facing ideas.
 
 ## Projects
 

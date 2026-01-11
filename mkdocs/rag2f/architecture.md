@@ -57,3 +57,21 @@ Instead, you build pipelines by composing:
 - hooks
 - registries (get the embedder/repository you need)
 - your own application code
+
+## Extension points
+
+Where you can extend rag2f safely:
+
+- **Plugins**: add embedders and repositories without touching core.
+- **Hooks**: compose multi-step pipelines (preprocess, retrieve, rerank, generate).
+- **Native handles**: drop down to backend SDKs when needed.
+
+## Runtime boundaries
+
+The core does not:
+
+- enforce a specific prompt format,
+- provide a fixed agent loop,
+- assume a specific vector database or LLM provider.
+
+This keeps the kernel stable and lets you build opinionated workflows in plugins or app code.

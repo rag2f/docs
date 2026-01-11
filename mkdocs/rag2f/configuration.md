@@ -6,6 +6,7 @@ It supports:
 - **JSON config files** for structured settings
 - **Environment variables** for secrets and overrides
 - **Priority**: env overrides JSON
+ - **Namespaced config** for plugins and core settings
 
 ## Config file
 
@@ -50,6 +51,40 @@ Spock attempts to infer types from env strings:
 - JSON strings (objects/arrays) → parsed JSON
 - otherwise → string
 
+## Namespacing rules
+
+Use separate namespaces to avoid collisions:
+
+- core: `rag2f.*`
+- plugins: `plugins.<plugin_id>.*`
+
+Example:
+
+```json
+{
+  "rag2f": {
+    "embedder_default": "azure_openai"
+  },
+  "plugins": {
+    "azure_openai_embedder": {
+      "deployment": "text-embedding-3-large"
+    }
+  }
+}
+```
+
+## Environment override patterns
+
+You can keep secrets in env and map them inside your plugin logic:
+
+```python
+api_key = rag2f.spock.get("plugins.azure_openai_embedder.api_key")
+if not api_key:
+    api_key = os.getenv("AZURE_OPENAI_API_KEY")
+```
+
+This keeps config files safe for commits while still enabling per-environment overrides.
+
 ## Accessing config
 
 From the core:
@@ -69,3 +104,4 @@ api_key = rag2f.spock.get("plugins.azure_openai_embedder.api_key")
 - Put **non-secrets** in `config.json`
 - Put **secrets** in env (e.g. `AZURE_OPENAI_API_KEY`) and map them in your plugin logic
 - Keep plugin config nested under `plugins.<plugin_id>`
+ - Fail fast on missing required config in your plugin activation code

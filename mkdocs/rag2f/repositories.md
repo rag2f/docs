@@ -25,6 +25,16 @@ This makes it harder to:
 - accidentally call vector search on a SQL-only repo,
 - ship a plugin that claims features it doesn’t implement.
 
+Example capability declaration (conceptual):
+
+```python
+capabilities = {
+    "queryable": True,
+    "vector_search": False,
+    "graph_traversal": False,
+}
+```
+
 ## QuerySpec
 
 Queryable repositories accept a `QuerySpec` structure to express filters, pagination and projection.
@@ -37,6 +47,18 @@ query = {
 }
 rows = await repo.find(query)
 ```
+
+## Minimal repository shape
+
+At minimum, a repository should provide:
+
+- `insert(data)` to add items
+- `get(id)` to retrieve by identifier
+- `update(id, data)` to modify
+- `delete(id)` to remove
+- `capabilities()` or `capabilities` metadata
+
+If you implement richer protocols, document the expected payloads in your plugin README.
 
 ## Native access
 

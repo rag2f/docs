@@ -3,7 +3,7 @@
 ## Requirements
 
 - Python **3.12+** (rag2f declares `requires-python = ">=3.12"`)
-- A Dev Container (recommended)
+- A Dev Container (recommended for consistent toolchains)
 
 ## Install from source (dev)
 
@@ -25,6 +25,15 @@ If you publish rag2f to an index, install it like any other Python package:
 pip install rag2f
 ```
 
+## Pinning and upgrades
+
+Because rag2f is designed to keep integrations in plugins, the core can remain small and stable.
+Still, for production systems:
+
+- Pin rag2f and plugin versions together.
+- Upgrade in a staging environment where you can validate the plugin contracts.
+- Keep plugin dependencies isolated to avoid cross-plugin conflicts.
+
 ## Project layout expectations
 
 rag2f assumes a “project root” (current working directory) and uses it to locate a default plugin folder:
@@ -32,6 +41,10 @@ rag2f assumes a “project root” (current working directory) and uses it to lo
 - default plugins folder: `./plugins` (relative to `os.getcwd()`)
 
 You can override this by passing `plugins_folder=...` when creating the `RAG2F` instance.
+
+## CLI / scripts
+
+If your app has a CLI entry point, make sure it sets the working directory to the project root or passes an explicit `plugins_folder` so local plugins are consistently resolved.
 
 ## Local plugins folder
 

@@ -44,6 +44,29 @@ A plugin can define metadata via:
 
 rag2f merges metadata with a precedence model so you can ship packaged plugins and still support local dev.
 
+### Minimal `plugin.json`
+
+```json
+{
+  "id": "hello_plugin",
+  "name": "Hello Plugin",
+  "version": "0.1.0",
+  "module": "hello_plugin.py"
+}
+```
+
+### Suggested folder layout
+
+```
+plugins/
+  hello_plugin/
+    plugin.json
+    hello_plugin.py
+    README.md
+```
+
+If your plugin is packaged, the entry point should return the folder that contains `plugin.json`.
+
 ## Writing hooks
 
 A hook is a Python function decorated with `@hook`.
@@ -65,6 +88,16 @@ If a hook takes at least one argument, Morpheus will **pipe** the first argument
 If a hook takes **no arguments** (besides `rag2f`), it runs for side effects.
 
 See [Hooks](hooks.md) for details.
+
+## Plugin activation patterns
+
+Common plugin patterns:
+
+- **Register resources**: add embedders or repositories during plugin initialization.
+- **Expose hooks**: define `@hook` functions to compose behavior.
+- **Validate config**: fail fast if required config is missing.
+
+Keep plugin modules focused; avoid importing heavy dependencies at import time if they are optional.
 
 ## Refreshing plugins
 

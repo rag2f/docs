@@ -11,6 +11,20 @@ An embedder must expose:
 - `size` (property): embedding vector length
 - `getEmbedding(text: str, normalize: bool = False) -> list[float]`
 
+Minimal example:
+
+```python
+class MyEmbedder:
+    size = 3
+
+    def getEmbedding(self, text: str, normalize: bool = False) -> list[float]:
+        vec = [0.1, 0.2, 0.3]
+        if normalize:
+            scale = sum(v * v for v in vec) ** 0.5
+            vec = [v / scale for v in vec]
+        return vec
+```
+
 ## Registering embedders
 
 Plugins typically register an embedder instance with a name/id:
@@ -21,6 +35,11 @@ rag2f.optimus_prime.register("my_embedder", MyEmbedder(...))
 ```
 
 OptimusPrime enforces protocol compliance and prevents accidental overrides.
+
+## Batching and performance
+
+If your backend supports batch embedding, consider exposing a second helper method in your plugin module (not the protocol) and wrap it with a hook.
+This keeps the core contract simple while letting you optimize for throughput.
 
 ## Selecting the default embedder
 

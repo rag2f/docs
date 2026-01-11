@@ -14,6 +14,8 @@ This lets you:
 - override defaults
 - enrich results
 
+Keep `phone` a dictionary or small dataclass to make composition predictable.
+
 ## Defining a hook
 
 ```python
@@ -32,6 +34,17 @@ def preprocess(phone, *, rag2f):
 
 If multiple plugins define the same hook, the ordering is deterministic by priority.
 
+### Hook naming
+
+Use short, intention-revealing names for hooks:
+
+- `preprocess`
+- `retrieve`
+- `rerank`
+- `generate`
+
+Avoid embedding backend details in hook names; keep those in plugin IDs.
+
 ## Executing a hook
 
 From the core / your application:
@@ -49,3 +62,8 @@ If no plugin implements the hook:
 
 - Use **hooks** when you want to compose behaviors (pipelines).
 - Use **plugin overrides** (`@plugin`) when you want to override plugin-specific behavior (non-piped, per-plugin).
+
+## Error handling
+
+Hooks should raise errors that are meaningful to callers.
+If you need a soft-fail behavior, return a sentinel in `phone` and let downstream hooks decide.

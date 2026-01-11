@@ -31,7 +31,42 @@ Create `config.json`:
 }
 ```
 
-## 3) Start an instance and discover plugins
+## 3) Add a tiny local plugin (optional)
+
+Local plugins are the fastest way to test hooks and registries.
+
+Create a plugin folder:
+
+```
+plugins/
+  hello_plugin/
+    plugin.json
+    hello_plugin.py
+```
+
+Example `plugin.json`:
+
+```json
+{
+  "id": "hello_plugin",
+  "name": "Hello Plugin",
+  "version": "0.1.0",
+  "module": "hello_plugin.py"
+}
+```
+
+Example `hello_plugin.py`:
+
+```python
+from rag2f.core.morpheus.decorators.hook import hook
+
+@hook("preprocess", priority=5)
+def add_tag(phone, *, rag2f):
+    phone["tags"] = phone.get("tags", []) + ["hello"]
+    return phone
+```
+
+## 4) Start an instance and discover plugins
 
 ```python
 import asyncio
@@ -52,7 +87,7 @@ async def main():
 asyncio.run(main())
 ```
 
-## 4) Use repositories (XFiles)
+## 5) Use repositories (XFiles)
 
 Once a repository plugin is registered, you can fetch it by name/id and call protocol methods based on capabilities.
 
