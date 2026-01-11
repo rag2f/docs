@@ -171,12 +171,6 @@ body {
   box-shadow: 0 12px 25px rgba(255, 107, 53, 0.35);
 }
 
-.home-hero .home-cta--primary,
-.home-hero .home-cta--primary:link,
-.home-hero .home-cta--primary:visited {
-  color: #1a120c;
-}
-
 .home-cta--secondary {
   background: transparent;
   border-color: var(--rag2f-ink-soft);
@@ -187,21 +181,7 @@ body {
 .home-cta:focus-visible {
   transform: translateY(-2px);
   box-shadow: var(--rag2f-shadow-hover);
-}
-
-.home-cta--primary:hover,
-.home-cta--primary:focus-visible {
-  color: #1a120c;
-}
-
-.home-hero .home-cta--primary:hover,
-.home-hero .home-cta--primary:focus-visible {
-  color: #1a120c;
-}
-
-.home-cta--secondary:hover,
-.home-cta--secondary:focus-visible {
-  color: var(--rag2f-ink);
+  color: inherit;
 }
 
 .home-section {
