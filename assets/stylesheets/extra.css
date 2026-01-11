@@ -171,7 +171,9 @@ body {
   box-shadow: 0 12px 25px rgba(255, 107, 53, 0.35);
 }
 
-.md-typeset a.home-cta--primary {
+.home-hero .home-cta--primary,
+.home-hero .home-cta--primary:link,
+.home-hero .home-cta--primary:visited {
   color: #1a120c;
 }
 
@@ -192,8 +194,8 @@ body {
   color: #1a120c;
 }
 
-.md-typeset a.home-cta--primary:hover,
-.md-typeset a.home-cta--primary:focus-visible {
+.home-hero .home-cta--primary:hover,
+.home-hero .home-cta--primary:focus-visible {
   color: #1a120c;
 }
 
