@@ -166,9 +166,10 @@ body {
 }
 
 .home-cta--primary {
-  background: var(--rag2f-accent);
-  color: #1a120c;
-  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.35);
+  background: transparent;
+  border-color: var(--rag2f-ink-soft);
+  color: var(--rag2f-ink);
+  box-shadow: none;
 }
 
 .home-cta--secondary {
