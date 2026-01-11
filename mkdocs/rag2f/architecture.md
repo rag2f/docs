@@ -7,6 +7,12 @@ Everything volatile lives outside the core — in plugins or your application.
 > "No disassemble!"
 > - Johnny 5, Short Circuit
 
+```
+  .-.
+ [o_o]  Johnny5
+ /| |\  input
+```
+
 ## High-level diagram
 
 ```text

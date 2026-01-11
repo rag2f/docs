@@ -8,6 +8,12 @@ Instead, it defines **minimal contracts** and lets repositories opt into richer 
 > "The truth is out there."
 > - The X-Files
 
+```
+  \  |  /
+   .-*-.
+  /  |  \   XFiles
+```
+
 ## Repository protocols
 
 A repository plugin implements one or more of these contracts:

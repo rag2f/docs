@@ -7,6 +7,13 @@ Embedders are contributed by plugins and must satisfy the `Embedder` protocol (s
 > "Freedom is the right of all sentient beings."
 > - Optimus Prime, Transformers
 
+```
+ [====]
+ | [] |  Optimus
+ | || |  Prime
+ [____]
+```
+
 ## The `Embedder` protocol
 
 An embedder must expose:

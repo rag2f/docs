@@ -5,6 +5,12 @@ Morpheus is the plugin manager. It discovers plugins, loads them, and executes h
 > "You take the red pill, you stay in Wonderland."
 > - Morpheus, The Matrix
 
+```
+  ____
+ / __ \  Morpheus
+ \_\_\_\  pill
+```
+
 ## Discovery model
 
 rag2f discovers plugins in two places (in this precedence order):

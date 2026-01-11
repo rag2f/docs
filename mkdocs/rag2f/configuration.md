@@ -11,6 +11,13 @@ It supports:
 > "The needs of the many outweigh the needs of the few."
 > - Spock, Star Trek II: The Wrath of Khan
 
+```
+   /\
+  /__\   Spock
+  |..|   logic
+  |__|
+```
+
 ## Config file
 
 A typical config looks like:
