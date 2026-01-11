@@ -71,6 +71,30 @@ body {
   color: var(--rag2f-accent-2);
 }
 
+.md-typeset .md-button {
+  border-radius: 999px;
+  border-color: var(--rag2f-accent);
+  color: var(--rag2f-accent);
+}
+
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus-visible {
+  border-color: var(--rag2f-accent-2);
+  color: var(--rag2f-accent-2);
+}
+
+.md-typeset .md-button--primary {
+  background: var(--rag2f-accent);
+  color: #1a120c;
+  border-color: transparent;
+}
+
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus-visible {
+  background: var(--rag2f-accent-2);
+  color: #0f0b08;
+}
+
 .md-header {
   background: var(--md-primary-fg-color);
 }
