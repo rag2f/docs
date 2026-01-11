@@ -181,7 +181,16 @@ body {
 .home-cta:focus-visible {
   transform: translateY(-2px);
   box-shadow: var(--rag2f-shadow-hover);
-  color: inherit;
+}
+
+.home-cta--primary:hover,
+.home-cta--primary:focus-visible {
+  color: #1a120c;
+}
+
+.home-cta--secondary:hover,
+.home-cta--secondary:focus-visible {
+  color: var(--rag2f-ink);
 }
 
 .home-section {
