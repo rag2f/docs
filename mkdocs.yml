@@ -7,6 +7,8 @@ docs_dir: mkdocs
 theme:
   name: material
   custom_dir: mkdocs/overrides
+  logo: assets/RAG2F.png
+  favicon: assets/RAG2F.png
   features:
   - navigation.instant
   - navigation.tracking

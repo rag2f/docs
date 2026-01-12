@@ -1,6 +1,6 @@
 # rag2f overview
 
-**rag2f** is a *plugin-first, entry-point–driven kernel* for composing Retrieval-Augmented Generation (RAG) systems **without forcing a single pipeline shape**.
+**rag2f** (short for "rag to the future") is a *plugin-first, entry-point–driven kernel* for composing Retrieval-Augmented Generation (RAG) systems **without forcing a single pipeline shape**.
 
 It gives you a small, stable core (the “kernel”) and pushes volatile integrations (vector DBs, embedders, stores, orchestration) into plugins so you can swap infrastructure without rewriting your whole app.
 
