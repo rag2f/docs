@@ -127,6 +127,14 @@ body {
   gap: 1.5rem;
 }
 
+.home-hero__logo {
+  display: block;
+  width: min(520px, 90vw);
+  height: auto;
+  margin: 0 0 1.5rem;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
 .home-hero__eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -151,6 +159,13 @@ body {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 1.3rem;
+}
+
+@media (max-width: 720px) {
+  .home-hero__logo {
+    width: min(420px, 92vw);
+    margin-bottom: 1.25rem;
+  }
 }
 
 .home-cta {

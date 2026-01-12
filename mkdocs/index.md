@@ -2,7 +2,7 @@
 template: home.html
 hero:
   eyebrow: RAG2F Docs
-  title: Build RAG systems you can swap
+  title: Build RAG systems you can freely swap!
   subtitle: The plugin-first kernel for composing RAG systems, with a clean contract for repositories and embedders.
   cta_primary:
     label: Quickstart
