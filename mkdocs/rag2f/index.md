@@ -7,7 +7,7 @@ It gives you a small, stable core (the “kernel”) and pushes volatile integra
 > rag2f is **not** a turnkey RAG pipeline.  
 > Pipelines live in plugins or in *your* application.
 
-## Why rag2f
+## The problem it solves
 
 RAG stacks depend on fast-moving infrastructure (vector DBs, LLM SDKs, hosted services). That creates two recurring problems:
 
@@ -16,8 +16,16 @@ RAG stacks depend on fast-moving infrastructure (vector DBs, LLM SDKs, hosted se
 
 rag2f addresses both by:
 - keeping the **base install lean**,
-- discovering integrations via **plugins**,
+- pushing integrations into **plugins** with scoped dependencies,
 - using **explicit contracts** (protocols) and **capability declarations**.
+
+## Why rag2f
+
+The kernel stays intentionally small so you can evolve your stack safely. In practice, this means:
+
+- plugins own their dependencies instead of ballooning the core,
+- registries give you a stable surface area for embedders and repositories,
+- hooks let plugins compose behavior without a forced pipeline shape.
 
 ## What you get in core
 
@@ -28,6 +36,23 @@ A `RAG2F` instance wires together a few intentionally-named components:
 - **OptimusPrime**: embedder registry (embedders contributed by plugins)
 - **XFiles**: repository registry (SQL/vector/graph/document repositories)
 - **Johnny5**: input manager (small deterministic pre-processing)
+
+## Registries + hooks (mental model)
+
+rag2f is easiest to reason about as **registries + hooks**:
+
+- **Registries** store validated implementations (embedders, repositories).
+- **Hooks** let plugins contribute those implementations (and compose behavior).
+- The core stays stable while plugins evolve independently.
+
+## Plugin discovery model
+
+Plugins are discovered in two places (in precedence order):
+
+1. **Entry points** (`rag2f.plugins`) for installed packages
+2. **Filesystem plugins** (local development in `./plugins`)
+
+Entry points win over filesystem to avoid ambiguity in production.
 
 ## The typical lifecycle
 

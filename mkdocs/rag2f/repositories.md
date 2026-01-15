@@ -50,11 +50,15 @@ Queryable repositories accept a `QuerySpec` structure to express filters, pagina
 The exact shape lives in `rag2f.core.xfiles.types`, but conceptually:
 
 ```python
-query = {
-  "where": {"field": "title", "op": "contains", "value": "rag"},
-  "limit": 10
-}
-rows = await repo.find(query)
+from rag2f.core.xfiles import QuerySpec, eq, and_
+
+query = QuerySpec(
+    select=["id", "email"],
+    where=and_(eq("status", "active"), eq("tier", "pro")),
+    order_by=["-created_at"],
+    limit=10,
+)
+rows = repo.find(query)
 ```
 
 ## Minimal repository shape

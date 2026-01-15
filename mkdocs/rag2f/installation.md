@@ -17,6 +17,13 @@ pip install -e ".[dev]"
 
 (If you prefer a local venv instead of a dev container: `python -m venv .venv && source .venv/bin/activate`.)
 
+Alternatively, the repo ships a bootstrap script:
+
+```bash
+bash scripts/bootstrap-venv.sh
+source .venv/bin/activate
+```
+
 ## Install as a dependency
 
 If you publish rag2f to an index, install it like any other Python package:

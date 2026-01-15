@@ -7,6 +7,7 @@ It supports:
 - **Environment variables** for secrets and overrides
 - **Priority**: env overrides JSON
 - **Namespaced config** for plugins and core settings
+- **Type inference** for env values (bools, numbers, JSON)
 
 > "The needs of the many outweigh the needs of the few."
 > - Spock, Star Trek II: The Wrath of Khan
@@ -53,13 +54,24 @@ rag2f = await RAG2F.create(config_path="config.json")
 
 ## Environment variables
 
-Environment variables override JSON values.
+Environment variables override JSON values. Spock parses values as:
 
-Spock attempts to infer types from env strings:
 - `true/false` → bool
 - numbers → int/float
 - JSON strings (objects/arrays) → parsed JSON
 - otherwise → string
+
+### Environment variable naming
+
+```
+RAG2F__<SECTION>__<KEY>__<SUBKEY>...
+```
+
+- Sections: `RAG2F` for core, `PLUGINS` for plugins
+- Examples:
+  - `RAG2F__RAG2F__EMBEDDER_DEFAULT=azure_openai`
+  - `RAG2F__PLUGINS__AZURE_OPENAI_EMBEDDER__API_KEY=sk-xxx`
+  - `RAG2F__PLUGINS__MY_PLUGIN__DATABASE__HOST=localhost`
 
 ## Namespacing rules
 
@@ -97,16 +109,17 @@ This keeps config files safe for commits while still enabling per-environment ov
 
 ## Accessing config
 
-From the core:
+From the core (typed helpers):
 
 ```python
-default_embedder = rag2f.spock.get("rag2f.embedder_default")
+default_embedder = rag2f.spock.get_rag2f_config("embedder_default")
 ```
 
-From plugins, you typically scope into your plugin id:
+From plugins:
 
 ```python
-api_key = rag2f.spock.get("plugins.azure_openai_embedder.api_key")
+plugin_cfg = rag2f.spock.get_plugin_config("azure_openai_embedder")
+api_key = plugin_cfg.get("api_key")
 ```
 
 ## Recommended patterns
@@ -114,4 +127,9 @@ api_key = rag2f.spock.get("plugins.azure_openai_embedder.api_key")
 - Put **non-secrets** in `config.json`
 - Put **secrets** in env (e.g. `AZURE_OPENAI_API_KEY`) and map them in your plugin logic
 - Keep plugin config nested under `plugins.<plugin_id>`
- - Fail fast on missing required config in your plugin activation code
+- Fail fast on missing required config in your plugin activation code
+
+## Troubleshooting quick checks
+
+- Confirm Spock is loaded: `rag2f.spock.is_loaded`
+- Verify config file path: `rag2f.spock.config_path`

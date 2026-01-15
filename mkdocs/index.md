@@ -42,17 +42,21 @@ features:
 
 This repository hosts docs for the **rag2f** ecosystem.
 
+The core idea: rag2f is a **plugin-first kernel** built around registries + hooks, with optional dependency scope kept in plugins.
+
 ## How the docs are organized
 
 - **RAG2F** covers the core kernel, registries, hooks, and plugin contracts.
-- **Deep Thought** collects design notes and future-facing ideas.
+
+## Plugin list
+
+- **rag2f_azure_openai_embedder**: Azure OpenAI embedder plugin that uses Spock config.
+- **rag2f_macgyver**: in-memory plugin for fast local experiments.
 
 ## Projects
 
 - **rag2f**: the plugin-first kernel for composing RAG systems  
   → see the [rag2f docs](rag2f/index.md)
-
-- **Deep Thought**: design notes and experiments (placeholder section in this docs repo)
 
 ## Contributing
 

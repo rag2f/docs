@@ -50,6 +50,8 @@ Everything volatile lives outside the core — in plugins or your application.
 - orchestration patterns (pipelines, workers, DAGs)
 - application-specific behavior via hooks
 
+Plugins can ship their own dependencies so the kernel stays minimal and stable.
+
 ## Naming is intentional
 
 The narrative names are constraints on design:

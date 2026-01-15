@@ -25,6 +25,7 @@ extra_css:
 - assets/stylesheets/extra.css
 nav:
 - Home: index.md
+- Contributing: contributing.md
 - RAG2F:
   - Overview: rag2f/index.md
   - Concepts: rag2f/concepts.md
@@ -40,7 +41,3 @@ nav:
   - Architecture: rag2f/architecture.md
   - Troubleshooting: rag2f/troubleshooting.md
   - GitHub repo ↗: https://github.com/rag2f/rag2f
-- Deep Thought:
-  - Overview: deep_thought/index.md
-  - Design notes: deep_thought/design-notes.md
-  - GitHub repo ↗: https://github.com/rag2f/rag2f_deep_thought

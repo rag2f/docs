@@ -53,6 +53,12 @@ A plugin can define metadata via:
 
 rag2f merges metadata with a precedence model so you can ship packaged plugins and still support local dev.
 
+### Manifest merge and defaults
+
+- Root-level `plugin.json` wins over nested manifests.
+- `pyproject.toml` can augment fields like name, description, and URLs.
+- If no name is provided, rag2f derives a humanized name from the plugin id.
+
 ### Minimal `plugin.json`
 
 ```json
@@ -63,6 +69,13 @@ rag2f merges metadata with a precedence model so you can ship packaged plugins a
   "module": "hello_plugin.py"
 }
 ```
+
+Common optional fields:
+
+- `description`, `license`, `keywords`
+- `author_name`, `author_email`
+- `urls` (project/home/docs)
+- `min_rag2f_version`, `max_rag2f_version`
 
 ### Suggested folder layout
 
@@ -75,6 +88,10 @@ plugins/
 ```
 
 If your plugin is packaged, the entry point should return the folder that contains `plugin.json`.
+
+## Plugin-scoped dependencies
+
+Plugins can ship their own dependencies via a local `requirements.txt`. Morpheus installs those requirements on activation so the core stays lean and plugins stay isolated.
 
 ## Writing hooks
 
@@ -107,6 +124,10 @@ Common plugin patterns:
 - **Validate config**: fail fast if required config is missing.
 
 Keep plugin modules focused; avoid importing heavy dependencies at import time if they are optional.
+
+## Lifecycle overrides
+
+Use the `@plugin` decorator for lifecycle overrides (activation/deactivation) when you need to run setup or cleanup logic tied to the plugin itself.
 
 ## Refreshing plugins
 
