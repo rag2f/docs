@@ -10,7 +10,7 @@ Open `docs/minigame/index.html` directly in a browser (file:// works).
 
 ```html
 <iframe
-  src="/docs/minigame/index.html"
+  src="/docs/minigame/"
   title="RAG Boot Sequence"
   style="width: 100%; height: 720px; border: 0;"
   loading="lazy"
@@ -22,7 +22,7 @@ Open `docs/minigame/index.html` directly in a browser (file:// works).
 Use a relative link to the static file:
 
 ```
-/docs/minigame/index.html
+/docs/minigame/
 ```
 
 If you want it inside MkDocs navigation, add a custom link in `mkdocs.yml` pointing to the file.

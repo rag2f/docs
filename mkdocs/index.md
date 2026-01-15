@@ -18,7 +18,7 @@ cards:
   - icon: material/flash
     title: RAG Boot Minigame
     description: Play an interactive boot sequence puzzle for the core modules.
-    link: /docs/minigame/index.html
+    link: minigame/index.html
   - icon: material/shape-plus
     title: Plugins
     description: Build, register, and ship plugin hooks the right way.
