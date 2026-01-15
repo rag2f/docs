@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="rag2f/">
+        <link rel="next" href="contributing/">
       
       
         
@@ -302,6 +302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plugin-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin list
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#projects" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -337,6 +348,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -353,10 +391,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -374,8 +412,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -784,151 +822,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deep Thought
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Deep Thought
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="deep_thought/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="deep_thought/design-notes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Design notes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://github.com/rag2f/rag2f_deep_thought" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitHub repo ↗
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -969,6 +862,17 @@
     <span class="md-ellipsis">
       
         How the docs are organized
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin list
       
     </span>
   </a>
@@ -1150,20 +1054,20 @@
         <div class="md-grid">
           <h2 id="rag2f-documentation-hub">RAG2F Documentation Hub</h2>
 <p>This repository hosts docs for the <strong>rag2f</strong> ecosystem.</p>
+<p>The core idea: rag2f is a <strong>plugin-first kernel</strong> built around registries + hooks, with optional dependency scope kept in plugins.</p>
 <h2 id="how-the-docs-are-organized">How the docs are organized</h2>
 <ul>
 <li><strong>RAG2F</strong> covers the core kernel, registries, hooks, and plugin contracts.</li>
-<li><strong>Deep Thought</strong> collects design notes and future-facing ideas.</li>
+</ul>
+<h2 id="plugin-list">Plugin list</h2>
+<ul>
+<li><strong>rag2f_azure_openai_embedder</strong>: Azure OpenAI embedder plugin that uses Spock config.</li>
+<li><strong>rag2f_macgyver</strong>: in-memory plugin for fast local experiments.</li>
 </ul>
 <h2 id="projects">Projects</h2>
 <ul>
-<li>
-<p><strong>rag2f</strong>: the plugin-first kernel for composing RAG systems<br />
-  → see the <a href="rag2f/">rag2f docs</a></p>
-</li>
-<li>
-<p><strong>Deep Thought</strong>: design notes and experiments (placeholder section in this docs repo)</p>
-</li>
+<li><strong>rag2f</strong>: the plugin-first kernel for composing RAG systems<br />
+  → see the <a href="rag2f/">rag2f docs</a></li>
 </ul>
 <h2 id="contributing">Contributing</h2>
 <p>Docs are written in Markdown under <code>mkdocs/</code> and published with <strong>MkDocs Material</strong>.</p>
