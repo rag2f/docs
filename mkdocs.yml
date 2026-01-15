@@ -26,6 +26,7 @@ extra_css:
 nav:
 - Home: index.md
 - Contributing: contributing.md
+- Minigame ↗: /docs/minigame/index.html
 - RAG2F:
   - Overview: rag2f/index.md
   - Concepts: rag2f/concepts.md

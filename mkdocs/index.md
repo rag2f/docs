@@ -15,6 +15,10 @@ cards:
     title: Quickstart
     description: Run a minimal hello world and load your first plugin.
     link: rag2f/quickstart/
+  - icon: material/flash
+    title: RAG Boot Minigame
+    description: Play an interactive boot sequence puzzle for the core modules.
+    link: /docs/minigame/index.html
   - icon: material/shape-plus
     title: Plugins
     description: Build, register, and ship plugin hooks the right way.
