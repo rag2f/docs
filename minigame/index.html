@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAG Boot Sequence - rag2f Minigame</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="title-block">
+        <p class="eyebrow">RAG2F Minigame</p>
+        <h1>RAG Boot Sequence</h1>
+        <p class="subtitle">Activate the kernel components in the correct order before the boot timer expires.</p>
+      </div>
+      <div class="hud" aria-live="polite">
+        <div class="hud-item">
+          <span class="hud-label">Steps remaining</span>
+          <span id="stepsRemaining" class="hud-value">12</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Best run</span>
+          <span id="bestScore" class="hud-value">--</span>
+        </div>
+        <div class="hud-actions">
+          <button id="resetBtn" class="btn" aria-label="Reset game">Reset</button>
+          <button id="tourBtn" class="btn btn-ghost" aria-label="Quick tour">Quick Tour</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="graph" aria-label="RAG2F core graph">
+        <div class="node" data-node="spock" tabindex="0" role="button" aria-label="Spock node">
+          <div class="node-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="node-label">Spock</span>
+          </div>
+          <p class="node-role">Config manager</p>
+        </div>
+        <div class="node" data-node="morpheus" tabindex="0" role="button" aria-label="Morpheus node">
+          <div class="node-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="node-label">Morpheus</span>
+          </div>
+          <p class="node-role">Plugins + hooks</p>
+        </div>
+        <div class="node" data-node="johnny5" tabindex="0" role="button" aria-label="Johnny5 node">
+          <div class="node-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="node-label">Johnny5</span>
+          </div>
+          <p class="node-role">Input manager</p>
+        </div>
+        <div class="node" data-node="optimus" tabindex="0" role="button" aria-label="OptimusPrime node">
+          <div class="node-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="node-label">OptimusPrime</span>
+          </div>
+          <p class="node-role">Embedder registry</p>
+        </div>
+        <div class="node" data-node="xfiles" tabindex="0" role="button" aria-label="XFiles node">
+          <div class="node-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="node-label">XFiles</span>
+          </div>
+          <p class="node-role">Repository registry</p>
+        </div>
+
+        <div class="link link-spock"></div>
+        <div class="link link-johnny"></div>
+        <div class="link link-optimus"></div>
+        <div class="link link-xfiles"></div>
+      </section>
+
+      <aside class="panel" aria-live="polite">
+        <div class="panel-head">
+          <p class="panel-eyebrow">Learn Panel</p>
+          <h2 id="panelTitle">Select a node</h2>
+          <p id="panelDesc" class="panel-desc">Choose a module to see facts, code snippets, and the activation puzzle.</p>
+        </div>
+        <div class="panel-meta">
+          <span class="meta-label">File path</span>
+          <code id="panelPath">--</code>
+        </div>
+        <pre class="panel-code"><code id="panelSnippet">// snippet appears here</code></pre>
+        <div id="panelTask" class="panel-task"></div>
+      </aside>
+    </main>
+
+    <section class="status" aria-live="polite">
+      <div id="statusMessage">Boot status: awaiting activation.</div>
+      <div id="summary" class="summary"></div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
