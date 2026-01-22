@@ -27,6 +27,23 @@ The kernel stays intentionally small so you can evolve your stack safely. In pra
 - registries give you a stable surface area for embedders and repositories,
 - hooks let plugins compose behavior without a forced pipeline shape.
 
+## Design goals
+
+- **Small, stable core**: registries + hooks only, no opinionated pipeline.
+- **Volatile edges**: backends and SDKs live in plugins, not the kernel.
+- **Explicit contracts**: protocols and capabilities make features clear.
+- **Instance isolation**: each RAG2F instance has its own config and registries.
+- **Deterministic discovery**: entry-point plugins override filesystem plugins.
+
+## When rag2f is a good fit
+
+Use rag2f when you need:
+- multiple storage backends or embedding providers,
+- a pluggable architecture with strict boundaries,
+- a core you can keep stable while integrations evolve.
+
+rag2f may not be a fit when you want a single, fixed pipeline with all decisions pre-made.
+
 ## What you get in core
 
 A `RAG2F` instance wires together a few intentionally-named components:
@@ -63,6 +80,12 @@ Entry points win over filesystem to avoid ambiguity in production.
 5. **Execute** RAG workflows using the registries and hooks.
 
 This keeps the kernel stable while allowing your stack to evolve.
+
+## How to extend safely
+
+- Add embedders and repositories via plugins.
+- Keep plugin dependencies scoped to the plugin folder.
+- Use hooks for behavior composition; keep core untouched.
 
 ## Quick links
 

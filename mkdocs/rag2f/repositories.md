@@ -34,6 +34,16 @@ This makes it harder to:
 - accidentally call vector search on a SQL-only repo,
 - ship a plugin that claims features it doesn’t implement.
 
+### Capability-driven calling
+
+Before calling advanced methods, check capabilities or guard in your app:
+
+```python
+repo = xfiles.get("users_db")
+if repo.capabilities.get("vector_search"):
+    repo.vector_search(...)
+```
+
 Example capability declaration (conceptual):
 
 ```python
@@ -91,3 +101,14 @@ This “escape hatch” is deliberate:
 Repository registration is typically performed by plugins via XFiles hooks or explicit registration calls (depending on your plugin design).
 
 See [Architecture](architecture.md) for how XFiles sits in the overall system.
+
+## Repository metadata
+
+Use metadata to help your app select the right backend:
+
+```python
+xfiles.register("users_db", users_repo, meta={"type": "postgresql", "domain": "users"})
+xfiles.register("papers", papers_repo, meta={"type": "vector", "domain": "research"})
+```
+
+Metadata is not enforced by the core, but it provides a stable filter surface for your application.

@@ -87,7 +87,21 @@ async def main():
 asyncio.run(main())
 ```
 
-## 5) Use repositories (XFiles)
+## 5) Compose a minimal pipeline
+
+rag2f does not impose a pipeline; you compose one with hooks and registries:
+
+```python
+phone = {"text": "hello rag2f"}
+phone = rag2f.morpheus.execute_hook("preprocess", phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook("retrieve", phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook("rerank", phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook("generate", phone, rag2f=rag2f)
+```
+
+Hooks are optional. If no plugin implements a hook, the phone passes through unchanged.
+
+## 6) Use repositories (XFiles)
 
 Once a repository plugin is registered, you can fetch it by name/id and call protocol methods based on capabilities.
 
@@ -104,6 +118,40 @@ rows = await repo.find({"where": {"field": "text", "op": "contains", "value": "h
 ```
 
 See [Repositories (XFiles)](repositories.md) for the real contracts and `QuerySpec` shapes.
+
+## 7) Add a simple repository plugin (sketch)
+
+Repository plugins register themselves in activation or via hooks:
+
+```python
+from rag2f.core.xfiles import BaseRepository
+
+class MemoryRepo(BaseRepository):
+    capabilities = {"queryable": False, "vector_search": False, "graph_traversal": False}
+    def __init__(self):
+        self._rows = {}
+    def insert(self, data):
+        self._rows[data["id"]] = data
+    def get(self, id):
+        return self._rows.get(id)
+    def update(self, id, data):
+        self._rows[id] = {**self._rows.get(id, {}), **data}
+    def delete(self, id):
+        self._rows.pop(id, None)
+
+def activate(rag2f):
+    rag2f.xfiles.register("memory", MemoryRepo(), meta={"type": "memory", "domain": "demo"})
+```
+
+## 8) Add a track ID for idempotency
+
+If your input pipeline needs idempotency or tracing, include a track ID in your phone payload
+and let downstream hooks keep it attached to results:
+
+```python
+import uuid
+phone = {"id": uuid.uuid4().hex, "text": "hello rag2f"}
+```
 
 ## Next steps
 

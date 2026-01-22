@@ -69,6 +69,27 @@ Instead, you build pipelines by composing:
 - registries (get the embedder/repository you need)
 - your own application code
 
+## Startup sequence
+
+A typical startup flow looks like this:
+
+1. **Spock loads configuration** from JSON + env (env wins).
+2. **Morpheus discovers plugins** (entry points, then filesystem).
+3. **Plugins register hooks** and contribute embedders/repositories.
+4. **Registries validate** implementations and enforce contracts.
+5. Your app composes a pipeline with hooks and registry lookups.
+
+This order keeps configuration and discovery deterministic across environments.
+
+## Data flow (conceptual)
+
+```text
+Input -> Johnny5 -> hooks (preprocess/retrieve/rerank) -> embedder/repo -> response
+```
+
+Johnny5 accepts input, then Morpheus runs the hook pipeline. The pipeline uses
+registries to fetch embedders or repositories as needed.
+
 ## Extension points
 
 Where you can extend rag2f safely:
@@ -76,6 +97,14 @@ Where you can extend rag2f safely:
 - **Plugins**: add embedders and repositories without touching core.
 - **Hooks**: compose multi-step pipelines (preprocess, retrieve, rerank, generate).
 - **Native handles**: drop down to backend SDKs when needed.
+
+## Dependency isolation
+
+Core dependencies are intentionally minimal. Heavy SDKs live in plugins, which means:
+
+- faster base installs,
+- smaller attack surface,
+- backend-specific upgrades that do not destabilize the kernel.
 
 ## Runtime boundaries
 

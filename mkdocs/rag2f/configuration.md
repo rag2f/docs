@@ -52,6 +52,17 @@ rag2f loads configuration **before** discovering plugins:
 rag2f = await RAG2F.create(config_path="config.json")
 ```
 
+### Precedence rules
+
+Spock merges configuration in a clear order (highest to lowest):
+
+1. Environment variables
+2. JSON config file
+3. Provided config dict (if any)
+4. Defaults
+
+This makes env a reliable override mechanism for secrets and per-env tweaks.
+
 ## Environment variables
 
 Environment variables override JSON values. Spock parses values as:
@@ -133,3 +144,9 @@ api_key = plugin_cfg.get("api_key")
 
 - Confirm Spock is loaded: `rag2f.spock.is_loaded`
 - Verify config file path: `rag2f.spock.config_path`
+
+## Common pitfalls
+
+- **Wrong section casing**: env keys are normalized to lowercase; match IDs exactly.
+- **Missing plugin namespace**: plugin config belongs under `plugins.<plugin_id>`.
+- **Accidental JSON strings**: wrap JSON objects/arrays in env carefully to avoid parse errors.

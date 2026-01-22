@@ -17,6 +17,12 @@ pip install -e ".[dev]"
 
 (If you prefer a local venv instead of a dev container: `python -m venv .venv && source .venv/bin/activate`.)
 
+### Dev Container notes
+
+- The container runs the same bootstrap script as local setup.
+- You still get a `.venv` inside the workspace for consistent tooling.
+- Use it for deterministic Python versions and tooling across the team.
+
 Alternatively, the repo ships a bootstrap script:
 
 ```bash
@@ -32,6 +38,11 @@ If you publish rag2f to an index, install it like any other Python package:
 pip install rag2f
 ```
 
+### Optional extras
+
+rag2f keeps the core small, so most heavy dependencies live in plugins.
+Install plugin packages separately, or include them in your own app.
+
 ## Pinning and upgrades
 
 Because rag2f is designed to keep integrations in plugins, the core can remain small and stable.
@@ -40,6 +51,12 @@ Still, for production systems:
 - Pin rag2f and plugin versions together.
 - Upgrade in a staging environment where you can validate the plugin contracts.
 - Keep plugin dependencies isolated to avoid cross-plugin conflicts.
+
+### Recommended versioning practice
+
+- Pin `rag2f` and plugin packages in the same requirements lock.
+- Record the `rag2f` version that each plugin was last tested with.
+- Use CI to run plugin contract tests against new core versions.
 
 ## Project layout expectations
 
@@ -72,6 +89,17 @@ Then:
 rag2f = await RAG2F.create(plugins_folder="plugins", config_path="config.json")
 ```
 
+## Environment variables
+
+Spock reads env vars with the `RAG2F__` prefix:
+
+```
+RAG2F__RAG2F__EMBEDDER_DEFAULT=my_embedder
+RAG2F__PLUGINS__MY_PLUGIN__API_KEY=sk-...
+```
+
+Env overrides config files, so it is the best place for secrets.
+
 ## Troubleshooting
 
 ### “No plugins loaded”
@@ -81,3 +109,7 @@ rag2f = await RAG2F.create(plugins_folder="plugins", config_path="config.json")
 ### “Entry point plugin path returned site-packages”
 Some plugins may accidentally return the `site-packages` directory instead of their own plugin directory.
 rag2f tries to detect and recover from this, but the plugin should fix its `get_plugin_path()` factory.
+
+### “Multiple embedders registered but no default configured”
+- Set `rag2f.embedder_default` in config or env.
+- If only one embedder is expected, ensure only that plugin is installed.

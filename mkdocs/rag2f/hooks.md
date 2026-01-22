@@ -16,6 +16,16 @@ This lets you:
 
 Keep `phone` a dictionary or small dataclass to make composition predictable.
 
+### Example pipeline (conceptual)
+
+```python
+phone = {"text": "Hello"}
+phone = rag2f.morpheus.execute_hook("preprocess", phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook("retrieve", phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook("rerank", phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook("generate", phone, rag2f=rag2f)
+```
+
 ## Defining a hook
 
 ```python
@@ -67,3 +77,9 @@ If no plugin implements the hook:
 
 Hooks should raise errors that are meaningful to callers.
 If you need a soft-fail behavior, return a sentinel in `phone` and let downstream hooks decide.
+
+## Design tips
+
+- Keep hooks small and focused; push heavy logic into helpers.
+- Prefer additive changes to `phone` over destructive rewrites.
+- Document any required `phone` keys in your plugin README.

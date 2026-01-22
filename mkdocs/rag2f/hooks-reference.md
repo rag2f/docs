@@ -29,6 +29,14 @@ def startup(*, rag2f):
 - The return value becomes the input for the next hook.
 - If a hook returns `None`, the pipeline stops with `None` unless you handle it explicitly.
 
+### Guarding against `None`
+
+If you want to allow soft-fail behavior, use a sentinel:
+
+```python
+phone = rag2f.morpheus.execute_hook("retrieve", phone, rag2f=rag2f) or phone
+```
+
 ## Ordering
 
 Hooks with higher priority run earlier. If priorities are equal, ordering is deterministic but unspecified.

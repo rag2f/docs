@@ -46,6 +46,13 @@ rag2f.optimus_prime.register("my_embedder", MyEmbedder(...))
 
 OptimusPrime enforces protocol compliance and prevents accidental overrides.
 
+### Override policy
+
+- Registering the *same instance* under the same key is allowed (idempotent).
+- Registering a *different instance* under an existing key raises `ValueError`.
+
+This prevents accidental replacement of an embedder at runtime.
+
 ## Batching and performance
 
 If your backend supports batch embedding, consider exposing a second helper method in your plugin module (not the protocol) and wrap it with a hook.
@@ -58,6 +65,7 @@ Default embedder selection uses Spock config:
 - `rag2f.embedder_default = "<name>"`
 
 If exactly one embedder is registered, rag2f may treat it as default automatically.
+If multiple embedders are registered and no default is configured, `get_default()` raises a `LookupError`.
 
 Usage:
 
@@ -73,3 +81,12 @@ If you implement `normalize=True`, document whether you:
 - or apply another scaling/standardization.
 
 Downstream vector search engines often expect normalized embeddings for cosine similarity.
+
+## Registry inspection
+
+You can inspect the registry for debugging:
+
+```python
+rag2f.optimus_prime.list_keys()
+rag2f.optimus_prime.has("my_embedder")
+```

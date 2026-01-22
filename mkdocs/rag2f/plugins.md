@@ -59,6 +59,16 @@ rag2f merges metadata with a precedence model so you can ship packaged plugins a
 - `pyproject.toml` can augment fields like name, description, and URLs.
 - If no name is provided, rag2f derives a humanized name from the plugin id.
 
+### Plugin ID and config namespace
+
+The plugin `id` is the stable identifier used for:
+
+- config namespace: `plugins.<plugin_id>`
+- hook ownership and logging
+- avoiding collisions between plugins
+
+Use a short, lowercase id (e.g. `azure_openai_embedder`).
+
 ### Minimal `plugin.json`
 
 ```json
@@ -92,6 +102,12 @@ If your plugin is packaged, the entry point should return the folder that contai
 ## Plugin-scoped dependencies
 
 Plugins can ship their own dependencies via a local `requirements.txt`. Morpheus installs those requirements on activation so the core stays lean and plugins stay isolated.
+
+### Dependency guidelines
+
+- Keep heavy SDKs in plugins, not core.
+- Avoid importing optional dependencies at module import time.
+- Validate config before initializing expensive clients.
 
 ## Writing hooks
 
@@ -128,6 +144,11 @@ Keep plugin modules focused; avoid importing heavy dependencies at import time i
 ## Lifecycle overrides
 
 Use the `@plugin` decorator for lifecycle overrides (activation/deactivation) when you need to run setup or cleanup logic tied to the plugin itself.
+
+## Entry point troubleshooting
+
+If an entry point returns the wrong path (e.g. `site-packages/`), the plugin will not load.
+Ensure your `get_plugin_path()` returns the folder containing `plugin.json`.
 
 ## Refreshing plugins
 
