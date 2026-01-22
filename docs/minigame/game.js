@@ -1,4 +1,4 @@
-const INITIAL_STEPS = 12;
+const INITIAL_STEPS = 20;
 
 const state = {
   stepsRemaining: INITIAL_STEPS,
@@ -173,16 +173,22 @@ function renderTask(id) {
     panelTask.innerHTML = `
       <p class="task-title">Spock boot quiz</p>
       <div class="task-row">
-        <label>Default config shape:</label>
-        <label><input type="radio" name="spock-shape" value="a" /> {"rag2f": {}, "plugins": {}}</label>
-        <label><input type="radio" name="spock-shape" value="b" /> {"core": {}, "hooks": {}}</label>
-        <label><input type="radio" name="spock-shape" value="c" /> {"rag2f": [], "plugins": []}</label>
+        <label>What is Spock’s main responsibility?</label>
+        <label><input type="radio" name="spock-q1" value="a" /> Centralize configuration and merge multiple sources (env, files, defaults)</label>
+        <label><input type="radio" name="spock-q1" value="b" /> Execute retrieval pipelines</label>
+        <label><input type="radio" name="spock-q1" value="c" /> Store embeddings</label>
       </div>
       <div class="task-row">
-        <label>ENV prefix + separator:</label>
-        <label><input type="radio" name="spock-env" value="a" /> RAG2F / __</label>
-        <label><input type="radio" name="spock-env" value="b" /> RAG2F / --</label>
-        <label><input type="radio" name="spock-env" value="c" /> RAG / ::</label>
+        <label>Why does rag2f namespace configuration per plugin?</label>
+        <label><input type="radio" name="spock-q2" value="a" /> To isolate plugin settings and avoid collisions</label>
+        <label><input type="radio" name="spock-q2" value="b" /> To improve embedding speed</label>
+        <label><input type="radio" name="spock-q2" value="c" /> To enforce a fixed pipeline</label>
+      </div>
+      <div class="task-row">
+        <label>Why is configuration instance-scoped?</label>
+        <label><input type="radio" name="spock-q3" value="a" /> Different rag2f instances may need isolated configs (tests, tenants, apps)</label>
+        <label><input type="radio" name="spock-q3" value="b" /> Because env vars are global</label>
+        <label><input type="radio" name="spock-q3" value="c" /> Because plugins cannot share state</label>
       </div>
       <div class="task-actions">
         <button class="btn" data-action="spock-submit">Activate Spock</button>
@@ -194,16 +200,22 @@ function renderTask(id) {
     panelTask.innerHTML = `
       <p class="task-title">Morpheus discovery quiz</p>
       <div class="task-row">
-        <label>Plugin discovery model:</label>
-        <label><input type="radio" name="morph-discovery" value="a" /> Entry points only</label>
-        <label><input type="radio" name="morph-discovery" value="b" /> Filesystem only</label>
-        <label><input type="radio" name="morph-discovery" value="c" /> Both; entry points win</label>
+        <label>What does Morpheus manage?</label>
+        <label><input type="radio" name="morpheus-q1" value="a" /> Plugin discovery, loading, and hook orchestration</label>
+        <label><input type="radio" name="morpheus-q1" value="b" /> Vector similarity search</label>
+        <label><input type="radio" name="morpheus-q1" value="c" /> Tokenization</label>
       </div>
       <div class="task-row">
-        <label>Entry point group name:</label>
-        <label><input type="radio" name="morph-group" value="a" /> rag2f.plugins</label>
-        <label><input type="radio" name="morph-group" value="b" /> rag2f.extensions</label>
-        <label><input type="radio" name="morph-group" value="c" /> rag2f.hooks</label>
+        <label>Why are entry-point plugins resolved before filesystem plugins?</label>
+        <label><input type="radio" name="morpheus-q2" value="a" /> To ensure deterministic plugin resolution and avoid ambiguity</label>
+        <label><input type="radio" name="morpheus-q2" value="b" /> Because filesystem plugins cannot define hooks</label>
+        <label><input type="radio" name="morpheus-q2" value="c" /> Because entry points are faster</label>
+      </div>
+      <div class="task-row">
+        <label>What is a hook in rag2f?</label>
+        <label><input type="radio" name="morpheus-q3" value="a" /> An extension point allowing plugins to modify behavior without changing core</label>
+        <label><input type="radio" name="morpheus-q3" value="b" /> A database trigger</label>
+        <label><input type="radio" name="morpheus-q3" value="c" /> A mandatory pipeline step</label>
       </div>
       <div class="task-actions">
         <button class="btn" data-action="morpheus-submit">Activate Morpheus</button>
@@ -215,17 +227,22 @@ function renderTask(id) {
     panelTask.innerHTML = `
       <p class="task-title">Johnny5 hook routing</p>
       <div class="task-row">
-        <label>Select the hooks used in handle_text_foreground:</label>
-        <label><input type="checkbox" name="johnny-hooks" value="get_id_input_text" /> get_id_input_text</label>
-        <label><input type="checkbox" name="johnny-hooks" value="check_duplicated_input_text" /> check_duplicated_input_text</label>
-        <label><input type="checkbox" name="johnny-hooks" value="handle_text_foreground" /> handle_text_foreground</label>
-        <label><input type="checkbox" name="johnny-hooks" value="finalize_output" /> finalize_output</label>
+        <label>What is Johnny5 responsible for?</label>
+        <label><input type="radio" name="johnny5-q1" value="a" /> Accepting input and delegating processing through hooks/pipelines</label>
+        <label><input type="radio" name="johnny5-q1" value="b" /> Registering embedders</label>
+        <label><input type="radio" name="johnny5-q1" value="c" /> Selecting repositories</label>
       </div>
       <div class="task-row">
-        <label>When no id is returned, Johnny5 uses:</label>
-        <label><input type="radio" name="johnny-id" value="a" /> uuid.uuid4().hex</label>
-        <label><input type="radio" name="johnny-id" value="b" /> time.time()</label>
-        <label><input type="radio" name="johnny-id" value="c" /> incrementing counter</label>
+        <label>Why does Johnny5 rely on hooks?</label>
+        <label><input type="radio" name="johnny5-q2" value="a" /> To allow different apps to define how input is handled without changing core</label>
+        <label><input type="radio" name="johnny5-q2" value="b" /> To encrypt inputs</label>
+        <label><input type="radio" name="johnny5-q2" value="c" /> To enforce a single input format</label>
+      </div>
+      <div class="task-row">
+        <label>Why use a track ID for input?</label>
+        <label><input type="radio" name="johnny5-q3" value="a" /> To enable traceability, idempotency, and duplicate detection</label>
+        <label><input type="radio" name="johnny5-q3" value="b" /> To select the embedder</label>
+        <label><input type="radio" name="johnny5-q3" value="c" /> To compress payloads</label>
       </div>
       <div class="task-actions">
         <button class="btn" data-action="johnny5-submit">Activate Johnny5</button>
@@ -237,16 +254,22 @@ function renderTask(id) {
     panelTask.innerHTML = `
       <p class="task-title">OptimusPrime registry policy</p>
       <div class="task-row">
-        <label>Registering a different instance under the same key:</label>
-        <label><input type="radio" name="optimus-override" value="a" /> Allowed</label>
-        <label><input type="radio" name="optimus-override" value="b" /> Raises ValueError</label>
-        <label><input type="radio" name="optimus-override" value="c" /> Silently replaces</label>
+        <label>What does OptimusPrime manage?</label>
+        <label><input type="radio" name="optimus-q1" value="a" /> A registry of embedders keyed by name or ID</label>
+        <label><input type="radio" name="optimus-q1" value="b" /> Repositories</label>
+        <label><input type="radio" name="optimus-q1" value="c" /> Prompt templates</label>
       </div>
       <div class="task-row">
-        <label>Registering the exact same instance again:</label>
-        <label><input type="radio" name="optimus-idem" value="a" /> Allowed (warn + skip)</label>
-        <label><input type="radio" name="optimus-idem" value="b" /> Raises TypeError</label>
-        <label><input type="radio" name="optimus-idem" value="c" /> Re-registers with no log</label>
+        <label>Why use an embedder registry?</label>
+        <label><input type="radio" name="optimus-q2" value="a" /> To decouple embedder selection from implementation/vendor</label>
+        <label><input type="radio" name="optimus-q2" value="b" /> To force a single embedding model</label>
+        <label><input type="radio" name="optimus-q2" value="c" /> To improve embedding determinism</label>
+      </div>
+      <div class="task-row">
+        <label>What does “default embedder” mean?</label>
+        <label><input type="radio" name="optimus-q3" value="a" /> The configured preferred embedder (or the only registered one)</label>
+        <label><input type="radio" name="optimus-q3" value="b" /> The newest embedder</label>
+        <label><input type="radio" name="optimus-q3" value="c" /> Always OpenAI</label>
       </div>
       <div class="task-actions">
         <button class="btn" data-action="optimus-submit">Activate OptimusPrime</button>
@@ -258,16 +281,22 @@ function renderTask(id) {
     panelTask.innerHTML = `
       <p class="task-title">Register a repository</p>
       <div class="task-row">
-        <label>Repository id</label>
-        <input type="text" name="xfiles-id" placeholder="users_db" />
+        <label>What does XFiles manage?</label>
+        <label><input type="radio" name="xfiles-q1" value="a" /> Discovery and lookup of repositories and their capabilities</label>
+        <label><input type="radio" name="xfiles-q1" value="b" /> Only filesystem storage</label>
+        <label><input type="radio" name="xfiles-q1" value="c" /> Prompt caching</label>
       </div>
       <div class="task-row">
-        <label>Meta: type</label>
-        <input type="text" name="xfiles-type" placeholder="postgresql" />
+        <label>What are repository “capabilities”?</label>
+        <label><input type="radio" name="xfiles-q2" value="a" /> Declared supported operations (vector search, graph traversal, etc.)</label>
+        <label><input type="radio" name="xfiles-q2" value="b" /> Maximum storage size</label>
+        <label><input type="radio" name="xfiles-q2" value="c" /> Embedding dimension</label>
       </div>
       <div class="task-row">
-        <label>Meta: domain</label>
-        <input type="text" name="xfiles-domain" placeholder="users" />
+        <label>Why keep repositories in plugins instead of core?</label>
+        <label><input type="radio" name="xfiles-q3" value="a" /> Storage backends change fast; plugins keep core stable and minimal</label>
+        <label><input type="radio" name="xfiles-q3" value="b" /> Core cannot import DB drivers</label>
+        <label><input type="radio" name="xfiles-q3" value="c" /> Hooks require plugins</label>
       </div>
       <div class="task-actions">
         <button class="btn" data-action="xfiles-submit">Activate XFiles</button>
@@ -278,7 +307,14 @@ function renderTask(id) {
 
 function completeNode(id) {
   state.completed[id] = true;
-  setStatus(`${nodes[id].title} is online.`, "success");
+  const learning = {
+    spock: "✅ What you learned:\nSpock centralizes configuration.\nPlugins get isolated settings.\nEach RAG2F instance is independent.",
+    morpheus: "✅ What you learned:\nMorpheus discovers and loads plugins.\nHooks let plugins extend behavior.\nResolution stays deterministic.",
+    johnny5: "✅ What you learned:\nJohnny5 accepts input and routes it.\nHooks define app-specific handling.\nTrack IDs enable traceability.",
+    optimus: "✅ What you learned:\nOptimusPrime catalogs embedders.\nSelection stays vendor-agnostic.\nDefaults come from configuration.",
+    xfiles: "✅ What you learned:\nXFiles tracks repositories and capabilities.\nPlugins keep storage flexible.\nCore stays stable as backends evolve.",
+  };
+  setStatus(learning[id], "success");
   setNodeState();
   renderTask(id);
   if (id === "xfiles") {
@@ -307,42 +343,43 @@ function onWin() {
 }
 
 function validateSpock() {
-  const shape = document.querySelector("input[name='spock-shape']:checked");
-  const env = document.querySelector("input[name='spock-env']:checked");
-  if (!shape || !env) return false;
-  return shape.value === "a" && env.value === "a";
+  const q1 = document.querySelector("input[name='spock-q1']:checked");
+  const q2 = document.querySelector("input[name='spock-q2']:checked");
+  const q3 = document.querySelector("input[name='spock-q3']:checked");
+  if (!q1 || !q2 || !q3) return false;
+  return q1.value === "a" && q2.value === "a" && q3.value === "a";
 }
 
 function validateMorpheus() {
-  const discovery = document.querySelector("input[name='morph-discovery']:checked");
-  const group = document.querySelector("input[name='morph-group']:checked");
-  if (!discovery || !group) return false;
-  return discovery.value === "c" && group.value === "a";
+  const q1 = document.querySelector("input[name='morpheus-q1']:checked");
+  const q2 = document.querySelector("input[name='morpheus-q2']:checked");
+  const q3 = document.querySelector("input[name='morpheus-q3']:checked");
+  if (!q1 || !q2 || !q3) return false;
+  return q1.value === "a" && q2.value === "a" && q3.value === "a";
 }
 
 function validateJohnny5() {
-  const hooks = Array.from(document.querySelectorAll("input[name='johnny-hooks']:checked"))
-    .map((el) => el.value)
-    .sort();
-  const idRule = document.querySelector("input[name='johnny-id']:checked");
-  if (!hooks.length || !idRule) return false;
-  const expected = ["check_duplicated_input_text", "get_id_input_text", "handle_text_foreground"].sort();
-  const hooksMatch = hooks.length === expected.length && hooks.every((h, i) => h === expected[i]);
-  return hooksMatch && idRule.value === "a";
+  const q1 = document.querySelector("input[name='johnny5-q1']:checked");
+  const q2 = document.querySelector("input[name='johnny5-q2']:checked");
+  const q3 = document.querySelector("input[name='johnny5-q3']:checked");
+  if (!q1 || !q2 || !q3) return false;
+  return q1.value === "a" && q2.value === "a" && q3.value === "a";
 }
 
 function validateOptimus() {
-  const override = document.querySelector("input[name='optimus-override']:checked");
-  const idem = document.querySelector("input[name='optimus-idem']:checked");
-  if (!override || !idem) return false;
-  return override.value === "b" && idem.value === "a";
+  const q1 = document.querySelector("input[name='optimus-q1']:checked");
+  const q2 = document.querySelector("input[name='optimus-q2']:checked");
+  const q3 = document.querySelector("input[name='optimus-q3']:checked");
+  if (!q1 || !q2 || !q3) return false;
+  return q1.value === "a" && q2.value === "a" && q3.value === "a";
 }
 
 function validateXFiles() {
-  const id = document.querySelector("input[name='xfiles-id']").value.trim();
-  const type = document.querySelector("input[name='xfiles-type']").value.trim();
-  const domain = document.querySelector("input[name='xfiles-domain']").value.trim();
-  return Boolean(id && type && domain);
+  const q1 = document.querySelector("input[name='xfiles-q1']:checked");
+  const q2 = document.querySelector("input[name='xfiles-q2']:checked");
+  const q3 = document.querySelector("input[name='xfiles-q3']:checked");
+  if (!q1 || !q2 || !q3) return false;
+  return q1.value === "a" && q2.value === "a" && q3.value === "a";
 }
 
 function handleSubmit(action) {
@@ -352,27 +389,27 @@ function handleSubmit(action) {
 
   if (action === "spock-submit") {
     success = validateSpock();
-    success ? completeNode("spock") : setStatus("Spock quiz failed. Check default shape and ENV pattern.", "danger");
+    success ? completeNode("spock") : setStatus("Try again: focus on what this module is responsible for.", "danger");
   }
 
   if (action === "morpheus-submit") {
     success = validateMorpheus();
-    success ? completeNode("morpheus") : setStatus("Morpheus expects entry points + filesystem, entry points first.", "danger");
+    success ? completeNode("morpheus") : setStatus("Try again: focus on what this module is responsible for.", "danger");
   }
 
   if (action === "johnny5-submit") {
     success = validateJohnny5();
-    success ? completeNode("johnny5") : setStatus("Johnny5 hook routing mismatch. Try again.", "danger");
+    success ? completeNode("johnny5") : setStatus("Try again: focus on what this module is responsible for.", "danger");
   }
 
   if (action === "optimus-submit") {
     success = validateOptimus();
-    success ? completeNode("optimus") : setStatus("OptimusPrime blocks overrides but allows same-instance re-registers.", "danger");
+    success ? completeNode("optimus") : setStatus("Try again: focus on what this module is responsible for.", "danger");
   }
 
   if (action === "xfiles-submit") {
     success = validateXFiles();
-    success ? completeNode("xfiles") : setStatus("Fill in repository id + meta before registering.", "danger");
+    success ? completeNode("xfiles") : setStatus("Try again: focus on what this module is responsible for.", "danger");
   }
 }
 
