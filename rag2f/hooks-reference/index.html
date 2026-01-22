@@ -664,6 +664,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Piping behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guarding-against-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guarding against None
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -890,6 +907,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Piping behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guarding-against-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guarding against None
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -955,6 +989,10 @@ def startup(*, rag2f):
 <li>The return value becomes the input for the next hook.</li>
 <li>If a hook returns <code>None</code>, the pipeline stops with <code>None</code> unless you handle it explicitly.</li>
 </ul>
+<h3 id="guarding-against-none">Guarding against <code>None</code></h3>
+<p>If you want to allow soft-fail behavior, use a sentinel:</p>
+<pre><code class="language-python">phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f) or phone
+</code></pre>
 <h2 id="ordering">Ordering</h2>
 <p>Hooks with higher priority run earlier. If priorities are equal, ordering is deterministic but unspecified.
 Use priorities to guarantee ordering across plugins.</p>

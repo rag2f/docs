@@ -521,10 +521,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-use-repositories-xfiles" class="md-nav__link">
+  <a href="#5-compose-a-minimal-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5) Use repositories (XFiles)
+        5) Compose a minimal pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-use-repositories-xfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Use repositories (XFiles)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-add-a-simple-repository-plugin-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) Add a simple repository plugin (sketch)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-add-a-track-id-for-idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) Add a track ID for idempotency
       
     </span>
   </a>
@@ -937,10 +970,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-use-repositories-xfiles" class="md-nav__link">
+  <a href="#5-compose-a-minimal-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5) Use repositories (XFiles)
+        5) Compose a minimal pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-use-repositories-xfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Use repositories (XFiles)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-add-a-simple-repository-plugin-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) Add a simple repository plugin (sketch)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-add-a-track-id-for-idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) Add a track ID for idempotency
       
     </span>
   </a>
@@ -1042,7 +1108,16 @@ async def main():
 
 asyncio.run(main())
 </code></pre>
-<h2 id="5-use-repositories-xfiles">5) Use repositories (XFiles)</h2>
+<h2 id="5-compose-a-minimal-pipeline">5) Compose a minimal pipeline</h2>
+<p>rag2f does not impose a pipeline; you compose one with hooks and registries:</p>
+<pre><code class="language-python">phone = {&quot;text&quot;: &quot;hello rag2f&quot;}
+phone = rag2f.morpheus.execute_hook(&quot;preprocess&quot;, phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook(&quot;rerank&quot;, phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook(&quot;generate&quot;, phone, rag2f=rag2f)
+</code></pre>
+<p>Hooks are optional. If no plugin implements a hook, the phone passes through unchanged.</p>
+<h2 id="6-use-repositories-xfiles">6) Use repositories (XFiles)</h2>
 <p>Once a repository plugin is registered, you can fetch it by name/id and call protocol methods based on capabilities.</p>
 <p>Conceptually:</p>
 <pre><code class="language-python">repo = rag2f.xfiles.get(&quot;primary&quot;)
@@ -1054,6 +1129,32 @@ await repo.insert({&quot;id&quot;: &quot;1&quot;, &quot;text&quot;: &quot;hello&
 rows = await repo.find({&quot;where&quot;: {&quot;field&quot;: &quot;text&quot;, &quot;op&quot;: &quot;contains&quot;, &quot;value&quot;: &quot;hello&quot;}})
 </code></pre>
 <p>See <a href="../repositories/">Repositories (XFiles)</a> for the real contracts and <code>QuerySpec</code> shapes.</p>
+<h2 id="7-add-a-simple-repository-plugin-sketch">7) Add a simple repository plugin (sketch)</h2>
+<p>Repository plugins register themselves in activation or via hooks:</p>
+<pre><code class="language-python">from rag2f.core.xfiles import BaseRepository
+
+class MemoryRepo(BaseRepository):
+    capabilities = {&quot;queryable&quot;: False, &quot;vector_search&quot;: False, &quot;graph_traversal&quot;: False}
+    def __init__(self):
+        self._rows = {}
+    def insert(self, data):
+        self._rows[data[&quot;id&quot;]] = data
+    def get(self, id):
+        return self._rows.get(id)
+    def update(self, id, data):
+        self._rows[id] = {**self._rows.get(id, {}), **data}
+    def delete(self, id):
+        self._rows.pop(id, None)
+
+def activate(rag2f):
+    rag2f.xfiles.register(&quot;memory&quot;, MemoryRepo(), meta={&quot;type&quot;: &quot;memory&quot;, &quot;domain&quot;: &quot;demo&quot;})
+</code></pre>
+<h2 id="8-add-a-track-id-for-idempotency">8) Add a track ID for idempotency</h2>
+<p>If your input pipeline needs idempotency or tracing, include a track ID in your phone payload
+and let downstream hooks keep it attached to results:</p>
+<pre><code class="language-python">import uuid
+phone = {&quot;id&quot;: uuid.uuid4().hex, &quot;text&quot;: &quot;hello rag2f&quot;}
+</code></pre>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Configure rag2f with <a href="../configuration/">Spock</a></li>

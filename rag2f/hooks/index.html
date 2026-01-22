@@ -625,6 +625,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="The phone pattern (pipeable value)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-pipeline-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example pipeline (conceptual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -693,6 +710,17 @@
     <span class="md-ellipsis">
       
         Error handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design tips
       
     </span>
   </a>
@@ -918,6 +946,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="The phone pattern (pipeable value)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-pipeline-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example pipeline (conceptual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -992,6 +1037,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#design-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design tips
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1025,6 +1081,13 @@
 - override defaults
 - enrich results</p>
 <p>Keep <code>phone</code> a dictionary or small dataclass to make composition predictable.</p>
+<h3 id="example-pipeline-conceptual">Example pipeline (conceptual)</h3>
+<pre><code class="language-python">phone = {&quot;text&quot;: &quot;Hello&quot;}
+phone = rag2f.morpheus.execute_hook(&quot;preprocess&quot;, phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook(&quot;rerank&quot;, phone, rag2f=rag2f)
+phone = rag2f.morpheus.execute_hook(&quot;generate&quot;, phone, rag2f=rag2f)
+</code></pre>
 <h2 id="defining-a-hook">Defining a hook</h2>
 <pre><code class="language-python">from rag2f.core.morpheus.decorators.hook import hook
 
@@ -1064,6 +1127,12 @@ phone = rag2f.morpheus.execute_hook(&quot;preprocess&quot;, phone, rag2f=rag2f)
 <h2 id="error-handling">Error handling</h2>
 <p>Hooks should raise errors that are meaningful to callers.
 If you need a soft-fail behavior, return a sentinel in <code>phone</code> and let downstream hooks decide.</p>
+<h2 id="design-tips">Design tips</h2>
+<ul>
+<li>Keep hooks small and focused; push heavy logic into helpers.</li>
+<li>Prefer additive changes to <code>phone</code> over destructive rewrites.</li>
+<li>Document any required <code>phone</code> keys in your plugin README.</li>
+</ul>
 
 
 

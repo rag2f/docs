@@ -460,6 +460,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -471,10 +482,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plugin-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hook" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phone
       
     </span>
   </a>
@@ -508,6 +541,28 @@
     <span class="md-ellipsis">
       
         Capability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#native-escape-hatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native escape hatch
       
     </span>
   </a>
@@ -915,6 +970,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -926,10 +992,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plugin-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hook" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phone
       
     </span>
   </a>
@@ -963,6 +1051,28 @@
     <span class="md-ellipsis">
       
         Capability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#native-escape-hatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native escape hatch
       
     </span>
   </a>
@@ -1010,12 +1120,21 @@
 <li>hook orchestration</li>
 </ul>
 <p>Everything else should live in plugins or your application.</p>
+<h2 id="instance">Instance</h2>
+<p>An <strong>instance</strong> is a single <code>RAG2F</code> object with its own configuration, registries, and plugin state.
+Instances are intentionally isolated so tests, tenants, or apps can run side by side without cross-talk.</p>
 <h2 id="plugin">Plugin</h2>
 <p>A <strong>plugin</strong> is a self-contained integration that contributes hooks, embedders, repositories, or helpers.
 Plugins are discovered via Python entry points or a local <code>plugins/</code> folder.</p>
+<h2 id="plugin-id">Plugin ID</h2>
+<p>A <strong>plugin ID</strong> is the stable identifier used for namespacing config and avoiding collisions.
+It also becomes the namespace used in logs and hook registrations.</p>
 <h2 id="hook">Hook</h2>
 <p>A <strong>hook</strong> is a named pipeline stage. Multiple hooks can register for the same stage and are executed in priority order.
 Hooks optionally receive a pipeable payload called <code>phone</code> that flows through the pipeline.</p>
+<h2 id="phone">Phone</h2>
+<p><strong>Phone</strong> is the pipeable payload that moves through a hook pipeline.
+It is typically a small dict or dataclass that each hook can enrich.</p>
 <h2 id="registry">Registry</h2>
 <p>Registries are named stores owned by the kernel:</p>
 <ul>
@@ -1029,6 +1148,12 @@ rag2f uses protocols to validate embedders and repositories without prescribing 
 <h2 id="capability">Capability</h2>
 <p>A <strong>capability</strong> is a feature flag declared by a repository to signal which operations it supports.
 This protects callers from invoking methods the backend does not implement.</p>
+<h2 id="entry-point">Entry point</h2>
+<p>An <strong>entry point</strong> is a packaging-time registration that lets Morpheus discover a plugin from installed packages.
+Entry points are resolved before filesystem plugins to keep discovery deterministic.</p>
+<h2 id="native-escape-hatch">Native escape hatch</h2>
+<p>The <strong>native escape hatch</strong> is a repository feature that exposes a backend-specific handle
+so you can access vendor-specific power without distorting the core contracts.</p>
 <h2 id="pipeline">Pipeline</h2>
 <p>A <strong>pipeline</strong> is the ordered composition of hooks and application logic that turns a user input into a response.
 rag2f does not define a default pipeline; you assemble one explicitly.</p>

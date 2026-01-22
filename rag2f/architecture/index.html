@@ -801,10 +801,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#startup-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data flow (conceptual)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extension-points" class="md-nav__link">
     <span class="md-ellipsis">
       
         Extension points
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency isolation
       
     </span>
   </a>
@@ -993,10 +1026,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#startup-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data flow (conceptual)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extension-points" class="md-nav__link">
     <span class="md-ellipsis">
       
         Extension points
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency isolation
       
     </span>
   </a>
@@ -1094,12 +1160,34 @@ Instead, you build pipelines by composing:
 - hooks
 - registries (get the embedder/repository you need)
 - your own application code</p>
+<h2 id="startup-sequence">Startup sequence</h2>
+<p>A typical startup flow looks like this:</p>
+<ol>
+<li><strong>Spock loads configuration</strong> from JSON + env (env wins).</li>
+<li><strong>Morpheus discovers plugins</strong> (entry points, then filesystem).</li>
+<li><strong>Plugins register hooks</strong> and contribute embedders/repositories.</li>
+<li><strong>Registries validate</strong> implementations and enforce contracts.</li>
+<li>Your app composes a pipeline with hooks and registry lookups.</li>
+</ol>
+<p>This order keeps configuration and discovery deterministic across environments.</p>
+<h2 id="data-flow-conceptual">Data flow (conceptual)</h2>
+<pre><code class="language-text">Input -&gt; Johnny5 -&gt; hooks (preprocess/retrieve/rerank) -&gt; embedder/repo -&gt; response
+</code></pre>
+<p>Johnny5 accepts input, then Morpheus runs the hook pipeline. The pipeline uses
+registries to fetch embedders or repositories as needed.</p>
 <h2 id="extension-points">Extension points</h2>
 <p>Where you can extend rag2f safely:</p>
 <ul>
 <li><strong>Plugins</strong>: add embedders and repositories without touching core.</li>
 <li><strong>Hooks</strong>: compose multi-step pipelines (preprocess, retrieve, rerank, generate).</li>
 <li><strong>Native handles</strong>: drop down to backend SDKs when needed.</li>
+</ul>
+<h2 id="dependency-isolation">Dependency isolation</h2>
+<p>Core dependencies are intentionally minimal. Heavy SDKs live in plugins, which means:</p>
+<ul>
+<li>faster base installs,</li>
+<li>smaller attack surface,</li>
+<li>backend-specific upgrades that do not destabilize the kernel.</li>
 </ul>
 <h2 id="runtime-boundaries">Runtime boundaries</h2>
 <p>The core does not:</p>

@@ -766,10 +766,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hooks-not-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks not running
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#no-default-embedder" class="md-nav__link">
     <span class="md-ellipsis">
       
         “No default embedder”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-embedders-but-no-default-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “Multiple embedders but no default configured”
       
     </span>
   </a>
@@ -799,10 +821,54 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-overrides-not-applying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment overrides not applying
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plugin-override-confusion" class="md-nav__link">
     <span class="md-ellipsis">
       
         Plugin override confusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicate-hooks-running-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate hooks running twice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-lookup-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry lookup failures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-errors-inside-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime errors inside hooks
       
     </span>
   </a>
@@ -891,10 +957,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hooks-not-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks not running
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#no-default-embedder" class="md-nav__link">
     <span class="md-ellipsis">
       
         “No default embedder”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-embedders-but-no-default-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “Multiple embedders but no default configured”
       
     </span>
   </a>
@@ -924,10 +1012,54 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-overrides-not-applying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment overrides not applying
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#plugin-override-confusion" class="md-nav__link">
     <span class="md-ellipsis">
       
         Plugin override confusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicate-hooks-running-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate hooks running twice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-lookup-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry lookup failures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-errors-inside-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime errors inside hooks
       
     </span>
   </a>
@@ -962,11 +1094,22 @@
 <li>Ensure <code>plugin.json</code> exists and points to a valid module file.</li>
 <li>If using entry points, confirm the entry point returns the plugin folder, not <code>site-packages</code>.</li>
 </ul>
+<h2 id="hooks-not-running">Hooks not running</h2>
+<ul>
+<li>Confirm the hook name matches exactly (case-sensitive).</li>
+<li>Ensure the hook function is decorated with <code>@hook</code>.</li>
+<li>Verify the plugin was activated (check logs at startup).</li>
+</ul>
 <h2 id="no-default-embedder">“No default embedder”</h2>
 <ul>
 <li>Register at least one embedder via a plugin.</li>
 <li>Set <code>rag2f.embedder_default</code> in config.</li>
 <li>Avoid registering embedders with the same name.</li>
+</ul>
+<h2 id="multiple-embedders-but-no-default-configured">“Multiple embedders but no default configured”</h2>
+<ul>
+<li>Set <code>rag2f.embedder_default</code> to one of the registered keys.</li>
+<li>If only one embedder should exist, remove the extra plugin.</li>
 </ul>
 <h2 id="capability-mismatch-errors">Capability mismatch errors</h2>
 <ul>
@@ -979,9 +1122,31 @@
 <li>Validate <code>plugins.&lt;plugin_id&gt;</code> matches the <code>id</code> in <code>plugin.json</code>.</li>
 <li>Confirm environment variable overrides are set in the runtime environment.</li>
 </ul>
+<h2 id="environment-overrides-not-applying">Environment overrides not applying</h2>
+<ul>
+<li>Check prefix and section: <code>RAG2F__RAG2F__...</code> or <code>RAG2F__PLUGINS__...</code></li>
+<li>Ensure values parse correctly (JSON vs string).</li>
+<li>Remember env overrides config file values.</li>
+</ul>
 <h2 id="plugin-override-confusion">Plugin override confusion</h2>
 <p>Entry point plugins take precedence over local plugins with the same id.
 If you are iterating locally, uninstall the packaged plugin or change the plugin id.</p>
+<h2 id="duplicate-hooks-running-twice">Duplicate hooks running twice</h2>
+<ul>
+<li>Confirm you do not have both an entry-point and filesystem plugin with the same id.</li>
+<li>Ensure your plugin module is not imported twice in different paths.</li>
+</ul>
+<h2 id="registry-lookup-failures">Registry lookup failures</h2>
+<ul>
+<li>Check the registry key casing; keys are treated as strings.</li>
+<li>Call <code>list_keys()</code> on OptimusPrime/XFiles to verify registration.</li>
+</ul>
+<h2 id="runtime-errors-inside-hooks">Runtime errors inside hooks</h2>
+<ul>
+<li>Reduce hook scope and move heavy logic into helpers.</li>
+<li>Add logging inside hooks for payload inspection.</li>
+<li>Use try/except with meaningful error messages for easier debugging.</li>
+</ul>
 
 
 

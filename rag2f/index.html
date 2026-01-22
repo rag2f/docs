@@ -443,6 +443,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#design-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-rag2f-is-a-good-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When rag2f is a good fit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-you-get-in-core" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -480,6 +502,17 @@
     <span class="md-ellipsis">
       
         The typical lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extend-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to extend safely
       
     </span>
   </a>
@@ -948,6 +981,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#design-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-rag2f-is-a-good-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When rag2f is a good fit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-you-get-in-core" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -985,6 +1040,17 @@
     <span class="md-ellipsis">
       
         The typical lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extend-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to extend safely
       
     </span>
   </a>
@@ -1068,6 +1134,20 @@ Pipelines live in plugins or in <em>your</em> application.</p>
 <li>registries give you a stable surface area for embedders and repositories,</li>
 <li>hooks let plugins compose behavior without a forced pipeline shape.</li>
 </ul>
+<h2 id="design-goals">Design goals</h2>
+<ul>
+<li><strong>Small, stable core</strong>: registries + hooks only, no opinionated pipeline.</li>
+<li><strong>Volatile edges</strong>: backends and SDKs live in plugins, not the kernel.</li>
+<li><strong>Explicit contracts</strong>: protocols and capabilities make features clear.</li>
+<li><strong>Instance isolation</strong>: each RAG2F instance has its own config and registries.</li>
+<li><strong>Deterministic discovery</strong>: entry-point plugins override filesystem plugins.</li>
+</ul>
+<h2 id="when-rag2f-is-a-good-fit">When rag2f is a good fit</h2>
+<p>Use rag2f when you need:
+- multiple storage backends or embedding providers,
+- a pluggable architecture with strict boundaries,
+- a core you can keep stable while integrations evolve.</p>
+<p>rag2f may not be a fit when you want a single, fixed pipeline with all decisions pre-made.</p>
 <h2 id="what-you-get-in-core">What you get in core</h2>
 <p>A <code>RAG2F</code> instance wires together a few intentionally-named components:</p>
 <ul>
@@ -1100,6 +1180,12 @@ Pipelines live in plugins or in <em>your</em> application.</p>
 <li><strong>Execute</strong> RAG workflows using the registries and hooks.</li>
 </ol>
 <p>This keeps the kernel stable while allowing your stack to evolve.</p>
+<h2 id="how-to-extend-safely">How to extend safely</h2>
+<ul>
+<li>Add embedders and repositories via plugins.</li>
+<li>Keep plugin dependencies scoped to the plugin folder.</li>
+<li>Use hooks for behavior composition; keep core untouched.</li>
+</ul>
 <h2 id="quick-links">Quick links</h2>
 <ul>
 <li><a href="quickstart/">Quickstart</a></li>

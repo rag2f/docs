@@ -720,6 +720,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capability-driven-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability-driven calling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -760,6 +777,17 @@
     <span class="md-ellipsis">
       
         Registering repositories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository metadata
       
     </span>
   </a>
@@ -912,6 +940,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capability-driven-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability-driven calling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -952,6 +997,17 @@
     <span class="md-ellipsis">
       
         Registering repositories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository metadata
       
     </span>
   </a>
@@ -1005,6 +1061,12 @@ XFiles validates that the repository methods match the declared capabilities.</p
 <p>This makes it harder to:
 - accidentally call vector search on a SQL-only repo,
 - ship a plugin that claims features it doesn’t implement.</p>
+<h3 id="capability-driven-calling">Capability-driven calling</h3>
+<p>Before calling advanced methods, check capabilities or guard in your app:</p>
+<pre><code class="language-python">repo = xfiles.get(&quot;users_db&quot;)
+if repo.capabilities.get(&quot;vector_search&quot;):
+    repo.vector_search(...)
+</code></pre>
 <p>Example capability declaration (conceptual):</p>
 <pre><code class="language-python">capabilities = {
     &quot;queryable&quot;: True,
@@ -1046,6 +1108,12 @@ rows = repo.find(query)
 <h2 id="registering-repositories">Registering repositories</h2>
 <p>Repository registration is typically performed by plugins via XFiles hooks or explicit registration calls (depending on your plugin design).</p>
 <p>See <a href="../architecture/">Architecture</a> for how XFiles sits in the overall system.</p>
+<h2 id="repository-metadata">Repository metadata</h2>
+<p>Use metadata to help your app select the right backend:</p>
+<pre><code class="language-python">xfiles.register(&quot;users_db&quot;, users_repo, meta={&quot;type&quot;: &quot;postgresql&quot;, &quot;domain&quot;: &quot;users&quot;})
+xfiles.register(&quot;papers&quot;, papers_repo, meta={&quot;type&quot;: &quot;vector&quot;, &quot;domain&quot;: &quot;research&quot;})
+</code></pre>
+<p>Metadata is not enforced by the core, but it provides a stable filter surface for your application.</p>
 
 
 

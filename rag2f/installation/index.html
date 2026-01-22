@@ -524,6 +524,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install from source (dev)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev-container-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dev Container notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -535,6 +552,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install as a dependency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-extras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional extras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -545,6 +579,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Pinning and upgrades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-versioning-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended versioning practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -582,6 +633,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -609,6 +671,17 @@
     <span class="md-ellipsis">
       
         “Entry point plugin path returned site-packages”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-embedders-registered-but-no-default-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “Multiple embedders registered but no default configured”
       
     </span>
   </a>
@@ -962,6 +1035,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install from source (dev)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev-container-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dev Container notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -973,6 +1063,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install as a dependency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-extras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional extras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -983,6 +1090,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Pinning and upgrades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-versioning-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended versioning practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1020,6 +1144,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1047,6 +1182,17 @@
     <span class="md-ellipsis">
       
         “Entry point plugin path returned site-packages”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-embedders-registered-but-no-default-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “Multiple embedders registered but no default configured”
       
     </span>
   </a>
@@ -1092,6 +1238,12 @@ cd rag2f
 pip install -e &quot;.[dev]&quot;
 </code></pre>
 <p>(If you prefer a local venv instead of a dev container: <code>python -m venv .venv &amp;&amp; source .venv/bin/activate</code>.)</p>
+<h3 id="dev-container-notes">Dev Container notes</h3>
+<ul>
+<li>The container runs the same bootstrap script as local setup.</li>
+<li>You still get a <code>.venv</code> inside the workspace for consistent tooling.</li>
+<li>Use it for deterministic Python versions and tooling across the team.</li>
+</ul>
 <p>Alternatively, the repo ships a bootstrap script:</p>
 <pre><code class="language-bash">bash scripts/bootstrap-venv.sh
 source .venv/bin/activate
@@ -1100,6 +1252,9 @@ source .venv/bin/activate
 <p>If you publish rag2f to an index, install it like any other Python package:</p>
 <pre><code class="language-bash">pip install rag2f
 </code></pre>
+<h3 id="optional-extras">Optional extras</h3>
+<p>rag2f keeps the core small, so most heavy dependencies live in plugins.
+Install plugin packages separately, or include them in your own app.</p>
 <h2 id="pinning-and-upgrades">Pinning and upgrades</h2>
 <p>Because rag2f is designed to keep integrations in plugins, the core can remain small and stable.
 Still, for production systems:</p>
@@ -1107,6 +1262,12 @@ Still, for production systems:</p>
 <li>Pin rag2f and plugin versions together.</li>
 <li>Upgrade in a staging environment where you can validate the plugin contracts.</li>
 <li>Keep plugin dependencies isolated to avoid cross-plugin conflicts.</li>
+</ul>
+<h3 id="recommended-versioning-practice">Recommended versioning practice</h3>
+<ul>
+<li>Pin <code>rag2f</code> and plugin packages in the same requirements lock.</li>
+<li>Record the <code>rag2f</code> version that each plugin was last tested with.</li>
+<li>Use CI to run plugin contract tests against new core versions.</li>
 </ul>
 <h2 id="project-layout-expectations">Project layout expectations</h2>
 <p>rag2f assumes a “project root” (current working directory) and uses it to locate a default plugin folder:</p>
@@ -1128,6 +1289,12 @@ Still, for production systems:</p>
 <p>Then:</p>
 <pre><code class="language-python">rag2f = await RAG2F.create(plugins_folder=&quot;plugins&quot;, config_path=&quot;config.json&quot;)
 </code></pre>
+<h2 id="environment-variables">Environment variables</h2>
+<p>Spock reads env vars with the <code>RAG2F__</code> prefix:</p>
+<pre><code>RAG2F__RAG2F__EMBEDDER_DEFAULT=my_embedder
+RAG2F__PLUGINS__MY_PLUGIN__API_KEY=sk-...
+</code></pre>
+<p>Env overrides config files, so it is the best place for secrets.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="no-plugins-loaded">“No plugins loaded”</h3>
 <ul>
@@ -1137,6 +1304,11 @@ Still, for production systems:</p>
 <h3 id="entry-point-plugin-path-returned-site-packages">“Entry point plugin path returned site-packages”</h3>
 <p>Some plugins may accidentally return the <code>site-packages</code> directory instead of their own plugin directory.
 rag2f tries to detect and recover from this, but the plugin should fix its <code>get_plugin_path()</code> factory.</p>
+<h3 id="multiple-embedders-registered-but-no-default-configured">“Multiple embedders registered but no default configured”</h3>
+<ul>
+<li>Set <code>rag2f.embedder_default</code> in config or env.</li>
+<li>If only one embedder is expected, ensure only that plugin is installed.</li>
+</ul>
 
 
 

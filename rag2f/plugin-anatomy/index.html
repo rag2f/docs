@@ -597,6 +597,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Local plugin structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-layout-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended layout (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -607,6 +624,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="plugin.json fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-optional-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common optional fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -619,6 +653,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Packaged plugins and entry points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-get_plugin_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example get_plugin_path()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -626,6 +677,50 @@
     <span class="md-ellipsis">
       
         Plugin activation checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-embedder-plugin-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: embedder plugin skeleton
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-repository-plugin-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: repository plugin skeleton
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-design-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hook design tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing suggestions
       
     </span>
   </a>
@@ -879,6 +974,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Local plugin structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-layout-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended layout (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -889,6 +1001,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="plugin.json fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-optional-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common optional fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -901,6 +1030,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Packaged plugins and entry points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-get_plugin_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example get_plugin_path()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -908,6 +1054,50 @@
     <span class="md-ellipsis">
       
         Plugin activation checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-embedder-plugin-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: embedder plugin skeleton
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-repository-plugin-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: repository plugin skeleton
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-design-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hook design tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing suggestions
       
     </span>
   </a>
@@ -944,6 +1134,17 @@
     README.md
 </code></pre>
 <p><code>plugin.json</code> is the primary metadata source.</p>
+<h3 id="extended-layout-recommended">Extended layout (recommended)</h3>
+<pre><code>plugins/
+  my_plugin/
+    plugin.json
+    my_plugin.py
+    requirements.txt
+    README.md
+    tests/
+      test_plugin.py
+</code></pre>
+<p>Keep optional dependencies in <code>requirements.txt</code> so the core stays lean.</p>
 <h2 id="pluginjson-fields"><code>plugin.json</code> fields</h2>
 <p>Minimal fields:</p>
 <ul>
@@ -960,6 +1161,15 @@
   &quot;module&quot;: &quot;my_plugin.py&quot;
 }
 </code></pre>
+<h3 id="common-optional-fields">Common optional fields</h3>
+<ul>
+<li><code>description</code>, <code>keywords</code></li>
+<li><code>author_name</code>, <code>author_email</code></li>
+<li><code>license</code></li>
+<li><code>urls</code> (project/home/docs)</li>
+<li><code>min_rag2f_version</code>, <code>max_rag2f_version</code></li>
+</ul>
+<p>Use <code>min_rag2f_version</code> to declare compatibility windows.</p>
 <h2 id="packaged-plugins-and-entry-points">Packaged plugins and entry points</h2>
 <p>If you publish a plugin as a Python package, expose an entry point in the group:</p>
 <pre><code>rag2f.plugins
@@ -969,6 +1179,12 @@
 <pre><code class="language-toml">[project.entry-points.&quot;rag2f.plugins&quot;]
 my-plugin = &quot;my_plugin_pkg:get_plugin_path&quot;
 </code></pre>
+<h3 id="example-get_plugin_path">Example <code>get_plugin_path()</code></h3>
+<pre><code class="language-python">from importlib import resources
+
+def get_plugin_path() -&gt; str:
+    return str(resources.files(&quot;my_plugin_pkg&quot;))
+</code></pre>
 <h2 id="plugin-activation-checklist">Plugin activation checklist</h2>
 <p>In your plugin module:</p>
 <ol>
@@ -977,6 +1193,37 @@ my-plugin = &quot;my_plugin_pkg:get_plugin_path&quot;
 <li>Register hooks for pipeline stages you want to contribute to.</li>
 </ol>
 <p>Keep heavy imports inside functions when possible so optional dependencies do not slow startup.</p>
+<h2 id="example-embedder-plugin-skeleton">Example: embedder plugin skeleton</h2>
+<pre><code class="language-python">from rag2f.core.morpheus.decorators.plugin import plugin
+
+@plugin
+def activate(rag2f):
+    cfg = rag2f.spock.get_plugin_config(&quot;my_embedder&quot;) or {}
+    api_key = cfg.get(&quot;api_key&quot;)
+    if not api_key:
+        raise ValueError(&quot;Missing my_embedder.api_key&quot;)
+    rag2f.optimus_prime.register(&quot;my_embedder&quot;, MyEmbedder(api_key=api_key))
+</code></pre>
+<h2 id="example-repository-plugin-skeleton">Example: repository plugin skeleton</h2>
+<pre><code class="language-python">from rag2f.core.morpheus.decorators.plugin import plugin
+
+@plugin
+def activate(rag2f):
+    repo = MyRepo(...)
+    rag2f.xfiles.register(&quot;primary&quot;, repo, meta={&quot;type&quot;: &quot;vector&quot;, &quot;domain&quot;: &quot;docs&quot;})
+</code></pre>
+<h2 id="hook-design-tips">Hook design tips</h2>
+<ul>
+<li>Keep hooks pure and deterministic where possible.</li>
+<li>Document expected <code>phone</code> keys in the plugin README.</li>
+<li>Use priorities to control ordering across plugins.</li>
+</ul>
+<h2 id="testing-suggestions">Testing suggestions</h2>
+<ul>
+<li>Unit test hooks directly (they are plain functions).</li>
+<li>Validate registry entries and capability declarations.</li>
+<li>Run a smoke test that loads the plugin and calls a hook.</li>
+</ul>
 
 
 

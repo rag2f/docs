@@ -692,6 +692,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Registering embedders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#override-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -721,6 +738,17 @@
     <span class="md-ellipsis">
       
         Normalization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry inspection
       
     </span>
   </a>
@@ -901,6 +929,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Registering embedders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#override-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -930,6 +975,17 @@
     <span class="md-ellipsis">
       
         Normalization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry inspection
       
     </span>
   </a>
@@ -991,6 +1047,12 @@
 rag2f.optimus_prime.register(&quot;my_embedder&quot;, MyEmbedder(...))
 </code></pre>
 <p>OptimusPrime enforces protocol compliance and prevents accidental overrides.</p>
+<h3 id="override-policy">Override policy</h3>
+<ul>
+<li>Registering the <em>same instance</em> under the same key is allowed (idempotent).</li>
+<li>Registering a <em>different instance</em> under an existing key raises <code>ValueError</code>.</li>
+</ul>
+<p>This prevents accidental replacement of an embedder at runtime.</p>
 <h2 id="batching-and-performance">Batching and performance</h2>
 <p>If your backend supports batch embedding, consider exposing a second helper method in your plugin module (not the protocol) and wrap it with a hook.
 This keeps the core contract simple while letting you optimize for throughput.</p>
@@ -999,7 +1061,8 @@ This keeps the core contract simple while letting you optimize for throughput.</
 <ul>
 <li><code>rag2f.embedder_default = "&lt;name&gt;"</code></li>
 </ul>
-<p>If exactly one embedder is registered, rag2f may treat it as default automatically.</p>
+<p>If exactly one embedder is registered, rag2f may treat it as default automatically.
+If multiple embedders are registered and no default is configured, <code>get_default()</code> raises a <code>LookupError</code>.</p>
 <p>Usage:</p>
 <pre><code class="language-python">embedder = rag2f.optimus_prime.get_default()
 vec = embedder.getEmbedding(&quot;hello&quot;)
@@ -1009,6 +1072,11 @@ vec = embedder.getEmbedding(&quot;hello&quot;)
 - L2-normalize vectors,
 - or apply another scaling/standardization.</p>
 <p>Downstream vector search engines often expect normalized embeddings for cosine similarity.</p>
+<h2 id="registry-inspection">Registry inspection</h2>
+<p>You can inspect the registry for debugging:</p>
+<pre><code class="language-python">rag2f.optimus_prime.list_keys()
+rag2f.optimus_prime.has(&quot;my_embedder&quot;)
+</code></pre>
 
 
 

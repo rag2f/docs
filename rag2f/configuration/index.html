@@ -552,6 +552,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Loading config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#precedence-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Precedence rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -631,6 +648,17 @@
     <span class="md-ellipsis">
       
         Troubleshooting quick checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common pitfalls
       
     </span>
   </a>
@@ -951,6 +979,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Loading config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#precedence-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Precedence rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1036,6 +1081,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1098,6 +1154,15 @@
 <p>rag2f loads configuration <strong>before</strong> discovering plugins:</p>
 <pre><code class="language-python">rag2f = await RAG2F.create(config_path=&quot;config.json&quot;)
 </code></pre>
+<h3 id="precedence-rules">Precedence rules</h3>
+<p>Spock merges configuration in a clear order (highest to lowest):</p>
+<ol>
+<li>Environment variables</li>
+<li>JSON config file</li>
+<li>Provided config dict (if any)</li>
+<li>Defaults</li>
+</ol>
+<p>This makes env a reliable override mechanism for secrets and per-env tweaks.</p>
 <h2 id="environment-variables">Environment variables</h2>
 <p>Environment variables override JSON values. Spock parses values as:</p>
 <ul>
@@ -1160,6 +1225,12 @@ api_key = plugin_cfg.get(&quot;api_key&quot;)
 <ul>
 <li>Confirm Spock is loaded: <code>rag2f.spock.is_loaded</code></li>
 <li>Verify config file path: <code>rag2f.spock.config_path</code></li>
+</ul>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul>
+<li><strong>Wrong section casing</strong>: env keys are normalized to lowercase; match IDs exactly.</li>
+<li><strong>Missing plugin namespace</strong>: plugin config belongs under <code>plugins.&lt;plugin_id&gt;</code>.</li>
+<li><strong>Accidental JSON strings</strong>: wrap JSON objects/arrays in env carefully to avoid parse errors.</li>
 </ul>
 
 

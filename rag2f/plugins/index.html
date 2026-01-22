@@ -623,6 +623,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#plugin-id-and-config-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin ID and config namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#minimal-pluginjson" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -657,6 +668,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Plugin-scoped dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -704,6 +732,17 @@
     <span class="md-ellipsis">
       
         Lifecycle overrides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-point-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry point troubleshooting
       
     </span>
   </a>
@@ -1050,6 +1089,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#plugin-id-and-config-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin ID and config namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#minimal-pluginjson" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1084,6 +1134,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Plugin-scoped dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1131,6 +1198,17 @@
     <span class="md-ellipsis">
       
         Lifecycle overrides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-point-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entry point troubleshooting
       
     </span>
   </a>
@@ -1214,6 +1292,14 @@ rag2f-azure-openai-embedder = &quot;rag2f_azure_openai_embedder:get_plugin_path&
 <li><code>pyproject.toml</code> can augment fields like name, description, and URLs.</li>
 <li>If no name is provided, rag2f derives a humanized name from the plugin id.</li>
 </ul>
+<h3 id="plugin-id-and-config-namespace">Plugin ID and config namespace</h3>
+<p>The plugin <code>id</code> is the stable identifier used for:</p>
+<ul>
+<li>config namespace: <code>plugins.&lt;plugin_id&gt;</code></li>
+<li>hook ownership and logging</li>
+<li>avoiding collisions between plugins</li>
+</ul>
+<p>Use a short, lowercase id (e.g. <code>azure_openai_embedder</code>).</p>
 <h3 id="minimal-pluginjson">Minimal <code>plugin.json</code></h3>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;hello_plugin&quot;,
@@ -1239,6 +1325,12 @@ rag2f-azure-openai-embedder = &quot;rag2f_azure_openai_embedder:get_plugin_path&
 <p>If your plugin is packaged, the entry point should return the folder that contains <code>plugin.json</code>.</p>
 <h2 id="plugin-scoped-dependencies">Plugin-scoped dependencies</h2>
 <p>Plugins can ship their own dependencies via a local <code>requirements.txt</code>. Morpheus installs those requirements on activation so the core stays lean and plugins stay isolated.</p>
+<h3 id="dependency-guidelines">Dependency guidelines</h3>
+<ul>
+<li>Keep heavy SDKs in plugins, not core.</li>
+<li>Avoid importing optional dependencies at module import time.</li>
+<li>Validate config before initializing expensive clients.</li>
+</ul>
 <h2 id="writing-hooks">Writing hooks</h2>
 <p>A hook is a Python function decorated with <code>@hook</code>.</p>
 <pre><code class="language-python">from rag2f.core.morpheus.decorators.hook import hook
@@ -1263,6 +1355,9 @@ def my_search_hook(phone, *, rag2f):
 <p>Keep plugin modules focused; avoid importing heavy dependencies at import time if they are optional.</p>
 <h2 id="lifecycle-overrides">Lifecycle overrides</h2>
 <p>Use the <code>@plugin</code> decorator for lifecycle overrides (activation/deactivation) when you need to run setup or cleanup logic tied to the plugin itself.</p>
+<h2 id="entry-point-troubleshooting">Entry point troubleshooting</h2>
+<p>If an entry point returns the wrong path (e.g. <code>site-packages/</code>), the plugin will not load.
+Ensure your <code>get_plugin_path()</code> returns the folder containing <code>plugin.json</code>.</p>
 <h2 id="refreshing-plugins">Refreshing plugins</h2>
 <p>Morpheus supports cache refresh and will notify other components via callbacks when a refresh happens.
 This is useful in dev workflows when you are iterating on local plugins.</p>
