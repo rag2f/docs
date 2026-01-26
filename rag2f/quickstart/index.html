@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://rag2f.github.io/docs/rag2f/quickstart/">
       
       
-        <link rel="prev" href="../concepts/">
+        <link rel="prev" href="../result-pattern/">
       
       
         <link rel="next" href="../installation/">
@@ -397,6 +397,34 @@
     
   
     Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../result-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result pattern
   
 
     
@@ -1120,7 +1148,10 @@ phone = rag2f.morpheus.execute_hook(&quot;generate&quot;, phone, rag2f=rag2f)
 <h2 id="6-use-repositories-xfiles">6) Use repositories (XFiles)</h2>
 <p>Once a repository plugin is registered, you can fetch it by name/id and call protocol methods based on capabilities.</p>
 <p>Conceptually:</p>
-<pre><code class="language-python">repo = rag2f.xfiles.get(&quot;primary&quot;)
+<pre><code class="language-python">repo_result = rag2f.xfiles.execute_get(&quot;primary&quot;)
+if not repo_result.is_ok() or not repo_result.repository:
+    raise LookupError(&quot;Repository 'primary' not found&quot;)
+repo = repo_result.repository
 
 # Minimal CRUD
 await repo.insert({&quot;id&quot;: &quot;1&quot;, &quot;text&quot;: &quot;hello&quot;})
@@ -1147,7 +1178,13 @@ class MemoryRepo(BaseRepository):
         self._rows.pop(id, None)
 
 def activate(rag2f):
-    rag2f.xfiles.register(&quot;memory&quot;, MemoryRepo(), meta={&quot;type&quot;: &quot;memory&quot;, &quot;domain&quot;: &quot;demo&quot;})
+    result = rag2f.xfiles.execute_register(
+        &quot;memory&quot;,
+        MemoryRepo(),
+        meta={&quot;type&quot;: &quot;memory&quot;, &quot;domain&quot;: &quot;demo&quot;},
+    )
+    if result.is_error():
+        raise ValueError(result.detail.message)
 </code></pre>
 <h2 id="8-add-a-track-id-for-idempotency">8) Add a track ID for idempotency</h2>
 <p>If your input pipeline needs idempotency or tracing, include a track ID in your phone payload
