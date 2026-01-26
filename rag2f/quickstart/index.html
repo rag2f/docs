@@ -571,6 +571,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-walkthrough-tiny-in-memory-notes-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example walkthrough: tiny in-memory "notes RAG"
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example walkthrough: tiny in-memory &#34;notes RAG&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-local-demo-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Create a local demo plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-runnable-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Create a runnable script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#7-add-a-simple-repository-plugin-sketch" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1020,6 +1070,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-walkthrough-tiny-in-memory-notes-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example walkthrough: tiny in-memory "notes RAG"
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example walkthrough: tiny in-memory &#34;notes RAG&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-local-demo-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Create a local demo plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-runnable-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Create a runnable script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#7-add-a-simple-repository-plugin-sketch" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1124,7 +1224,7 @@ from rag2f.core.rag2f import RAG2F
 
 async def main():
     rag2f = await RAG2F.create(
-        plugins_folder=&quot;plugins&quot;,     # optional; defaults to ./plugins
+        plugins_folder=&quot;plugins/&quot;,    # optional; defaults to ./plugins
         config_path=&quot;config.json&quot;,    # optional
     )
 
@@ -1160,6 +1260,156 @@ await repo.insert({&quot;id&quot;: &quot;1&quot;, &quot;text&quot;: &quot;hello&
 rows = await repo.find({&quot;where&quot;: {&quot;field&quot;: &quot;text&quot;, &quot;op&quot;: &quot;contains&quot;, &quot;value&quot;: &quot;hello&quot;}})
 </code></pre>
 <p>See <a href="../repositories/">Repositories (XFiles)</a> for the real contracts and <code>QuerySpec</code> shapes.</p>
+<h2 id="example-walkthrough-tiny-in-memory-notes-rag">Example walkthrough: tiny in-memory "notes RAG"</h2>
+<p>This walkthrough is fully local (no external APIs) and touches the main pieces: plugins, embedders, repositories, and a hook-based retrieval step. You can run it end-to-end to verify the repo works on your machine.</p>
+<h3 id="1-create-a-local-demo-plugin">1) Create a local demo plugin</h3>
+<pre><code>plugins/
+  tiny_demo/
+    plugin.json
+    tiny_demo.py
+</code></pre>
+<p><code>plugins/tiny_demo/plugin.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;tiny_demo&quot;,
+  &quot;name&quot;: &quot;Tiny Demo Plugin&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;module&quot;: &quot;tiny_demo.py&quot;
+}
+</code></pre>
+<p><code>plugins/tiny_demo/tiny_demo.py</code>:</p>
+<pre><code class="language-python">from rag2f.core.morpheus.decorators import hook, plugin
+from rag2f.core.xfiles import BaseRepository, minimal_crud_capabilities
+
+
+class InMemoryRepo(BaseRepository):
+    def __init__(self, name=&quot;tiny_repo&quot;):
+        self._name = name
+        self._rows = {}
+
+    @property
+    def name(self) -&gt; str:
+        return self._name
+
+    def capabilities(self):
+        return minimal_crud_capabilities()
+
+    def get(self, id, select=None):
+        return self._rows[id]
+
+    def insert(self, id, item):
+        self._rows[id] = item
+
+    def update(self, id, patch):
+        self._rows[id] = {**self._rows[id], **patch}
+
+    def delete(self, id):
+        self._rows.pop(id, None)
+
+    def all(self):
+        return list(self._rows.values())
+
+    def _get_native_handle(self, kind: str):
+        raise NotImplementedError(&quot;Native handles not supported in this demo&quot;)
+
+
+class TinyEmbedder:
+    &quot;&quot;&quot;Toy embedder for the demo: keyword presence vector.&quot;&quot;&quot;
+
+    _keys = (&quot;password&quot;, &quot;refund&quot;, &quot;hours&quot;)
+
+    @property
+    def size(self) -&gt; int:
+        return len(self._keys)
+
+    def getEmbedding(self, text: str, *, normalize: bool = False):
+        text = text.lower()
+        vec = [1.0 if key in text else 0.0 for key in self._keys]
+        if normalize:
+            norm = (sum(v * v for v in vec) ** 0.5) or 1.0
+            vec = [v / norm for v in vec]
+        return vec
+
+
+@plugin
+def activated(plugin, rag2f):
+    &quot;&quot;&quot;Lifecycle hook: register the demo embedder + repo.&quot;&quot;&quot;
+    if not rag2f.optimus_prime.has(&quot;tiny_embedder&quot;):
+        rag2f.optimus_prime.register(&quot;tiny_embedder&quot;, TinyEmbedder())
+
+    if not rag2f.xfiles.has(&quot;tiny_repo&quot;):
+        result = rag2f.xfiles.execute_register(
+            &quot;tiny_repo&quot;,
+            InMemoryRepo(),
+            meta={&quot;type&quot;: &quot;memory&quot;, &quot;domain&quot;: &quot;demo&quot;},
+        )
+        if result.is_error():
+            raise RuntimeError(result.detail.message)
+
+
+@hook(&quot;retrieve&quot;, priority=10)
+def retrieve(phone, *, rag2f):
+    &quot;&quot;&quot;Naive retrieval: cosine over keyword vectors.&quot;&quot;&quot;
+    repo_result = rag2f.xfiles.execute_get(&quot;tiny_repo&quot;)
+    repo = repo_result.repository if repo_result.is_ok() else None
+    embedder = rag2f.optimus_prime.get(&quot;tiny_embedder&quot;)
+    if repo is None or embedder is None:
+        return phone
+
+    query_vec = embedder.getEmbedding(phone[&quot;query&quot;], normalize=True)
+    results = []
+    for row in repo.all():
+        score = sum(a * b for a, b in zip(query_vec, row[&quot;embedding&quot;], strict=False))
+        results.append({&quot;id&quot;: row[&quot;id&quot;], &quot;text&quot;: row[&quot;text&quot;], &quot;score&quot;: score})
+
+    results.sort(key=lambda r: r[&quot;score&quot;], reverse=True)
+    phone[&quot;results&quot;] = results[: phone.get(&quot;top_k&quot;, 3)]
+    return phone
+</code></pre>
+<p>Note: the lifecycle function must be named <code>activated</code> to run on plugin load.</p>
+<h3 id="2-create-a-runnable-script">2) Create a runnable script</h3>
+<p><code>examples/tiny_demo.py</code>:</p>
+<pre><code class="language-python">import asyncio
+from rag2f.core.rag2f import RAG2F
+
+
+async def main():
+    rag2f = await RAG2F.create(plugins_folder=&quot;plugins/&quot;)
+
+    repo_result = rag2f.xfiles.execute_get(&quot;tiny_repo&quot;)
+    repo = repo_result.repository if repo_result.is_ok() else None
+    embedder = rag2f.optimus_prime.get(&quot;tiny_embedder&quot;)
+    if repo is None or embedder is None:
+        raise RuntimeError(&quot;Demo plugin did not load&quot;)
+
+    docs = {
+        &quot;pwd_reset&quot;: &quot;Reset your password in the account settings.&quot;,
+        &quot;refund_policy&quot;: &quot;Refunds are available within 30 days.&quot;,
+        &quot;support_hours&quot;: &quot;Support hours are Mon-Fri 9-5.&quot;,
+    }
+
+    for doc_id, text in docs.items():
+        repo.insert(
+            doc_id,
+            {
+                &quot;id&quot;: doc_id,
+                &quot;text&quot;: text,
+                &quot;embedding&quot;: embedder.getEmbedding(text, normalize=True),
+            },
+        )
+
+    phone = {&quot;query&quot;: &quot;I forgot my password&quot;, &quot;top_k&quot;: 2}
+    phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f)
+
+    for hit in phone[&quot;results&quot;]:
+        print(f&quot;{hit['id']} (score={hit['score']:.2f}): {hit['text']}&quot;)
+
+
+asyncio.run(main())
+</code></pre>
+<h3 id="3-run-it">3) Run it</h3>
+<pre><code class="language-bash">python examples/tiny_demo.py
+</code></pre>
+<p>Expected: <code>pwd_reset</code> should be the top hit (score ~1.00).</p>
 <h2 id="7-add-a-simple-repository-plugin-sketch">7) Add a simple repository plugin (sketch)</h2>
 <p>Repository plugins register themselves in activation or via hooks:</p>
 <pre><code class="language-python">from rag2f.core.xfiles import BaseRepository
