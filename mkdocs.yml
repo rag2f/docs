@@ -30,6 +30,7 @@ nav:
 - RAG2F:
   - Overview: rag2f/index.md
   - Concepts: rag2f/concepts.md
+  - Result pattern: rag2f/result-pattern.md
   - Quickstart: rag2f/quickstart.md
   - Installation: rag2f/installation.md
   - Configuration: rag2f/configuration.md

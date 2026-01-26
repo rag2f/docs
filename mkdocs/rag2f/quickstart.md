@@ -108,7 +108,10 @@ Once a repository plugin is registered, you can fetch it by name/id and call pro
 Conceptually:
 
 ```python
-repo = rag2f.xfiles.get("primary")
+repo_result = rag2f.xfiles.execute_get("primary")
+if not repo_result.is_ok() or not repo_result.repository:
+    raise LookupError("Repository 'primary' not found")
+repo = repo_result.repository
 
 # Minimal CRUD
 await repo.insert({"id": "1", "text": "hello"})
@@ -140,7 +143,13 @@ class MemoryRepo(BaseRepository):
         self._rows.pop(id, None)
 
 def activate(rag2f):
-    rag2f.xfiles.register("memory", MemoryRepo(), meta={"type": "memory", "domain": "demo"})
+    result = rag2f.xfiles.execute_register(
+        "memory",
+        MemoryRepo(),
+        meta={"type": "memory", "domain": "demo"},
+    )
+    if result.is_error():
+        raise ValueError(result.detail.message)
 ```
 
 ## 8) Add a track ID for idempotency

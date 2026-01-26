@@ -70,3 +70,9 @@ so you can access vendor-specific power without distorting the core contracts.
 
 A **pipeline** is the ordered composition of hooks and application logic that turns a user input into a response.
 rag2f does not define a default pipeline; you assemble one explicitly.
+
+## Result pattern
+
+The **Result pattern** returns structured outcomes for expected states
+(empty input, missing repo, no results) instead of raising exceptions.
+See [Result pattern](result-pattern.md) for details and examples.

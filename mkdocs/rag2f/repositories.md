@@ -39,9 +39,11 @@ This makes it harder to:
 Before calling advanced methods, check capabilities or guard in your app:
 
 ```python
-repo = xfiles.get("users_db")
-if repo.capabilities.get("vector_search"):
-    repo.vector_search(...)
+result = xfiles.execute_get("users_db")
+if result.is_ok() and result.repository:
+    repo = result.repository
+    if repo.capabilities.get("vector_search"):
+        repo.vector_search(...)
 ```
 
 Example capability declaration (conceptual):
@@ -98,7 +100,9 @@ This “escape hatch” is deliberate:
 
 ## Registering repositories
 
-Repository registration is typically performed by plugins via XFiles hooks or explicit registration calls (depending on your plugin design).
+Repository registration is typically performed by plugins via XFiles hooks or explicit
+registration calls (depending on your plugin design). Registration uses the Result
+pattern, so check the returned `RegisterResult` instead of catching exceptions.
 
 See [Architecture](architecture.md) for how XFiles sits in the overall system.
 
@@ -107,8 +111,21 @@ See [Architecture](architecture.md) for how XFiles sits in the overall system.
 Use metadata to help your app select the right backend:
 
 ```python
-xfiles.register("users_db", users_repo, meta={"type": "postgresql", "domain": "users"})
-xfiles.register("papers", papers_repo, meta={"type": "vector", "domain": "research"})
+users_result = xfiles.execute_register(
+    "users_db",
+    users_repo,
+    meta={"type": "postgresql", "domain": "users"},
+)
+if users_result.is_error():
+    raise ValueError(users_result.detail.message)
+
+papers_result = xfiles.execute_register(
+    "papers",
+    papers_repo,
+    meta={"type": "vector", "domain": "research"},
+)
+if papers_result.is_error():
+    raise ValueError(papers_result.detail.message)
 ```
 
 Metadata is not enforced by the core, but it provides a stable filter surface for your application.

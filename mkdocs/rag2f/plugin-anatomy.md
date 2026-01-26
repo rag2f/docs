@@ -117,7 +117,13 @@ from rag2f.core.morpheus.decorators.plugin import plugin
 @plugin
 def activate(rag2f):
     repo = MyRepo(...)
-    rag2f.xfiles.register("primary", repo, meta={"type": "vector", "domain": "docs"})
+    result = rag2f.xfiles.execute_register(
+        "primary",
+        repo,
+        meta={"type": "vector", "domain": "docs"},
+    )
+    if result.is_error():
+        raise ValueError(result.detail.message)
 ```
 
 ## Hook design tips
