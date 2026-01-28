@@ -68,6 +68,23 @@ def add_tag(phone, *, rag2f):
 
 ## 4) Start an instance and discover plugins
 
+```mermaid
+flowchart TD
+    App[Your app]
+    Create[RAG2F.create]
+    Plugin[Discover plugins]
+    Reg[Registries ready]
+    Hook[Execute hooks]
+    
+    App --> Create
+    Create --> Plugin
+    Plugin --> Reg
+    Reg --> Hook
+    Hook --> App
+```
+
+> **Design Note:** The create → discover → register → execute cycle keeps clean separation between setup (async) and runtime (sync), allowing early validation and fail-fast if configuration or plugins have issues.
+
 ```python
 import asyncio
 from rag2f.core.rag2f import RAG2F

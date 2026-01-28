@@ -13,6 +13,24 @@ Morpheus is the plugin manager. It discovers plugins, loads them, and executes h
 
 ## Discovery model
 
+```mermaid
+flowchart TD
+    Start[Morpheus.discover_plugins]
+    EP[Scan entry points]
+    FS[Scan filesystem ./plugins]
+    Merge[Merge plugins]
+    
+    Start --> EP
+    EP --> FS
+    FS --> Merge
+    
+    Merge --> Load[Load each plugin]
+    Load --> Validate[Validate manifest]
+    Validate --> Register[Register hooks]
+```
+
+> **Design Note:** The entry points → filesystem order ensures that installed plugins (production) win over local versions (dev), avoiding ambiguity in deployments. This makes discovery deterministic and predictable.
+
 rag2f discovers plugins in two places (in this precedence order):
 
 1. **Python entry points** (installed packages)

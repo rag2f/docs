@@ -2,6 +2,22 @@
 
 This page defines the core terms used throughout the rag2f docs.
 
+```mermaid
+flowchart LR
+    Create[RAG2F.create]
+    Spock[Load config]
+    Morpheus[Discover plugins]
+    Hooks[Register hooks]
+    Ready[Instance ready]
+    
+    Create --> Spock
+    Spock --> Morpheus
+    Morpheus --> Hooks
+    Hooks --> Ready
+```
+
+> **Design Note:** The sequence is linear and deterministic: config → discovery → registration. This allows plugins to access config during `activated()` and ensures all resources are ready before use.
+
 ## Kernel
 
 The **kernel** is the small, stable core of rag2f. It only contains:

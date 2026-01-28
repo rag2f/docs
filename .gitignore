@@ -1,1 +1,10 @@
 rag2f-main
+.venv/
+__pycache__/
+code/
+site/
+cheshire-cat-ai/
+
+# OS/editor
+.DS_Store
+

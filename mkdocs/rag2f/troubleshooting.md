@@ -1,64 +1,75 @@
 # Troubleshooting
 
-Common issues and how to resolve them.
+```mermaid
+flowchart TD
+    Problem[Problem]
+    Problem --> Plugin{Plugin<br/>issues?}
+    Problem --> Hook{Hook<br/>issues?}
+    Problem --> Config{Config<br/>issues?}
+    
+    Plugin --> P1[Check plugins_folder]
+    Plugin --> P2[Verify plugin.json]
+    
+    Hook --> H1[Check @hook decorator]
+    Hook --> H2[Verify hook name]
+    
+    Config --> C1[Check config_path]
+    Config --> C2[Verify env prefix]
+```
 
-## Plugin not discovered
+## Debug Checklist
 
-- Verify the folder is under `plugins/` or you passed `plugins_folder` to `RAG2F.create(...)`.
-- Ensure `plugin.json` exists and points to a valid module file.
-- If using entry points, confirm the entry point returns the plugin folder, not `site-packages`.
+| Category | Check | Fix |
+|----------|-------|-----|
+| **Plugins** | `plugins_folder` exists | Pass correct path to `RAG2F.create()` |
+| | `plugin.json` present | Create with valid `id` and `module` |
+| | Entry point returns right path | Fix `get_plugin_path()` in plugin |
+| **Hooks** | Function has `@hook` | Add decorator |
+| | Hook name exact match | Check spelling and case |
+| | Plugin activated | Check startup logs |
+| **Config** | File path correct | Verify `config_path` |
+| | Env prefix correct | Use `RAG2F__RAG2F__` or `RAG2F__PLUGINS__` |
+| | Plugin namespace | Use `plugins.<plugin_id>.*` |
+| **Embedders** | Default configured | Set `rag2f.embedder_default` |
+| | Multiple registered | Remove extras or set default |
+| **Repos** | Capability declared | Implement required methods |
+| | Registry lookup | Check key casing, call `list_keys()` |
 
-## Hooks not running
+## Common Errors
 
-- Confirm the hook name matches exactly (case-sensitive).
-- Ensure the hook function is decorated with `@hook`.
-- Verify the plugin was activated (check logs at startup).
+=== "Plugin Issues"
+    | Error | Cause | Solution |
+    |-------|-------|----------|
+    | Plugin not discovered | Missing folder or `plugin.json` | Verify path and metadata |
+    | Entry point returns site-packages | Broken `get_plugin_path()` | Return plugin's own directory |
+    | Duplicate hooks | Same plugin loaded twice | Uninstall duplicate or change id |
 
-## “No default embedder”
+=== "Hook Issues"
+    | Error | Cause | Solution |
+    |-------|-------|----------|
+    | Hook not running | Missing `@hook` decorator | Add decorator |
+    | Wrong hook called | Name mismatch | Check exact hook name |
+    | Runtime error in hook | Unhandled exception | Add try/except, check logs |
 
-- Register at least one embedder via a plugin.
-- Set `rag2f.embedder_default` in config.
-- Avoid registering embedders with the same name.
+=== "Config Issues"
+    | Error | Cause | Solution |
+    |-------|-------|----------|
+    | Value not found | Wrong path | Check `plugins.<id>` matches plugin id |
+    | Env not applying | Wrong prefix | Use `RAG2F__SECTION__KEY` format |
+    | No default embedder | Missing config | Set `rag2f.embedder_default` |
 
-## “Multiple embedders but no default configured”
+## Quick Diagnostics
 
-- Set `rag2f.embedder_default` to one of the registered keys.
-- If only one embedder should exist, remove the extra plugin.
+```python
+# Check plugin count
+print(f"Plugins: {len(rag2f.morpheus.plugins)}")
 
-## Capability mismatch errors
+# List registered embedders
+print(f"Embedders: {rag2f.optimus_prime.list_keys()}")
 
-- Ensure your repository advertises only the capabilities it implements.
-- Implement the required methods before declaring a capability.
+# Check config loaded
+print(f"Config loaded: {rag2f.spock.is_loaded}")
 
-## Config values not found
-
-- Check that `config_path` points to the correct file.
-- Validate `plugins.<plugin_id>` matches the `id` in `plugin.json`.
-- Confirm environment variable overrides are set in the runtime environment.
-
-## Environment overrides not applying
-
-- Check prefix and section: `RAG2F__RAG2F__...` or `RAG2F__PLUGINS__...`
-- Ensure values parse correctly (JSON vs string).
-- Remember env overrides config file values.
-
-## Plugin override confusion
-
-Entry point plugins take precedence over local plugins with the same id.
-If you are iterating locally, uninstall the packaged plugin or change the plugin id.
-
-## Duplicate hooks running twice
-
-- Confirm you do not have both an entry-point and filesystem plugin with the same id.
-- Ensure your plugin module is not imported twice in different paths.
-
-## Registry lookup failures
-
-- Check the registry key casing; keys are treated as strings.
-- Call `list_keys()` on OptimusPrime/XFiles to verify registration.
-
-## Runtime errors inside hooks
-
-- Reduce hook scope and move heavy logic into helpers.
-- Add logging inside hooks for payload inspection.
-- Use try/except with meaningful error messages for easier debugging.
+# List repositories
+print(f"Repos: {rag2f.xfiles.list_keys()}")
+```
