@@ -4,14 +4,40 @@ rag2f is a kernel: it gives you the smallest stable set of components needed to 
 
 Everything volatile lives outside the core — in plugins or your application.
 
-> "No disassemble!"
-> - Johnny 5, Short Circuit
+## System Overview
 
+```mermaid
+flowchart TB
+    subgraph APP["Your Application"]
+        A[App Code]
+    end
+    
+    subgraph RAG2F["RAG2F Kernel"]
+        S[Spock<br/>config]
+        M[Morpheus<br/>plugins/hooks]
+        J[Johnny5<br/>input]
+        I[IndianaJones<br/>retrieval]
+        OP[OptimusPrime<br/>embedders]
+        XF[XFiles<br/>repositories]
+        
+        S --> M
+        M --> J
+        M --> I
+        M --> OP
+        M --> XF
+    end
+    
+    subgraph PLUGINS["Plugins"]
+        P1[Embedder Plugin]
+        P2[Repository Plugin]
+        P3[Custom Hooks]
+    end
+    
+    A --> RAG2F
+    PLUGINS --> M
 ```
-  .-.
- [o_o]  Johnny5
- /| |\  input
-```
+
+> **Design Note:** The kernel stays small and stable. All volatile code (embedders, repositories, custom logic) lives in plugins, not core.
 
 ## High-level diagram
 
@@ -71,7 +97,26 @@ Instead, you build pipelines by composing:
 
 ## Startup sequence
 
-A typical startup flow looks like this:
+```mermaid
+sequenceDiagram
+    participant App
+    participant RAG2F
+    participant Spock
+    participant Morpheus
+    participant Plugin
+    
+    App->>RAG2F: await RAG2F.create()
+    RAG2F->>Spock: load config (JSON + env)
+    RAG2F->>Morpheus: find_plugins()
+    Morpheus->>Plugin: scan entry points
+    Morpheus->>Plugin: scan filesystem
+    Plugin->>Morpheus: @plugin activated()
+    Plugin->>Morpheus: register @hook functions
+    Morpheus->>RAG2F: ready
+    RAG2F->>App: instance
+```
+
+A typical startup flow:
 
 1. **Spock loads configuration** from JSON + env (env wins).
 2. **Morpheus discovers plugins** (entry points, then filesystem).
@@ -79,16 +124,32 @@ A typical startup flow looks like this:
 4. **Registries validate** implementations and enforce contracts.
 5. Your app composes a pipeline with hooks and registry lookups.
 
-This order keeps configuration and discovery deterministic across environments.
-
 ## Data flow (conceptual)
 
-```text
-Input -> Johnny5 -> hooks (preprocess/retrieve/rerank) -> embedder/repo -> response
+```mermaid
+flowchart LR
+    Input[User Input] --> J5[Johnny5]
+    J5 --> |hooks| Embed[OptimusPrime]
+    Embed --> Store[XFiles]
+    
+    Query[Query] --> IJ[IndianaJones]
+    IJ --> |retrieve hook| Search[Vector Search]
+    Search --> |search hook| Response[Response]
 ```
 
 Johnny5 accepts input, then Morpheus runs the hook pipeline. The pipeline uses
 registries to fetch embedders or repositories as needed.
+
+## Core vs Plugins
+
+| Core (stable) | Plugins (volatile) |
+|---------------|-------------------|
+| Spock (config) | Embedders (Azure, OpenAI, local) |
+| Morpheus (plugins/hooks) | Repositories (Qdrant, Postgres, etc.) |
+| OptimusPrime (registry) | Custom pipelines |
+| XFiles (registry) | App-specific hooks |
+| Johnny5 (input) | |
+| IndianaJones (retrieval) | |
 
 ## Extension points
 

@@ -23,6 +23,10 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: pip install -r requirements-docs.txt
+      - name: Build site
+        run: mkdocs build
+      - name: Copy LLM txt files to site root
+        run: cp llm/*.txt site/
       - name: Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

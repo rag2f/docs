@@ -1,75 +1,73 @@
 # Result Pattern
 
-RAG2F uses a typed Result pattern for common, expected outcomes. Instead of
-raising exceptions for cases like empty input or missing repositories, methods
-return a structured Result object with status and details. Exceptions are
-reserved for system errors (backend crashes, timeouts, invariant violations).
+rag2f uses a typed Result pattern for expected outcomes. Exceptions are reserved for system errors only.
 
-## Core types
+## Expected vs Exceptions
 
-- `BaseResult`: shared fields (`status`, `detail`) and helpers (`is_ok()`, `is_error()`).
-- `StatusDetail`: structured status info (`code`, `message`, `context`).
-- `StatusCode`: centralized status code constants.
+```mermaid
+flowchart TD
+    Op[Operation]
+    Op --> Expected{Expected<br/>outcome?}
+    Expected -->|Yes| Result[Return Result]
+    Expected -->|No| Exception[Raise Exception]
+    
+    Result --> OK[is_ok: use data]
+    Result --> Err[is_error: check detail]
+    
+    Exception --> Catch[try/except]
+```
 
-## Module-specific results
+| Expected States | System Errors |
+|-----------------|---------------|
+| Empty input | Backend crash |
+| Duplicate | Timeout |
+| Not found | Connection failure |
+| No results | Invariant violation |
 
-### Johnny5 (input)
+## Status Codes
 
-- `execute_handle_text_foreground(text) -> InsertResult`
-- Expected states return `InsertResult` with `status="error"` and `detail`:
-  - `StatusCode.EMPTY`: empty input
-  - `StatusCode.DUPLICATE`: duplicate input
-  - `StatusCode.NOT_HANDLED`: no hook handled the input
+=== "Common"
+    | Code | Meaning |
+    |------|---------|
+    | `EMPTY` | Input/query empty |
+    | `INVALID` | Invalid format |
+    | `NOT_FOUND` | Resource missing |
+
+=== "Johnny5"
+    | Code | Meaning |
+    |------|---------|
+    | `DUPLICATE` | Already processed |
+    | `NOT_HANDLED` | No hook handled |
+
+=== "IndianaJones"
+    | Code | Meaning |
+    |------|---------|
+    | `NO_RESULTS` | Query returned nothing |
+    | `DEGRADED` | Partial failure |
+
+=== "XFiles"
+    | Code | Meaning |
+    |------|---------|
+    | `ALREADY_EXISTS` | Key collision |
+    | `CACHE_MISS` | Not in cache |
+
+## Usage
 
 ```python
+# Johnny5
 result = rag2f.johnny5.execute_handle_text_foreground(text)
 if result.is_ok():
-    use_track_id(result.track_id)
+    print(f"Stored: {result.track_id}")
 else:
-    logger.info("Input rejected: %s", result.detail.code)
-```
+    print(f"Rejected: {result.detail.code}")  # empty, duplicate, not_handled
 
-### IndianaJones (retrieve/search)
-
-- `execute_retrieve(query, k=10) -> RetrieveResult`
-- `execute_search(query, k=10, return_mode=...) -> SearchResult`
-- Expected states return `status="error"` with `detail`:
-  - `StatusCode.EMPTY`: empty query
-
-```python
-result = rag2f.indiana_jones.execute_search("docs", k=5)
+# IndianaJones  
+result = rag2f.indiana_jones.execute_search(query)
 if result.is_ok():
     print(result.response)
-else:
-    handle_empty_query()
+
+# XFiles
+result = rag2f.xfiles.execute_get("vectors")
+if result.is_ok() and result.repository:
+    repo = result.repository
 ```
-
-### XFiles (repositories)
-
-- `execute_register(id, repo, meta=None) -> RegisterResult`
-- `execute_get(id) -> GetResult`
-- `execute_search(...) -> SearchRepoResult`
-- `CacheResult` is used for explicit cache lookups.
-
-```python
-reg = rag2f.xfiles.execute_register("primary", repo, meta={"type": "vector"})
-if reg.is_ok() and reg.created:
-    logger.info("Repository registered: %s", reg.id)
-elif reg.is_error():
-    raise ValueError(reg.detail.message)
-
-get_result = rag2f.xfiles.execute_get("primary")
-if get_result.is_ok() and get_result.repository:
-    repo = get_result.repository
-else:
-    handle_missing_repo(get_result.detail)
-```
-
-## Status codes (high-level)
-
-- Common: `EMPTY`, `INVALID`, `NOT_FOUND`, `PARTIAL`
-- Johnny5: `DUPLICATE`, `DUPLICATE_MERGED`, `NOT_HANDLED`
-- IndianaJones: `NO_RESULTS`, `DEGRADED`
-- XFiles: `CACHE_MISS`, `ALREADY_EXISTS`, `INVALID_SPEC`, `PARTIAL_RESULTS`
-
-Use `StatusCode` constants instead of string literals to keep checks consistent.

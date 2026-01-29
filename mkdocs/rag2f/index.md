@@ -2,7 +2,24 @@
 
 **rag2f** (short for "rag to the future") is a *plugin-first, entry-point–driven kernel* for composing Retrieval-Augmented Generation (RAG) systems **without forcing a single pipeline shape**.
 
-It gives you a small, stable core (the “kernel”) and pushes volatile integrations (vector DBs, embedders, stores, orchestration) into plugins so you can swap infrastructure without rewriting your whole app.
+```mermaid
+flowchart LR
+    subgraph CORE["Kernel (stable)"]
+        S[Spock] --> M[Morpheus]
+        M --> OP[OptimusPrime]
+        M --> XF[XFiles]
+    end
+    
+    subgraph PLUGINS["Plugins (volatile)"]
+        E[Embedders]
+        R[Repositories]
+        H[Hooks]
+    end
+    
+    PLUGINS --> M
+    
+    APP[Your App] --> CORE
+```
 
 > rag2f is **not** a turnkey RAG pipeline.  
 > Pipelines live in plugins or in *your* application.
@@ -89,15 +106,14 @@ This keeps the kernel stable while allowing your stack to evolve.
 
 ## Quick links
 
-- [Quickstart](quickstart.md)
-- [Installation](installation.md)
-- [Configuration (Spock)](configuration.md)
-- [Plugins & hooks (Morpheus)](plugins.md)
-- [Hooks reference](hooks-reference.md)
-- [Embedders (OptimusPrime)](embedders.md)
-- [Repositories (XFiles)](repositories.md)
-- [Architecture](architecture.md)
-- [Troubleshooting](troubleshooting.md)
+| Getting Started | Core Concepts | Reference |
+|-----------------|---------------|-----------|
+| [Quickstart](quickstart.md) | [Concepts](concepts.md) | [Hooks Reference](hooks-reference.md) |
+| [Installation](installation.md) | [Architecture](architecture.md) | [Result Pattern](result-pattern.md) |
+| [Configuration](configuration.md) | [Plugins](plugins.md) | [Troubleshooting](troubleshooting.md) |
+| | [Hooks](hooks.md) | |
+| | [Embedders](embedders.md) | |
+| | [Repositories](repositories.md) | |
 
 ## License
 

@@ -27,6 +27,22 @@ Use **capabilities** to determine what you can safely call.
 
 ## Capabilities
 
+```mermaid
+flowchart TD
+    Repo[Repository]
+    Caps{Check capabilities}
+    Vec[vector_search]
+    Query[find with QuerySpec]
+    Graph[traverse]
+    
+    Repo --> Caps
+    Caps -->|vector_search=true| Vec
+    Caps -->|queryable=true| Query
+    Caps -->|graph_traversal=true| Graph
+```
+
+> **Design Note:** Capabilities avoid the "lowest common denominator" problem: instead of forcing all repositories to implement methods they don't support (e.g. vector search on pure SQL), each repo explicitly declares what it can do. This makes plugins more honest and prevents runtime errors.
+
 Repositories declare capabilities (e.g. supports vector search, supports graph traversal).
 XFiles validates that the repository methods match the declared capabilities.
 

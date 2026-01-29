@@ -9,6 +9,19 @@ theme:
   custom_dir: mkdocs/overrides
   logo: assets/RAG2F.png
   favicon: assets/RAG2F.png
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
   - navigation.instant
   - navigation.tracking
@@ -16,11 +29,27 @@ theme:
   - navigation.expand
   - navigation.top
   - content.code.copy
+  - content.code.annotate
+  - content.tabs.link
   - search.highlight
   - search.suggest
-  - content.tabs.link
 plugins:
 - search
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
 extra_css:
 - assets/stylesheets/extra.css
 nav:
