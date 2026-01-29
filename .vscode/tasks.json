@@ -30,8 +30,7 @@
     {
       "label": "MkDocs: Build (RAG2F)",
       "type": "shell",
-      "command": "./.venv/bin/python",
-      "args": ["-m", "mkdocs", "build", "-f", "mkdocs.yml"],
+      "command": "./.venv/bin/python -m mkdocs build -f mkdocs.yml && cp llm/*.txt site/",
       "problemMatcher": []
     }
   ]
