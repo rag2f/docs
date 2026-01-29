@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -617,22 +653,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#local-plugin-structure" class="md-nav__link">
+  <a href="#plugin-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local plugin structure
+        Plugin Structure
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Local plugin structure">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Manifest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifecycle Decorators
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Decorators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#extended-layout-recommended" class="md-nav__link">
+  <a href="#the-plugin-decorator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Extended layout (recommended)
+        The @plugin Decorator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-vs-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @plugin vs @hook
       
     </span>
   </a>
@@ -645,66 +714,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pluginjson-fields" class="md-nav__link">
+  <a href="#the-hook-decorator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        plugin.json fields
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="plugin.json fields">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-optional-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common optional fields
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#packaged-plugins-and-entry-points" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Packaged plugins and entry points
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Packaged plugins and entry points">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-get_plugin_path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example get_plugin_path()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugin-activation-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plugin activation checklist
+        The @hook Decorator
       
     </span>
   </a>
@@ -712,10 +725,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-embedder-plugin-skeleton" class="md-nav__link">
+  <a href="#complete-plugin-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example: embedder plugin skeleton
+        Complete Plugin Example
       
     </span>
   </a>
@@ -723,10 +736,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-repository-plugin-skeleton" class="md-nav__link">
+  <a href="#plugin-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example: repository plugin skeleton
+        Plugin Dependencies
       
     </span>
   </a>
@@ -734,10 +747,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hook-design-tips" class="md-nav__link">
+  <a href="#publishing-to-pypi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hook design tips
+        Publishing to PyPI
       
     </span>
   </a>
@@ -745,10 +758,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-suggestions" class="md-nav__link">
+  <a href="#testing-plugins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing suggestions
+        Testing Plugins
       
     </span>
   </a>
@@ -994,22 +1007,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#local-plugin-structure" class="md-nav__link">
+  <a href="#plugin-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local plugin structure
+        Plugin Structure
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Local plugin structure">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Manifest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifecycle Decorators
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Decorators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#extended-layout-recommended" class="md-nav__link">
+  <a href="#the-plugin-decorator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Extended layout (recommended)
+        The @plugin Decorator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-vs-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        @plugin vs @hook
       
     </span>
   </a>
@@ -1022,66 +1068,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pluginjson-fields" class="md-nav__link">
+  <a href="#the-hook-decorator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        plugin.json fields
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="plugin.json fields">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-optional-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common optional fields
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#packaged-plugins-and-entry-points" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Packaged plugins and entry points
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Packaged plugins and entry points">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-get_plugin_path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example get_plugin_path()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugin-activation-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plugin activation checklist
+        The @hook Decorator
       
     </span>
   </a>
@@ -1089,10 +1079,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-embedder-plugin-skeleton" class="md-nav__link">
+  <a href="#complete-plugin-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example: embedder plugin skeleton
+        Complete Plugin Example
       
     </span>
   </a>
@@ -1100,10 +1090,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-repository-plugin-skeleton" class="md-nav__link">
+  <a href="#plugin-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example: repository plugin skeleton
+        Plugin Dependencies
       
     </span>
   </a>
@@ -1111,10 +1101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hook-design-tips" class="md-nav__link">
+  <a href="#publishing-to-pypi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hook design tips
+        Publishing to PyPI
       
     </span>
   </a>
@@ -1122,10 +1112,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-suggestions" class="md-nav__link">
+  <a href="#testing-plugins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing suggestions
+        Testing Plugins
       
     </span>
   </a>
@@ -1152,112 +1142,283 @@
   
 
 
-<h1 id="plugin-anatomy">Plugin anatomy</h1>
-<p>This page describes the recommended structure and metadata for rag2f plugins.</p>
-<h2 id="local-plugin-structure">Local plugin structure</h2>
-<pre><code>plugins/
-  my_plugin/
-    plugin.json
-    my_plugin.py
-    README.md
-</code></pre>
-<p><code>plugin.json</code> is the primary metadata source.</p>
-<h3 id="extended-layout-recommended">Extended layout (recommended)</h3>
-<pre><code>plugins/
-  my_plugin/
-    plugin.json
-    my_plugin.py
-    requirements.txt
-    README.md
-    tests/
-      test_plugin.py
-</code></pre>
-<p>Keep optional dependencies in <code>requirements.txt</code> so the core stays lean.</p>
-<h2 id="pluginjson-fields"><code>plugin.json</code> fields</h2>
-<p>Minimal fields:</p>
-<ul>
-<li><code>id</code>: unique plugin id (used for config namespacing)</li>
-<li><code>name</code>: human-friendly name</li>
-<li><code>version</code>: plugin version</li>
-<li><code>module</code>: entry module path (relative to plugin folder)</li>
-</ul>
-<p>Example:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;my_plugin&quot;,
-  &quot;name&quot;: &quot;My Plugin&quot;,
-  &quot;version&quot;: &quot;0.1.0&quot;,
-  &quot;module&quot;: &quot;my_plugin.py&quot;
-}
-</code></pre>
-<h3 id="common-optional-fields">Common optional fields</h3>
-<ul>
-<li><code>description</code>, <code>keywords</code></li>
-<li><code>author_name</code>, <code>author_email</code></li>
-<li><code>license</code></li>
-<li><code>urls</code> (project/home/docs)</li>
-<li><code>min_rag2f_version</code>, <code>max_rag2f_version</code></li>
-</ul>
-<p>Use <code>min_rag2f_version</code> to declare compatibility windows.</p>
-<h2 id="packaged-plugins-and-entry-points">Packaged plugins and entry points</h2>
-<p>If you publish a plugin as a Python package, expose an entry point in the group:</p>
-<pre><code>rag2f.plugins
-</code></pre>
-<p>Entry points must be <strong>callable</strong> and must return the <strong>absolute path</strong> to the plugin folder.</p>
-<p>Conceptual <code>pyproject.toml</code> snippet:</p>
-<pre><code class="language-toml">[project.entry-points.&quot;rag2f.plugins&quot;]
-my-plugin = &quot;my_plugin_pkg:get_plugin_path&quot;
-</code></pre>
-<h3 id="example-get_plugin_path">Example <code>get_plugin_path()</code></h3>
-<pre><code class="language-python">from importlib import resources
+<h1 id="plugin-anatomy">Plugin Anatomy</h1>
+<p>Detailed structure, lifecycle, and best practices for rag2f plugins.</p>
+<h2 id="plugin-structure">Plugin Structure</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Minimal</label><label for="__tabbed_1_2">Recommended</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my_plugin/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── plugin.toml      # Metadata (required)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── hooks.py         # Hook implementations
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>my_plugin/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── plugin.toml          # Metadata
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── __init__.py          # Package init
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── hooks.py             # Hook implementations
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── requirements.txt     # Plugin dependencies
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── README.md            # Documentation
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└── tests/
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    └── test_hooks.py
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="plugin-manifest">Plugin Manifest</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">plugin.toml (preferred)</label><label for="__tabbed_2_2">plugin.json</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[plugin]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_plugin&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;My Plugin&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;What this plugin does&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Optional</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">author_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">min_rag2f_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hooks.py&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="lifecycle-decorators">Lifecycle Decorators</h2>
+<h3 id="the-plugin-decorator">The <code>@plugin</code> Decorator</h3>
+<p>Use <code>@plugin</code> for lifecycle hooks that run during plugin activation/deactivation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">plugin</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@plugin</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">activated</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Called when plugin is loaded.</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="sd">    Args:</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="sd">        plugin: Plugin object with id, path, etc.</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="sd">        rag2f: RAG2F instance</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_plugin_config</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="c1"># Register resources</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;my_emb&quot;</span><span class="p">,</span> <span class="n">MyEmbedder</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_register</span><span class="p">(</span><span class="s2">&quot;my_repo&quot;</span><span class="p">,</span> <span class="n">MyRepo</span><span class="p">())</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nd">@plugin</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">deactivated</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Called when plugin is unloaded (optional).&quot;&quot;&quot;</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="c1"># Cleanup resources if needed</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="k">pass</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Function Name Matters</p>
+<p>The function must be named <code>activated</code> or <code>deactivated</code> exactly.</p>
+</div>
+<h3 id="plugin-vs-hook"><code>@plugin</code> vs <code>@hook</code></h3>
+<table>
+<thead>
+<tr>
+<th>Decorator</th>
+<th>Purpose</th>
+<th>When Called</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@plugin</code></td>
+<td>Lifecycle (setup/teardown)</td>
+<td>Plugin load/unload</td>
+</tr>
+<tr>
+<td><code>@hook</code></td>
+<td>Pipeline extension</td>
+<td>During <code>execute_hook()</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>sequenceDiagram
+    participant M as Morpheus
+    participant P as Plugin
+    participant H as Hooks
 
-def get_plugin_path() -&gt; str:
-    return str(resources.files(&quot;my_plugin_pkg&quot;))
-</code></pre>
-<h2 id="plugin-activation-checklist">Plugin activation checklist</h2>
-<p>In your plugin module:</p>
-<ol>
-<li>Validate required config (fail fast).</li>
-<li>Register embedders or repositories with their registries.</li>
-<li>Register hooks for pipeline stages you want to contribute to.</li>
-</ol>
-<p>Keep heavy imports inside functions when possible so optional dependencies do not slow startup.</p>
-<h2 id="example-embedder-plugin-skeleton">Example: embedder plugin skeleton</h2>
-<pre><code class="language-python">from rag2f.core.morpheus.decorators.plugin import plugin
-
-@plugin
-def activate(rag2f):
-    cfg = rag2f.spock.get_plugin_config(&quot;my_embedder&quot;) or {}
-    api_key = cfg.get(&quot;api_key&quot;)
-    if not api_key:
-        raise ValueError(&quot;Missing my_embedder.api_key&quot;)
-    rag2f.optimus_prime.register(&quot;my_embedder&quot;, MyEmbedder(api_key=api_key))
-</code></pre>
-<h2 id="example-repository-plugin-skeleton">Example: repository plugin skeleton</h2>
-<pre><code class="language-python">from rag2f.core.morpheus.decorators.plugin import plugin
-
-@plugin
-def activate(rag2f):
-    repo = MyRepo(...)
-    result = rag2f.xfiles.execute_register(
-        &quot;primary&quot;,
-        repo,
-        meta={&quot;type&quot;: &quot;vector&quot;, &quot;domain&quot;: &quot;docs&quot;},
-    )
-    if result.is_error():
-        raise ValueError(result.detail.message)
-</code></pre>
-<h2 id="hook-design-tips">Hook design tips</h2>
-<ul>
-<li>Keep hooks pure and deterministic where possible.</li>
-<li>Document expected <code>phone</code> keys in the plugin README.</li>
-<li>Use priorities to control ordering across plugins.</li>
-</ul>
-<h2 id="testing-suggestions">Testing suggestions</h2>
-<ul>
-<li>Unit test hooks directly (they are plain functions).</li>
-<li>Validate registry entries and capability declarations.</li>
-<li>Run a smoke test that loads the plugin and calls a hook.</li>
-</ul>
+    M-&gt;&gt;P: Load plugin
+    M-&gt;&gt;P: @plugin activated()
+    P-&gt;&gt;P: Register embedders/repos
+    M-&gt;&gt;H: Register @hook functions
+    Note right of H: Ready for execute_hook()</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> The separation of <code>@plugin</code> (lifecycle) vs <code>@hook</code> (runtime) allows heavy setup (DB connections, API clients) in <code>activated()</code> that happens once, while <code>@hook</code> functions remain pure and fast, called repeatedly during execution.</p>
+</blockquote>
+<h2 id="the-hook-decorator">The <code>@hook</code> Decorator</h2>
+<p>Register functions to participate in named pipelines.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">hook</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Explicit name and priority</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_preprocess</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># Use function name as hook name</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nd">@hook</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># Default priority (1)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="nd">@hook</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="k">return</span> <span class="n">phone</span>
+</code></pre></div>
+<h2 id="complete-plugin-example">Complete Plugin Example</h2>
+<div class="highlight"><span class="filename">hooks.py</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sd">&quot;&quot;&quot;Azure OpenAI Embedder Plugin.&quot;&quot;&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">hook</span><span class="p">,</span> <span class="n">plugin</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">AzureEmbedder</span><span class="p">:</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Azure OpenAI embedder implementation.&quot;&quot;&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">deployment</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">AzureOpenAI</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">AzureOpenAI</span><span class="p">(</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>            <span class="n">azure_endpoint</span><span class="o">=</span><span class="n">endpoint</span><span class="p">,</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>            <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            <span class="n">api_version</span><span class="o">=</span><span class="s2">&quot;2024-02-01&quot;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_deployment</span> <span class="o">=</span> <span class="n">deployment</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="nd">@property</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>        <span class="k">return</span> <span class="mi">1536</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getEmbedding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">embeddings</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_deployment</span><span class="p">,</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>            <span class="nb">input</span><span class="o">=</span><span class="n">text</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>        <span class="p">)</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">embedding</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="c1"># ============ LIFECYCLE ============</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="nd">@plugin</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="k">def</span><span class="w"> </span><span class="nf">activated</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Register embedder on plugin activation.&quot;&quot;&quot;</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_plugin_config</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>    <span class="c1"># Validate required config</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>    <span class="n">required</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;endpoint&quot;</span><span class="p">,</span> <span class="s2">&quot;deployment&quot;</span><span class="p">]</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>    <span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">required</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>    <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">plugin</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: Missing config: </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>    <span class="c1"># API key from ENV</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    <span class="n">api_key</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;api_key&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">plugin</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: api_key required. &quot;</span>
+<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>            <span class="sa">f</span><span class="s2">&quot;Set RAG2F__PLUGINS__</span><span class="si">{</span><span class="n">plugin</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">__API_KEY&quot;</span>
+<a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>        <span class="p">)</span>
+<a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>
+<a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>    <span class="c1"># Create and register embedder</span>
+<a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">AzureEmbedder</span><span class="p">(</span>
+<a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>        <span class="n">endpoint</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;endpoint&quot;</span><span class="p">],</span>
+<a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a>        <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+<a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a>        <span class="n">deployment</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;deployment&quot;</span><span class="p">]</span>
+<a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a>    <span class="p">)</span>
+<a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a>
+<a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;azure_openai&quot;</span><span class="p">,</span> <span class="n">embedder</span><span class="p">)</span>
+<a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a>
+<a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a>
+<a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a><span class="c1"># ============ HOOKS ============</span>
+<a id="__codelineno-6-62" name="__codelineno-6-62" href="#__codelineno-6-62"></a>
+<a id="__codelineno-6-63" name="__codelineno-6-63" href="#__codelineno-6-63"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-6-64" name="__codelineno-6-64" href="#__codelineno-6-64"></a><span class="k">def</span><span class="w"> </span><span class="nf">embed_and_store</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-6-65" name="__codelineno-6-65" href="#__codelineno-6-65"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Store text embeddings in vector DB.&quot;&quot;&quot;</span>
+<a id="__codelineno-6-66" name="__codelineno-6-66" href="#__codelineno-6-66"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-6-67" name="__codelineno-6-67" href="#__codelineno-6-67"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-6-68" name="__codelineno-6-68" href="#__codelineno-6-68"></a>
+<a id="__codelineno-6-69" name="__codelineno-6-69" href="#__codelineno-6-69"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;azure_openai&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-70" name="__codelineno-6-70" href="#__codelineno-6-70"></a>    <span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;vectors&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-71" name="__codelineno-6-71" href="#__codelineno-6-71"></a>
+<a id="__codelineno-6-72" name="__codelineno-6-72" href="#__codelineno-6-72"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">embedder</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">():</span>
+<a id="__codelineno-6-73" name="__codelineno-6-73" href="#__codelineno-6-73"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Let other hooks handle</span>
+<a id="__codelineno-6-74" name="__codelineno-6-74" href="#__codelineno-6-74"></a>
+<a id="__codelineno-6-75" name="__codelineno-6-75" href="#__codelineno-6-75"></a>    <span class="n">vector</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-6-76" name="__codelineno-6-76" href="#__codelineno-6-76"></a>    <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">vector</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">})</span>
+<a id="__codelineno-6-77" name="__codelineno-6-77" href="#__codelineno-6-77"></a>
+<a id="__codelineno-6-78" name="__codelineno-6-78" href="#__codelineno-6-78"></a>    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">plugin.toml</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[plugin]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;azure_openai_embedder&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Azure OpenAI Embedder&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Embedder using Azure OpenAI&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">min_rag2f_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">requirements.txt</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>openai&gt;=1.0.0
+</code></pre></div>
+<h2 id="plugin-dependencies">Plugin Dependencies</h2>
+<div class="highlight"><span class="filename">requirements.txt</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>openai&gt;=1.0.0
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>qdrant-client&gt;=1.7.0
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Lazy Imports</p>
+<p>Import heavy dependencies inside functions to speed up startup:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@plugin</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">activated</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">AzureOpenAI</span>  <span class="c1"># Import here, not at top</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="o">...</span>
+</code></pre></div></p>
+</div>
+<h2 id="publishing-to-pypi">Publishing to PyPI</h2>
+<div class="highlight"><span class="filename">pyproject.toml</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">[project]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rag2f-azure-openai&quot;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;rag2f&gt;=0.1.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;openai&gt;=1.0.0&quot;</span><span class="p">]</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">[project.entry-points.</span><span class="s2">&quot;rag2f.plugins&quot;</span><span class="k">]</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">azure_openai_embedder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rag2f_azure_openai:get_plugin_path&quot;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">__init__.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_plugin_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="testing-plugins">Testing Plugins</h2>
+<div class="highlight"><span class="filename">tests/test_plugin.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">MagicMock</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_activated_validates_config</span><span class="p">():</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that activation fails without required config.&quot;&quot;&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">hooks</span><span class="w"> </span><span class="kn">import</span> <span class="n">activated</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="n">mock_plugin</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="n">mock_plugin</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;azure_openai_embedder&quot;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="n">mock_rag2f</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="n">mock_rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_plugin_config</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;Missing config&quot;</span><span class="p">):</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>        <span class="n">activated</span><span class="p">(</span><span class="n">mock_plugin</span><span class="p">,</span> <span class="n">mock_rag2f</span><span class="p">)</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_hook_handles_missing_embedder</span><span class="p">():</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Test hook gracefully handles missing embedder.&quot;&quot;&quot;</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">hooks</span><span class="w"> </span><span class="kn">import</span> <span class="n">embed_and_store</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>    <span class="n">mock_rag2f</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>    <span class="n">mock_rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">embed_and_store</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">mock_rag2f</span><span class="p">)</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="kc">False</span>  <span class="c1"># Let other hooks handle</span>
+</code></pre></div>
 
 
 
@@ -1315,7 +1476,7 @@ def activate(rag2f):
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

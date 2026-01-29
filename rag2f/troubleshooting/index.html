@@ -31,6 +31,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -59,7 +62,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -109,6 +119,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -783,10 +819,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plugin-not-discovered" class="md-nav__link">
+  <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Plugin not discovered
+        Debug Checklist
       
     </span>
   </a>
@@ -794,10 +830,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hooks-not-running" class="md-nav__link">
+  <a href="#common-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hooks not running
+        Common Errors
       
     </span>
   </a>
@@ -805,98 +841,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#no-default-embedder" class="md-nav__link">
+  <a href="#quick-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        “No default embedder”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-embedders-but-no-default-configured" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “Multiple embedders but no default configured”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#capability-mismatch-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Capability mismatch errors
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#config-values-not-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Config values not found
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-overrides-not-applying" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment overrides not applying
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugin-override-confusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plugin override confusion
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#duplicate-hooks-running-twice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Duplicate hooks running twice
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registry-lookup-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registry lookup failures
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-errors-inside-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Runtime errors inside hooks
+        Quick Diagnostics
       
     </span>
   </a>
@@ -974,10 +922,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plugin-not-discovered" class="md-nav__link">
+  <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Plugin not discovered
+        Debug Checklist
       
     </span>
   </a>
@@ -985,10 +933,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hooks-not-running" class="md-nav__link">
+  <a href="#common-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hooks not running
+        Common Errors
       
     </span>
   </a>
@@ -996,98 +944,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#no-default-embedder" class="md-nav__link">
+  <a href="#quick-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        “No default embedder”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-embedders-but-no-default-configured" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “Multiple embedders but no default configured”
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#capability-mismatch-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Capability mismatch errors
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#config-values-not-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Config values not found
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-overrides-not-applying" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment overrides not applying
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugin-override-confusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plugin override confusion
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#duplicate-hooks-running-twice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Duplicate hooks running twice
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registry-lookup-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registry lookup failures
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-errors-inside-hooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Runtime errors inside hooks
+        Quick Diagnostics
       
     </span>
   </a>
@@ -1115,66 +975,199 @@
 
 
 <h1 id="troubleshooting">Troubleshooting</h1>
-<p>Common issues and how to resolve them.</p>
-<h2 id="plugin-not-discovered">Plugin not discovered</h2>
-<ul>
-<li>Verify the folder is under <code>plugins/</code> or you passed <code>plugins_folder</code> to <code>RAG2F.create(...)</code>.</li>
-<li>Ensure <code>plugin.json</code> exists and points to a valid module file.</li>
-<li>If using entry points, confirm the entry point returns the plugin folder, not <code>site-packages</code>.</li>
-</ul>
-<h2 id="hooks-not-running">Hooks not running</h2>
-<ul>
-<li>Confirm the hook name matches exactly (case-sensitive).</li>
-<li>Ensure the hook function is decorated with <code>@hook</code>.</li>
-<li>Verify the plugin was activated (check logs at startup).</li>
-</ul>
-<h2 id="no-default-embedder">“No default embedder”</h2>
-<ul>
-<li>Register at least one embedder via a plugin.</li>
-<li>Set <code>rag2f.embedder_default</code> in config.</li>
-<li>Avoid registering embedders with the same name.</li>
-</ul>
-<h2 id="multiple-embedders-but-no-default-configured">“Multiple embedders but no default configured”</h2>
-<ul>
-<li>Set <code>rag2f.embedder_default</code> to one of the registered keys.</li>
-<li>If only one embedder should exist, remove the extra plugin.</li>
-</ul>
-<h2 id="capability-mismatch-errors">Capability mismatch errors</h2>
-<ul>
-<li>Ensure your repository advertises only the capabilities it implements.</li>
-<li>Implement the required methods before declaring a capability.</li>
-</ul>
-<h2 id="config-values-not-found">Config values not found</h2>
-<ul>
-<li>Check that <code>config_path</code> points to the correct file.</li>
-<li>Validate <code>plugins.&lt;plugin_id&gt;</code> matches the <code>id</code> in <code>plugin.json</code>.</li>
-<li>Confirm environment variable overrides are set in the runtime environment.</li>
-</ul>
-<h2 id="environment-overrides-not-applying">Environment overrides not applying</h2>
-<ul>
-<li>Check prefix and section: <code>RAG2F__RAG2F__...</code> or <code>RAG2F__PLUGINS__...</code></li>
-<li>Ensure values parse correctly (JSON vs string).</li>
-<li>Remember env overrides config file values.</li>
-</ul>
-<h2 id="plugin-override-confusion">Plugin override confusion</h2>
-<p>Entry point plugins take precedence over local plugins with the same id.
-If you are iterating locally, uninstall the packaged plugin or change the plugin id.</p>
-<h2 id="duplicate-hooks-running-twice">Duplicate hooks running twice</h2>
-<ul>
-<li>Confirm you do not have both an entry-point and filesystem plugin with the same id.</li>
-<li>Ensure your plugin module is not imported twice in different paths.</li>
-</ul>
-<h2 id="registry-lookup-failures">Registry lookup failures</h2>
-<ul>
-<li>Check the registry key casing; keys are treated as strings.</li>
-<li>Call <code>list_keys()</code> on OptimusPrime/XFiles to verify registration.</li>
-</ul>
-<h2 id="runtime-errors-inside-hooks">Runtime errors inside hooks</h2>
-<ul>
-<li>Reduce hook scope and move heavy logic into helpers.</li>
-<li>Add logging inside hooks for payload inspection.</li>
-<li>Use try/except with meaningful error messages for easier debugging.</li>
-</ul>
+<pre class="mermaid"><code>flowchart TD
+    Problem[Problem]
+    Problem --&gt; Plugin{Plugin&lt;br/&gt;issues?}
+    Problem --&gt; Hook{Hook&lt;br/&gt;issues?}
+    Problem --&gt; Config{Config&lt;br/&gt;issues?}
+
+    Plugin --&gt; P1[Check plugins_folder]
+    Plugin --&gt; P2[Verify plugin.json]
+
+    Hook --&gt; H1[Check @hook decorator]
+    Hook --&gt; H2[Verify hook name]
+
+    Config --&gt; C1[Check config_path]
+    Config --&gt; C2[Verify env prefix]</code></pre>
+<h2 id="debug-checklist">Debug Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Check</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plugins</strong></td>
+<td><code>plugins_folder</code> exists</td>
+<td>Pass correct path to <code>RAG2F.create()</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>plugin.json</code> present</td>
+<td>Create with valid <code>id</code> and <code>module</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Entry point returns right path</td>
+<td>Fix <code>get_plugin_path()</code> in plugin</td>
+</tr>
+<tr>
+<td><strong>Hooks</strong></td>
+<td>Function has <code>@hook</code></td>
+<td>Add decorator</td>
+</tr>
+<tr>
+<td></td>
+<td>Hook name exact match</td>
+<td>Check spelling and case</td>
+</tr>
+<tr>
+<td></td>
+<td>Plugin activated</td>
+<td>Check startup logs</td>
+</tr>
+<tr>
+<td><strong>Config</strong></td>
+<td>File path correct</td>
+<td>Verify <code>config_path</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Env prefix correct</td>
+<td>Use <code>RAG2F__RAG2F__</code> or <code>RAG2F__PLUGINS__</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Plugin namespace</td>
+<td>Use <code>plugins.&lt;plugin_id&gt;.*</code></td>
+</tr>
+<tr>
+<td><strong>Embedders</strong></td>
+<td>Default configured</td>
+<td>Set <code>rag2f.embedder_default</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Multiple registered</td>
+<td>Remove extras or set default</td>
+</tr>
+<tr>
+<td><strong>Repos</strong></td>
+<td>Capability declared</td>
+<td>Implement required methods</td>
+</tr>
+<tr>
+<td></td>
+<td>Registry lookup</td>
+<td>Check key casing, call <code>list_keys()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-errors">Common Errors</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Plugin Issues</label><label for="__tabbed_1_2">Hook Issues</label><label for="__tabbed_1_3">Config Issues</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plugin not discovered</td>
+<td>Missing folder or <code>plugin.json</code></td>
+<td>Verify path and metadata</td>
+</tr>
+<tr>
+<td>Entry point returns site-packages</td>
+<td>Broken <code>get_plugin_path()</code></td>
+<td>Return plugin's own directory</td>
+</tr>
+<tr>
+<td>Duplicate hooks</td>
+<td>Same plugin loaded twice</td>
+<td>Uninstall duplicate or change id</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hook not running</td>
+<td>Missing <code>@hook</code> decorator</td>
+<td>Add decorator</td>
+</tr>
+<tr>
+<td>Wrong hook called</td>
+<td>Name mismatch</td>
+<td>Check exact hook name</td>
+</tr>
+<tr>
+<td>Runtime error in hook</td>
+<td>Unhandled exception</td>
+<td>Add try/except, check logs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value not found</td>
+<td>Wrong path</td>
+<td>Check <code>plugins.&lt;id&gt;</code> matches plugin id</td>
+</tr>
+<tr>
+<td>Env not applying</td>
+<td>Wrong prefix</td>
+<td>Use <code>RAG2F__SECTION__KEY</code> format</td>
+</tr>
+<tr>
+<td>No default embedder</td>
+<td>Missing config</td>
+<td>Set <code>rag2f.embedder_default</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="quick-diagnostics">Quick Diagnostics</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Check plugin count</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plugins: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">plugins</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># List registered embedders</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Embedders: </span><span class="si">{</span><span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">list_keys</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Check config loaded</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config loaded: </span><span class="si">{</span><span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">is_loaded</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># List repositories</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Repos: </span><span class="si">{</span><span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">list_keys</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
@@ -1232,7 +1225,7 @@ If you are iterating locally, uninstall the packaged plugin or change the plugin
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

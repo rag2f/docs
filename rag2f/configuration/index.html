@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -561,10 +597,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#config-file" class="md-nav__link">
+  <a href="#precedence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Config file
+        Precedence
       
     </span>
   </a>
@@ -572,30 +608,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-config" class="md-nav__link">
+  <a href="#config-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Loading config
+        Config File
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Loading config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#precedence-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Precedence rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -603,35 +622,7 @@
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment variables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment variables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-variable-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment variable naming
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespacing-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Namespacing rules
+        Environment Variables
       
     </span>
   </a>
@@ -639,10 +630,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-override-patterns" class="md-nav__link">
+  <a href="#loading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment override patterns
+        Loading
       
     </span>
   </a>
@@ -653,7 +644,7 @@
   <a href="#accessing-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accessing config
+        Accessing Config
       
     </span>
   </a>
@@ -661,10 +652,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-patterns" class="md-nav__link">
+  <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommended patterns
+        Best Practices
       
     </span>
   </a>
@@ -672,21 +663,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-quick-checks" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting quick checks
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-pitfalls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common pitfalls
+        Troubleshooting
       
     </span>
   </a>
@@ -988,10 +968,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#config-file" class="md-nav__link">
+  <a href="#precedence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Config file
+        Precedence
       
     </span>
   </a>
@@ -999,30 +979,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-config" class="md-nav__link">
+  <a href="#config-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Loading config
+        Config File
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Loading config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#precedence-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Precedence rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1030,35 +993,7 @@
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment variables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment variables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-variable-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment variable naming
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespacing-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Namespacing rules
+        Environment Variables
       
     </span>
   </a>
@@ -1066,10 +1001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-override-patterns" class="md-nav__link">
+  <a href="#loading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment override patterns
+        Loading
       
     </span>
   </a>
@@ -1080,7 +1015,7 @@
   <a href="#accessing-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accessing config
+        Accessing Config
       
     </span>
   </a>
@@ -1088,10 +1023,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-patterns" class="md-nav__link">
+  <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommended patterns
+        Best Practices
       
     </span>
   </a>
@@ -1099,21 +1034,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-quick-checks" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting quick checks
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-pitfalls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common pitfalls
+        Troubleshooting
       
     </span>
   </a>
@@ -1141,125 +1065,158 @@
 
 
 <h1 id="configuration-spock">Configuration (Spock)</h1>
-<p>Spock is the centralized, instance-scoped configuration system for rag2f.</p>
-<p>It supports:
-- <strong>JSON config files</strong> for structured settings
-- <strong>Environment variables</strong> for secrets and overrides
-- <strong>Priority</strong>: env overrides JSON
-- <strong>Namespaced config</strong> for plugins and core settings
-- <strong>Type inference</strong> for env values (bools, numbers, JSON)</p>
-<blockquote>
-<p>"The needs of the many outweigh the needs of the few."
-- Spock, Star Trek II: The Wrath of Khan</p>
-</blockquote>
-<pre><code>   /\
-  /__\   Spock
-  |..|   logic
-  |__|
-</code></pre>
-<h2 id="config-file">Config file</h2>
-<p>A typical config looks like:</p>
-<pre><code class="language-json">{
-  &quot;rag2f&quot;: {
-    &quot;embedder_default&quot;: &quot;test_embedder&quot;
-  },
-  &quot;plugins&quot;: {
-    &quot;azure_openai_embedder&quot;: {
-      &quot;azure_endpoint&quot;: &quot;https://your-resource.openai.azure.com&quot;,
-      &quot;api_key&quot;: &quot;your-api-key&quot;,
-      &quot;api_version&quot;: &quot;2024-02-15-preview&quot;,
-      &quot;deployment&quot;: &quot;text-embedding-ada-002&quot;
-    }
-  }
-}
-</code></pre>
-<h2 id="loading-config">Loading config</h2>
-<p>You can load config via:</p>
-<ul>
-<li><code>config_path="config.json"</code> (Spock reads the file)</li>
-<li><code>config={...}</code> (pass a dict directly)</li>
-</ul>
-<p>rag2f loads configuration <strong>before</strong> discovering plugins:</p>
-<pre><code class="language-python">rag2f = await RAG2F.create(config_path=&quot;config.json&quot;)
-</code></pre>
-<h3 id="precedence-rules">Precedence rules</h3>
-<p>Spock merges configuration in a clear order (highest to lowest):</p>
-<ol>
-<li>Environment variables</li>
-<li>JSON config file</li>
-<li>Provided config dict (if any)</li>
-<li>Defaults</li>
-</ol>
-<p>This makes env a reliable override mechanism for secrets and per-env tweaks.</p>
-<h2 id="environment-variables">Environment variables</h2>
-<p>Environment variables override JSON values. Spock parses values as:</p>
-<ul>
-<li><code>true/false</code> → bool</li>
-<li>numbers → int/float</li>
-<li>JSON strings (objects/arrays) → parsed JSON</li>
-<li>otherwise → string</li>
-</ul>
-<h3 id="environment-variable-naming">Environment variable naming</h3>
-<pre><code>RAG2F__&lt;SECTION&gt;__&lt;KEY&gt;__&lt;SUBKEY&gt;...
-</code></pre>
-<ul>
-<li>Sections: <code>RAG2F</code> for core, <code>PLUGINS</code> for plugins</li>
-<li>Examples:</li>
-<li><code>RAG2F__RAG2F__EMBEDDER_DEFAULT=azure_openai</code></li>
-<li><code>RAG2F__PLUGINS__AZURE_OPENAI_EMBEDDER__API_KEY=sk-xxx</code></li>
-<li><code>RAG2F__PLUGINS__MY_PLUGIN__DATABASE__HOST=localhost</code></li>
-</ul>
-<h2 id="namespacing-rules">Namespacing rules</h2>
-<p>Use separate namespaces to avoid collisions:</p>
-<ul>
-<li>core: <code>rag2f.*</code></li>
-<li>plugins: <code>plugins.&lt;plugin_id&gt;.*</code></li>
-</ul>
-<p>Example:</p>
-<pre><code class="language-json">{
-  &quot;rag2f&quot;: {
-    &quot;embedder_default&quot;: &quot;azure_openai&quot;
-  },
-  &quot;plugins&quot;: {
-    &quot;azure_openai_embedder&quot;: {
-      &quot;deployment&quot;: &quot;text-embedding-3-large&quot;
-    }
-  }
-}
-</code></pre>
-<h2 id="environment-override-patterns">Environment override patterns</h2>
-<p>You can keep secrets in env and map them inside your plugin logic:</p>
-<pre><code class="language-python">api_key = rag2f.spock.get(&quot;plugins.azure_openai_embedder.api_key&quot;)
-if not api_key:
-    api_key = os.getenv(&quot;AZURE_OPENAI_API_KEY&quot;)
-</code></pre>
-<p>This keeps config files safe for commits while still enabling per-environment overrides.</p>
-<h2 id="accessing-config">Accessing config</h2>
-<p>From the core (typed helpers):</p>
-<pre><code class="language-python">default_embedder = rag2f.spock.get_rag2f_config(&quot;embedder_default&quot;)
-</code></pre>
-<p>From plugins:</p>
-<pre><code class="language-python">plugin_cfg = rag2f.spock.get_plugin_config(&quot;azure_openai_embedder&quot;)
-api_key = plugin_cfg.get(&quot;api_key&quot;)
-</code></pre>
-<h2 id="recommended-patterns">Recommended patterns</h2>
-<ul>
-<li>Put <strong>non-secrets</strong> in <code>config.json</code></li>
-<li>Put <strong>secrets</strong> in env (e.g. <code>AZURE_OPENAI_API_KEY</code>) and map them in your plugin logic</li>
-<li>Keep plugin config nested under <code>plugins.&lt;plugin_id&gt;</code></li>
-<li>Fail fast on missing required config in your plugin activation code</li>
-</ul>
-<h2 id="troubleshooting-quick-checks">Troubleshooting quick checks</h2>
-<ul>
-<li>Confirm Spock is loaded: <code>rag2f.spock.is_loaded</code></li>
-<li>Verify config file path: <code>rag2f.spock.config_path</code></li>
-</ul>
-<h2 id="common-pitfalls">Common pitfalls</h2>
-<ul>
-<li><strong>Wrong section casing</strong>: env keys are normalized to lowercase; match IDs exactly.</li>
-<li><strong>Missing plugin namespace</strong>: plugin config belongs under <code>plugins.&lt;plugin_id&gt;</code>.</li>
-<li><strong>Accidental JSON strings</strong>: wrap JSON objects/arrays in env carefully to avoid parse errors.</li>
-</ul>
+<p>Spock is the centralized configuration system for rag2f.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Sources
+        ENV[Environment Variables]
+        JSON[config.json]
+        DICT[config dict]
+        DEF[Defaults]
+    end
+
+    ENV --&gt; Spock
+    JSON --&gt; Spock
+    DICT --&gt; Spock
+    DEF --&gt; Spock
+
+    Spock --&gt; |"get('rag2f.*')"| Core
+    Spock --&gt; |"get('plugins.*')"| Plugins</code></pre>
+<h2 id="precedence">Precedence</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Source</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (highest)</td>
+<td>Environment</td>
+<td>Secrets, per-env overrides</td>
+</tr>
+<tr>
+<td>2</td>
+<td>JSON file</td>
+<td>Project settings</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Config dict</td>
+<td>Programmatic defaults</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Defaults</td>
+<td>Fallback values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="config-file">Config File</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Minimal</label><label for="__tabbed_1_2">With Plugin</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;rag2f&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;embedder_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_embedder&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;rag2f&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;embedder_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;azure_openai_embedder&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;plugins&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;azure_openai_embedder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;azure_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://your.openai.azure.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text-embedding-ada-002&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="environment-variables">Environment Variables</h2>
+<p><strong>Naming</strong>: <code>RAG2F__&lt;SECTION&gt;__&lt;KEY&gt;__&lt;SUBKEY&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Overrides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RAG2F__RAG2F__EMBEDDER_DEFAULT=azure</code></td>
+<td><code>rag2f.embedder_default</code></td>
+</tr>
+<tr>
+<td><code>RAG2F__PLUGINS__MY_PLUGIN__API_KEY=xxx</code></td>
+<td><code>plugins.my_plugin.api_key</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Type inference</strong>: <code>true/false</code> → bool, numbers → int/float, JSON strings → parsed</p>
+<h2 id="loading">Loading</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># From file</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">rag2f</span> <span class="o">=</span> <span class="k">await</span> <span class="n">RAG2F</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># From dict</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">rag2f</span> <span class="o">=</span> <span class="k">await</span> <span class="n">RAG2F</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;rag2f&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;embedder_default&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">}})</span>
+</code></pre></div>
+<h2 id="accessing-config">Accessing Config</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Core Settings</label><label for="__tabbed_2_2">Plugin Settings</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Typed helper</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_rag2f_config</span><span class="p">(</span><span class="s2">&quot;embedder_default&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Direct path</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">value</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rag2f.embedder_default&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Get entire plugin config</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">cfg</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_plugin_config</span><span class="p">(</span><span class="s2">&quot;azure_openai_embedder&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;api_key&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Direct path</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">key</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;plugins.azure_openai_embedder.api_key&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="best-practices">Best Practices</h2>
+<table>
+<thead>
+<tr>
+<th>Do</th>
+<th>Don't</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Secrets in env vars</td>
+<td>Secrets in config.json</td>
+</tr>
+<tr>
+<td>Plugin config under <code>plugins.&lt;id&gt;</code></td>
+<td>Flat plugin config</td>
+</tr>
+<tr>
+<td>Fail fast on missing required</td>
+<td>Silent fallback</td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">is_loaded</span>      <span class="c1"># True if config loaded</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">config_path</span>    <span class="c1"># Path to loaded file</span>
+</code></pre></div>
 
 
 
@@ -1317,7 +1274,7 @@ api_key = plugin_cfg.get(&quot;api_key&quot;)
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

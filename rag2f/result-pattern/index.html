@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -477,10 +513,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-types" class="md-nav__link">
+  <a href="#expected-vs-exceptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core types
+        Expected vs Exceptions
       
     </span>
   </a>
@@ -488,60 +524,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#module-specific-results" class="md-nav__link">
+  <a href="#status-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Module-specific results
+        Status Codes
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Module-specific results">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#johnny5-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Johnny5 (input)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#indianajones-retrievesearch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IndianaJones (retrieve/search)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfiles-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        XFiles (repositories)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-codes-high-level" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status codes (high-level)
+        Usage
       
     </span>
   </a>
@@ -927,10 +924,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-types" class="md-nav__link">
+  <a href="#expected-vs-exceptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core types
+        Expected vs Exceptions
       
     </span>
   </a>
@@ -938,60 +935,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#module-specific-results" class="md-nav__link">
+  <a href="#status-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Module-specific results
+        Status Codes
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Module-specific results">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#johnny5-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Johnny5 (input)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#indianajones-retrievesearch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IndianaJones (retrieve/search)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfiles-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        XFiles (repositories)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-codes-high-level" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status codes (high-level)
+        Usage
       
     </span>
   </a>
@@ -1019,71 +977,151 @@
 
 
 <h1 id="result-pattern">Result Pattern</h1>
-<p>RAG2F uses a typed Result pattern for common, expected outcomes. Instead of
-raising exceptions for cases like empty input or missing repositories, methods
-return a structured Result object with status and details. Exceptions are
-reserved for system errors (backend crashes, timeouts, invariant violations).</p>
-<h2 id="core-types">Core types</h2>
-<ul>
-<li><code>BaseResult</code>: shared fields (<code>status</code>, <code>detail</code>) and helpers (<code>is_ok()</code>, <code>is_error()</code>).</li>
-<li><code>StatusDetail</code>: structured status info (<code>code</code>, <code>message</code>, <code>context</code>).</li>
-<li><code>StatusCode</code>: centralized status code constants.</li>
-</ul>
-<h2 id="module-specific-results">Module-specific results</h2>
-<h3 id="johnny5-input">Johnny5 (input)</h3>
-<ul>
-<li><code>execute_handle_text_foreground(text) -&gt; InsertResult</code></li>
-<li>Expected states return <code>InsertResult</code> with <code>status="error"</code> and <code>detail</code>:</li>
-<li><code>StatusCode.EMPTY</code>: empty input</li>
-<li><code>StatusCode.DUPLICATE</code>: duplicate input</li>
-<li><code>StatusCode.NOT_HANDLED</code>: no hook handled the input</li>
-</ul>
-<pre><code class="language-python">result = rag2f.johnny5.execute_handle_text_foreground(text)
-if result.is_ok():
-    use_track_id(result.track_id)
-else:
-    logger.info(&quot;Input rejected: %s&quot;, result.detail.code)
-</code></pre>
-<h3 id="indianajones-retrievesearch">IndianaJones (retrieve/search)</h3>
-<ul>
-<li><code>execute_retrieve(query, k=10) -&gt; RetrieveResult</code></li>
-<li><code>execute_search(query, k=10, return_mode=...) -&gt; SearchResult</code></li>
-<li>Expected states return <code>status="error"</code> with <code>detail</code>:</li>
-<li><code>StatusCode.EMPTY</code>: empty query</li>
-</ul>
-<pre><code class="language-python">result = rag2f.indiana_jones.execute_search(&quot;docs&quot;, k=5)
-if result.is_ok():
-    print(result.response)
-else:
-    handle_empty_query()
-</code></pre>
-<h3 id="xfiles-repositories">XFiles (repositories)</h3>
-<ul>
-<li><code>execute_register(id, repo, meta=None) -&gt; RegisterResult</code></li>
-<li><code>execute_get(id) -&gt; GetResult</code></li>
-<li><code>execute_search(...) -&gt; SearchRepoResult</code></li>
-<li><code>CacheResult</code> is used for explicit cache lookups.</li>
-</ul>
-<pre><code class="language-python">reg = rag2f.xfiles.execute_register(&quot;primary&quot;, repo, meta={&quot;type&quot;: &quot;vector&quot;})
-if reg.is_ok() and reg.created:
-    logger.info(&quot;Repository registered: %s&quot;, reg.id)
-elif reg.is_error():
-    raise ValueError(reg.detail.message)
+<p>rag2f uses a typed Result pattern for expected outcomes. Exceptions are reserved for system errors only.</p>
+<h2 id="expected-vs-exceptions">Expected vs Exceptions</h2>
+<pre class="mermaid"><code>flowchart TD
+    Op[Operation]
+    Op --&gt; Expected{Expected&lt;br/&gt;outcome?}
+    Expected --&gt;|Yes| Result[Return Result]
+    Expected --&gt;|No| Exception[Raise Exception]
 
-get_result = rag2f.xfiles.execute_get(&quot;primary&quot;)
-if get_result.is_ok() and get_result.repository:
-    repo = get_result.repository
-else:
-    handle_missing_repo(get_result.detail)
-</code></pre>
-<h2 id="status-codes-high-level">Status codes (high-level)</h2>
-<ul>
-<li>Common: <code>EMPTY</code>, <code>INVALID</code>, <code>NOT_FOUND</code>, <code>PARTIAL</code></li>
-<li>Johnny5: <code>DUPLICATE</code>, <code>DUPLICATE_MERGED</code>, <code>NOT_HANDLED</code></li>
-<li>IndianaJones: <code>NO_RESULTS</code>, <code>DEGRADED</code></li>
-<li>XFiles: <code>CACHE_MISS</code>, <code>ALREADY_EXISTS</code>, <code>INVALID_SPEC</code>, <code>PARTIAL_RESULTS</code></li>
-</ul>
-<p>Use <code>StatusCode</code> constants instead of string literals to keep checks consistent.</p>
+    Result --&gt; OK[is_ok: use data]
+    Result --&gt; Err[is_error: check detail]
+
+    Exception --&gt; Catch[try/except]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Expected States</th>
+<th>System Errors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty input</td>
+<td>Backend crash</td>
+</tr>
+<tr>
+<td>Duplicate</td>
+<td>Timeout</td>
+</tr>
+<tr>
+<td>Not found</td>
+<td>Connection failure</td>
+</tr>
+<tr>
+<td>No results</td>
+<td>Invariant violation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="status-codes">Status Codes</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Common</label><label for="__tabbed_1_2">Johnny5</label><label for="__tabbed_1_3">IndianaJones</label><label for="__tabbed_1_4">XFiles</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EMPTY</code></td>
+<td>Input/query empty</td>
+</tr>
+<tr>
+<td><code>INVALID</code></td>
+<td>Invalid format</td>
+</tr>
+<tr>
+<td><code>NOT_FOUND</code></td>
+<td>Resource missing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DUPLICATE</code></td>
+<td>Already processed</td>
+</tr>
+<tr>
+<td><code>NOT_HANDLED</code></td>
+<td>No hook handled</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NO_RESULTS</code></td>
+<td>Query returned nothing</td>
+</tr>
+<tr>
+<td><code>DEGRADED</code></td>
+<td>Partial failure</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ALREADY_EXISTS</code></td>
+<td>Key collision</td>
+</tr>
+<tr>
+<td><code>CACHE_MISS</code></td>
+<td>Not in cache</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="usage">Usage</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Johnny5</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">johnny5</span><span class="o">.</span><span class="n">execute_handle_text_foreground</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">():</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stored: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">track_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rejected: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># empty, duplicate, not_handled</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># IndianaJones  </span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">indiana_jones</span><span class="o">.</span><span class="n">execute_search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">():</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># XFiles</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;vectors&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">repository</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">repo</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">repository</span>
+</code></pre></div>
 
 
 
@@ -1141,7 +1179,7 @@ else:
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

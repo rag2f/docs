@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -673,10 +709,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#signatures" class="md-nav__link">
+  <a href="#available-hooks-by-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Signatures
+        Available Hooks by Module
       
     </span>
   </a>
@@ -684,22 +720,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#piping-behavior" class="md-nav__link">
+  <a href="#hook-flow-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Piping behavior
+        Hook Flow Overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Piping behavior">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootstrap-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap Hooks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#guarding-against-none" class="md-nav__link">
+  <a href="#rag2f_bootstrap_embedders" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Guarding against None
+        rag2f_bootstrap_embedders
       
     </span>
   </a>
@@ -712,10 +759,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ordering" class="md-nav__link">
+  <a href="#johnny5-hooks-input-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ordering
+        Johnny5 Hooks (Input Processing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Johnny5 Hooks (Input Processing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_id_input_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_id_input_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_duplicated_input_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_duplicated_input_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handle_text_foreground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        handle_text_foreground
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indianajones-hooks-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IndianaJones Hooks (Retrieval)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IndianaJones Hooks (Retrieval)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indiana_jones_retrieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        indiana_jones_retrieve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indiana_jones_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        indiana_jones_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-execution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hook Execution Order
       
     </span>
   </a>
@@ -723,13 +859,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-hooks" class="md-nav__link">
+  <a href="#override-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing hooks
+        Override Summary
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Override Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#override-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -916,10 +1069,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#signatures" class="md-nav__link">
+  <a href="#available-hooks-by-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Signatures
+        Available Hooks by Module
       
     </span>
   </a>
@@ -927,22 +1080,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#piping-behavior" class="md-nav__link">
+  <a href="#hook-flow-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Piping behavior
+        Hook Flow Overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Piping behavior">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootstrap-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bootstrap Hooks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#guarding-against-none" class="md-nav__link">
+  <a href="#rag2f_bootstrap_embedders" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Guarding against None
+        rag2f_bootstrap_embedders
       
     </span>
   </a>
@@ -955,10 +1119,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ordering" class="md-nav__link">
+  <a href="#johnny5-hooks-input-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ordering
+        Johnny5 Hooks (Input Processing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Johnny5 Hooks (Input Processing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_id_input_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_id_input_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_duplicated_input_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_duplicated_input_text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handle_text_foreground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        handle_text_foreground
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indianajones-hooks-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IndianaJones Hooks (Retrieval)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IndianaJones Hooks (Retrieval)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indiana_jones_retrieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        indiana_jones_retrieve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indiana_jones_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        indiana_jones_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-execution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hook Execution Order
       
     </span>
   </a>
@@ -966,13 +1219,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-hooks" class="md-nav__link">
+  <a href="#override-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing hooks
+        Override Summary
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Override Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#override-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Override Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -996,41 +1266,550 @@
   
 
 
-<h1 id="hooks-reference">Hooks reference</h1>
-<p>This page collects the practical details of how hooks behave.</p>
-<h2 id="signatures">Signatures</h2>
-<p>Hooks are plain Python callables decorated with <code>@hook</code>.</p>
-<p>Pipeable hook:</p>
-<pre><code class="language-python">@hook(&quot;preprocess&quot;, priority=5)
-def preprocess(phone, *, rag2f):
-    phone[&quot;text&quot;] = phone[&quot;text&quot;].strip()
-    return phone
-</code></pre>
-<p>Side-effect hook:</p>
-<pre><code class="language-python">@hook(&quot;startup&quot;, priority=1)
-def startup(*, rag2f):
-    rag2f.logger.info(&quot;Ready&quot;)
-</code></pre>
-<h2 id="piping-behavior">Piping behavior</h2>
-<ul>
-<li>If the hook takes at least one positional argument, the first is treated as <code>phone</code>.</li>
-<li>The return value becomes the input for the next hook.</li>
-<li>If a hook returns <code>None</code>, the pipeline stops with <code>None</code> unless you handle it explicitly.</li>
-</ul>
-<h3 id="guarding-against-none">Guarding against <code>None</code></h3>
-<p>If you want to allow soft-fail behavior, use a sentinel:</p>
-<pre><code class="language-python">phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f) or phone
-</code></pre>
-<h2 id="ordering">Ordering</h2>
-<p>Hooks with higher priority run earlier. If priorities are equal, ordering is deterministic but unspecified.
-Use priorities to guarantee ordering across plugins.</p>
-<h2 id="testing-hooks">Testing hooks</h2>
-<p>Because hooks are plain functions, you can unit test them directly:</p>
-<pre><code class="language-python">def test_preprocess():
-    phone = {&quot;text&quot;: &quot;  hi  &quot;}
-    assert preprocess(phone, rag2f=FakeRag2f())[&quot;text&quot;] == &quot;hi&quot;
-</code></pre>
-<p>Keep hook logic small and push side-effectful work into helpers so tests remain fast.</p>
+<h1 id="hooks-reference">Hooks Reference</h1>
+<p>Complete reference of all available hooks with signatures and examples.</p>
+<h2 id="available-hooks-by-module">Available Hooks by Module</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">🚀 Bootstrap</label><label for="__tabbed_1_2">📥 Johnny5 (Input)</label><label for="__tabbed_1_3">🔍 IndianaJones (Retrieval)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rag2f_bootstrap_embedders"><code>rag2f_bootstrap_embedders</code></a></td>
+<td>Register embedders/repos at startup</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#get_id_input_text"><code>get_id_input_text</code></a></td>
+<td>Generate ID for input</td>
+</tr>
+<tr>
+<td><a href="#check_duplicated_input_text"><code>check_duplicated_input_text</code></a></td>
+<td>Check if duplicate</td>
+</tr>
+<tr>
+<td><a href="#handle_text_foreground"><code>handle_text_foreground</code></a></td>
+<td>Process/store input</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#indiana_jones_retrieve"><code>indiana_jones_retrieve</code></a></td>
+<td>Vector retrieval</td>
+</tr>
+<tr>
+<td><a href="#indiana_jones_search"><code>indiana_jones_search</code></a></td>
+<td>Search + synthesis</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="hook-flow-overview">Hook Flow Overview</h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph BOOTSTRAP["🚀 Bootstrap Phase"]
+        B1[rag2f_bootstrap_embedders]
+    end
+
+    subgraph JOHNNY5["📥 Johnny5 - Input Processing"]
+        J1[get_id_input_text]
+        J2[check_duplicated_input_text]
+        J3[handle_text_foreground]
+        J1 --&gt; J2 --&gt; J3
+    end
+
+    subgraph INDIANA["🔍 IndianaJones - Retrieval"]
+        I1[indiana_jones_retrieve]
+        I2[indiana_jones_search]
+    end
+
+    BOOTSTRAP --&gt; JOHNNY5
+    JOHNNY5 --&gt; INDIANA</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> Hooks follow a clear execution order. Bootstrap hooks run once at startup, Johnny5 hooks process each input, and IndianaJones hooks handle retrieval queries. Each hook can be overridden by registering a higher-priority implementation.</p>
+</blockquote>
+<hr />
+<h2 id="bootstrap-hooks">Bootstrap Hooks</h2>
+<h3 id="rag2f_bootstrap_embedders"><code>rag2f_bootstrap_embedders</code></h3>
+<p>Called once during <code>RAG2F.create()</code> to register embedders and repositories.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>OptimusPrime</td>
+</tr>
+<tr>
+<td><strong>Piped</strong></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td><code>(*, rag2f)</code></td>
+</tr>
+<tr>
+<td><strong>Default Priority</strong></td>
+<td>N/A (no default)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;rag2f_bootstrap_embedders&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">register_embedder</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Register embedder during bootstrap.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_plugin_config</span><span class="p">(</span><span class="s2">&quot;my_plugin&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Validate config</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;api_key&quot;</span><span class="p">):</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;api_key required&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">MyEmbedder</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;api_key&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;my_embedder&quot;</span><span class="p">,</span> <span class="n">embedder</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="c1"># Can also register repositories</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_register</span><span class="p">(</span><span class="s2">&quot;my_repo&quot;</span><span class="p">,</span> <span class="n">MyRepo</span><span class="p">())</span>
+</code></pre></div>
+<hr />
+<h2 id="johnny5-hooks-input-processing">Johnny5 Hooks (Input Processing)</h2>
+<h3 id="get_id_input_text"><code>get_id_input_text</code></h3>
+<p>Generate or retrieve a unique ID for incoming text.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>Johnny5</td>
+</tr>
+<tr>
+<td><strong>Piped</strong></td>
+<td>Yes (<code>track_id: str</code>)</td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td><code>(track_id, text, *, rag2f)</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>UUID if no hook returns a value</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Override example:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;get_id_input_text&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">custom_id</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate custom ID based on content hash.&quot;&quot;&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+</code></pre></div>
+<p><strong>Use default ID:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;get_id_input_text&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">maybe_custom_id</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Only override for specific cases.&quot;&quot;&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;SPECIAL:&quot;</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;special-</span><span class="si">{</span><span class="n">track_id</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">return</span> <span class="n">track_id</span>  <span class="c1"># Use existing/default ID</span>
+</code></pre></div>
+<hr />
+<h3 id="check_duplicated_input_text"><code>check_duplicated_input_text</code></h3>
+<p>Check if input has already been processed.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>Johnny5</td>
+</tr>
+<tr>
+<td><strong>Piped</strong></td>
+<td>Yes (<code>is_dup: bool</code>)</td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td><code>(is_dup, track_id, text, *, rag2f)</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td><code>False</code> (no duplicate check)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;check_duplicated_input_text&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_duplicate</span><span class="p">(</span><span class="n">is_dup</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check against stored IDs.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">if</span> <span class="n">is_dup</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="k">return</span> <span class="n">is_dup</span>  <span class="c1"># Already flagged by higher-priority hook</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;processed_ids&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">if</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="ow">and</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="k">return</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">track_id</span><span class="p">)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<hr />
+<h3 id="handle_text_foreground"><code>handle_text_foreground</code></h3>
+<p>Main input processing hook. This is where you store, embed, or index text.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>Johnny5</td>
+</tr>
+<tr>
+<td><strong>Piped</strong></td>
+<td>Yes (<code>done: bool</code>)</td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td><code>(done, track_id, text, *, rag2f)</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td><code>NOT_HANDLED</code> if no hook returns <code>True</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">The <code>done</code> Pattern</p>
+<p>Always check <code>done</code> first. If <code>True</code>, a higher-priority hook already processed this input.</p>
+</div>
+<p><strong>Basic implementation:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">store_text</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Store text in vector DB.&quot;&quot;&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="k">return</span> <span class="n">done</span>  <span class="c1"># Already handled</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="c1"># Get embedder and repository</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;vectors&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="p">:</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Let other hooks try</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="c1"># Embed and store</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">vector</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">vector</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">})</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Mark as handled</span>
+</code></pre></div>
+<p><strong>Override default processing:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_custom_processor</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Override default - runs FIRST due to priority 100.&quot;&quot;&quot;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="c1"># Your completely custom processing</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">custom_pipeline</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Prevents default hook from running</span>
+</code></pre></div>
+<p><strong>Conditional processing:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">selective_processor</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Only process certain inputs.&quot;&quot;&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="c1"># Only handle specific inputs</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;PROCESS:&quot;</span><span class="p">):</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Let other hooks handle</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">process_special</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<hr />
+<h2 id="indianajones-hooks-retrieval">IndianaJones Hooks (Retrieval)</h2>
+<h3 id="indiana_jones_retrieve"><code>indiana_jones_retrieve</code></h3>
+<p>Transform or implement retrieval logic.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>IndianaJones</td>
+</tr>
+<tr>
+<td><strong>Piped</strong></td>
+<td>Yes (<code>result: RetrieveResult</code>)</td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td><code>(result, query, k, *, rag2f)</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>Empty result if no hook implements</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.dto.indiana_jones_dto</span><span class="w"> </span><span class="kn">import</span> <span class="n">RetrieveResult</span><span class="p">,</span> <span class="n">RetrievedItem</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;indiana_jones_retrieve&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">vector_retrieval</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement vector search retrieval.&quot;&quot;&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;vectors&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">():</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="k">return</span> <span class="n">result</span>  <span class="c1"># Pass through</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="c1"># Embed query and search</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">query_vec</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="o">.</span><span class="n">vector_search</span><span class="p">(</span><span class="n">query_vec</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="n">RetrievedItem</span><span class="p">(</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>            <span class="nb">id</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>            <span class="n">text</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>            <span class="n">score</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">),</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>            <span class="n">metadata</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        <span class="p">)</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="p">]</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="k">return</span> <span class="n">RetrieveResult</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Override retrieval:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;indiana_jones_retrieve&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_retrieval</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Override default retrieval completely.&quot;&quot;&quot;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="c1"># Your custom retrieval logic</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">items</span> <span class="o">=</span> <span class="n">my_custom_search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="k">return</span> <span class="n">RetrieveResult</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="indiana_jones_search"><code>indiana_jones_search</code></h3>
+<p>Transform or implement search (retrieve + synthesize) logic.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>IndianaJones</td>
+</tr>
+<tr>
+<td><strong>Piped</strong></td>
+<td>Yes (<code>result: SearchResult</code>)</td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td><code>(result, query, k, return_mode, kwargs, *, rag2f)</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>Empty result if no hook implements</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.dto.indiana_jones_dto</span><span class="w"> </span><span class="kn">import</span> <span class="n">SearchResult</span><span class="p">,</span> <span class="n">ReturnMode</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;indiana_jones_search&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">rag_search</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">return_mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement RAG search with LLM synthesis.&quot;&quot;&quot;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="c1"># 1. Retrieve relevant chunks</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">retrieve_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">indiana_jones</span><span class="o">.</span><span class="n">execute_retrieve</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">retrieve_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">():</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="k">return</span> <span class="n">result</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="c1"># 2. Build context from chunks</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>        <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">]: </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> 
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">retrieve_result</span><span class="o">.</span><span class="n">items</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    <span class="p">])</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>    <span class="c1"># 3. Generate response (your LLM call)</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">generate_with_llm</span><span class="p">(</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        <span class="sa">f</span><span class="s2">&quot;Based on:</span><span class="se">\n</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Answer: </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    <span class="p">)</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>    <span class="c1"># 4. Return result</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>    <span class="k">return</span> <span class="n">SearchResult</span><span class="o">.</span><span class="n">success</span><span class="p">(</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>        <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>        <span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>        <span class="n">used_source_ids</span><span class="o">=</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">retrieve_result</span><span class="o">.</span><span class="n">items</span><span class="p">],</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>        <span class="n">items</span><span class="o">=</span><span class="n">retrieve_result</span><span class="o">.</span><span class="n">items</span> <span class="k">if</span> <span class="n">return_mode</span> <span class="o">==</span> <span class="n">ReturnMode</span><span class="o">.</span><span class="n">WITH_ITEMS</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>    <span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="hook-execution-order">Hook Execution Order</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant App
+    participant M as Morpheus
+    participant P100 as Hook (p=100)
+    participant P50 as Hook (p=50)
+    participant P10 as Hook (p=10)
+    participant P1 as Hook (p=1)
+
+    App-&gt;&gt;M: execute_hook("name", phone)
+    M-&gt;&gt;P100: phone
+    P100--&gt;&gt;M: modified (or done=True)
+
+    alt If not done
+        M-&gt;&gt;P50: modified
+        P50--&gt;&gt;M: modified
+        M-&gt;&gt;P10: modified
+        P10--&gt;&gt;M: modified
+        M-&gt;&gt;P1: modified
+        P1--&gt;&gt;M: final
+    end
+
+    M--&gt;&gt;App: final result</code></pre>
+<h2 id="override-summary">Override Summary</h2>
+<table>
+<thead>
+<tr>
+<th>To Override</th>
+<th>Hook</th>
+<th>Your Priority</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID generation</td>
+<td><code>get_id_input_text</code></td>
+<td>&gt; default</td>
+<td>Return new ID</td>
+</tr>
+<tr>
+<td>Duplicate check</td>
+<td><code>check_duplicated_input_text</code></td>
+<td>&gt; default</td>
+<td>Return <code>True</code>/<code>False</code></td>
+</tr>
+<tr>
+<td>Input processing</td>
+<td><code>handle_text_foreground</code></td>
+<td>&gt; 1</td>
+<td>Check <code>done</code>, return <code>True</code></td>
+</tr>
+<tr>
+<td>Retrieval</td>
+<td><code>indiana_jones_retrieve</code></td>
+<td>&gt; existing</td>
+<td>Return <code>RetrieveResult</code></td>
+</tr>
+<tr>
+<td>Search/RAG</td>
+<td><code>indiana_jones_search</code></td>
+<td>&gt; existing</td>
+<td>Return <code>SearchResult</code></td>
+</tr>
+<tr>
+<td>Embedder registration</td>
+<td><code>rag2f_bootstrap_embedders</code></td>
+<td>Any</td>
+<td>Side-effect only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="override-examples">Override Examples</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Replace Default ID Generator</label><label for="__tabbed_2_2">Block Duplicate Processing</label><label for="__tabbed_2_3">Custom Retrieval Backend</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;get_id_input_text&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">hash_based_id</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Use content hash instead of UUID.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">block_duplicates</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Stop processing if text matches pattern.&quot;&quot;&quot;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;SKIP:&quot;</span><span class="p">):</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>        <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Mark as done, skip all processing</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Let other hooks handle</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;indiana_jones_retrieve&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">elasticsearch_retrieval</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Use Elasticsearch instead of vector DB.&quot;&quot;&quot;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">elasticsearch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Elasticsearch</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="n">hits</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;docs&quot;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">k</span><span class="p">)[</span><span class="s2">&quot;hits&quot;</span><span class="p">][</span><span class="s2">&quot;hits&quot;</span><span class="p">]</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="n">RetrievedItem</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">h</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">],</span> <span class="n">text</span><span class="o">=</span><span class="n">h</span><span class="p">[</span><span class="s2">&quot;_source&quot;</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">],</span> <span class="n">score</span><span class="o">=</span><span class="n">h</span><span class="p">[</span><span class="s2">&quot;_score&quot;</span><span class="p">])</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hits</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="p">]</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="k">return</span> <span class="n">RetrieveResult</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Finding Current Priorities</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">hooks</span> <span class="ow">in</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">hooks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hooks</span><span class="p">:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">plugin_id</span><span class="si">}</span><span class="s2">: priority=</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">priority</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
 
 
 
@@ -1088,7 +1867,7 @@ Use priorities to guarantee ordering across plugins.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

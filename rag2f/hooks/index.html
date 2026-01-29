@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -645,22 +681,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-phone-pattern-pipeable-value" class="md-nav__link">
+  <a href="#how-hooks-work" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The phone pattern (pipeable value)
+        How Hooks Work
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The phone pattern (pipeable value)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overriding-default-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overriding Default Behavior
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overriding Default Behavior">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-pipeline-conceptual" class="md-nav__link">
+  <a href="#example-override-default-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example pipeline (conceptual)
+        Example: Override Default Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-done-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The done Pattern
       
     </span>
   </a>
@@ -673,49 +731,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#defining-a-hook" class="md-nav__link">
+  <a href="#hook-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defining a hook
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Defining a hook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#priorities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priorities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hook-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hook naming
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executing-a-hook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executing a hook
+        Hook Types
       
     </span>
   </a>
@@ -723,10 +742,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-hooks-vs-plugins" class="md-nav__link">
+  <a href="#priority-guidelines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to use hooks vs plugins
+        Priority Guidelines
       
     </span>
   </a>
@@ -734,10 +753,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#defining-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error handling
+        Defining Hooks
       
     </span>
   </a>
@@ -745,10 +764,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-tips" class="md-nav__link">
+  <a href="#executing-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Design tips
+        Executing Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-value-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return Value Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Hooks
       
     </span>
   </a>
@@ -966,22 +1029,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-phone-pattern-pipeable-value" class="md-nav__link">
+  <a href="#how-hooks-work" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The phone pattern (pipeable value)
+        How Hooks Work
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The phone pattern (pipeable value)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overriding-default-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overriding Default Behavior
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overriding Default Behavior">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-pipeline-conceptual" class="md-nav__link">
+  <a href="#example-override-default-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example pipeline (conceptual)
+        Example: Override Default Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-done-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The done Pattern
       
     </span>
   </a>
@@ -994,49 +1079,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#defining-a-hook" class="md-nav__link">
+  <a href="#hook-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defining a hook
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Defining a hook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#priorities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priorities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hook-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hook naming
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executing-a-hook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Executing a hook
+        Hook Types
       
     </span>
   </a>
@@ -1044,10 +1090,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-hooks-vs-plugins" class="md-nav__link">
+  <a href="#priority-guidelines" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to use hooks vs plugins
+        Priority Guidelines
       
     </span>
   </a>
@@ -1055,10 +1101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#defining-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error handling
+        Defining Hooks
       
     </span>
   </a>
@@ -1066,10 +1112,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-tips" class="md-nav__link">
+  <a href="#executing-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Design tips
+        Executing Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-value-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return Value Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Hooks
       
     </span>
   </a>
@@ -1097,70 +1187,281 @@
 
 
 <h1 id="hooks">Hooks</h1>
-<p>Hooks are rag2f’s main extension point. They are “adaptation points” that let plugins modify behavior without changing the core.</p>
-<h2 id="the-phone-pattern-pipeable-value">The <code>phone</code> pattern (pipeable value)</h2>
-<p>For hook pipelines that accept arguments, Morpheus treats the first positional argument as a pipeable payload called <strong>phone</strong>:</p>
-<ul>
-<li>hook 1 receives <code>phone</code>, returns a (possibly modified) <code>phone</code></li>
-<li>hook 2 receives the returned <code>phone</code>, and so on</li>
-</ul>
-<p>This lets you:
-- add capabilities
-- override defaults
-- enrich results</p>
-<p>Keep <code>phone</code> a dictionary or small dataclass to make composition predictable.</p>
-<h3 id="example-pipeline-conceptual">Example pipeline (conceptual)</h3>
-<pre><code class="language-python">phone = {&quot;text&quot;: &quot;Hello&quot;}
-phone = rag2f.morpheus.execute_hook(&quot;preprocess&quot;, phone, rag2f=rag2f)
-phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f)
-phone = rag2f.morpheus.execute_hook(&quot;rerank&quot;, phone, rag2f=rag2f)
-phone = rag2f.morpheus.execute_hook(&quot;generate&quot;, phone, rag2f=rag2f)
-</code></pre>
-<h2 id="defining-a-hook">Defining a hook</h2>
-<pre><code class="language-python">from rag2f.core.morpheus.decorators.hook import hook
+<p>Hooks are rag2f's main extension point — they let plugins modify behavior without changing the core.</p>
+<h2 id="how-hooks-work">How Hooks Work</h2>
+<pre class="mermaid"><code>flowchart LR
+    subgraph PIPELINE["Hook Pipeline"]
+        direction LR
+        H1["Hook 1&lt;br/&gt;(p=10)"] --&gt; H2["Hook 2&lt;br/&gt;(p=5)"] --&gt; H3["Hook 3&lt;br/&gt;(p=1)"]
+    end
 
-@hook(&quot;preprocess&quot;, priority=5)
-def preprocess(phone, *, rag2f):
-    phone[&quot;text&quot;] = phone[&quot;text&quot;].strip()
-    return phone
-</code></pre>
-<h3 id="priorities">Priorities</h3>
-<ul>
-<li>Default priority is <code>1</code></li>
-<li>Higher priority runs earlier</li>
-</ul>
-<p>If multiple plugins define the same hook, the ordering is deterministic by priority.</p>
-<h3 id="hook-naming">Hook naming</h3>
-<p>Use short, intention-revealing names for hooks:</p>
-<ul>
-<li><code>preprocess</code></li>
-<li><code>retrieve</code></li>
-<li><code>rerank</code></li>
-<li><code>generate</code></li>
-</ul>
-<p>Avoid embedding backend details in hook names; keep those in plugin IDs.</p>
-<h2 id="executing-a-hook">Executing a hook</h2>
-<p>From the core / your application:</p>
-<pre><code class="language-python">phone = {&quot;text&quot;: &quot;  hello  &quot;}
-phone = rag2f.morpheus.execute_hook(&quot;preprocess&quot;, phone, rag2f=rag2f)
-</code></pre>
-<p>If no plugin implements the hook:
-- if a phone argument was provided, Morpheus returns it unchanged
-- otherwise it returns <code>None</code></p>
-<h2 id="when-to-use-hooks-vs-plugins">When to use hooks vs plugins</h2>
-<ul>
-<li>Use <strong>hooks</strong> when you want to compose behaviors (pipelines).</li>
-<li>Use <strong>plugin overrides</strong> (<code>@plugin</code>) when you want to override plugin-specific behavior (non-piped, per-plugin).</li>
-</ul>
-<h2 id="error-handling">Error handling</h2>
-<p>Hooks should raise errors that are meaningful to callers.
-If you need a soft-fail behavior, return a sentinel in <code>phone</code> and let downstream hooks decide.</p>
-<h2 id="design-tips">Design tips</h2>
-<ul>
-<li>Keep hooks small and focused; push heavy logic into helpers.</li>
-<li>Prefer additive changes to <code>phone</code> over destructive rewrites.</li>
-<li>Document any required <code>phone</code> keys in your plugin README.</li>
-</ul>
+    IN[phone] --&gt; H1
+    H3 --&gt; OUT[modified phone]</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> The pipeline pattern with <code>phone</code> enables functional composition: each hook transforms the input and passes it to the next. Priority ordering ensures that high-priority overrides can block or transform before standard plugins.</p>
+</blockquote>
+<p>The first positional argument (<code>phone</code>) flows through all hooks in <strong>priority order</strong> (higher first).</p>
+<h2 id="overriding-default-behavior">Overriding Default Behavior</h2>
+<div class="admonition tip">
+<p class="admonition-title">The Override Pattern</p>
+<p>To override a default behavior, register a hook with <strong>higher priority</strong> than the default.</p>
+</div>
+<pre class="mermaid"><code>sequenceDiagram
+    participant App
+    participant YourHook as Your Hook (p=100)
+    participant Default as Default Hook (p=1)
+
+    App-&gt;&gt;YourHook: phone
+    YourHook--&gt;&gt;App: modified phone (stops here if handled)
+    Note right of Default: Never reached if Your Hook handles it</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> The override pattern with priority exists to allow plugins to "take control" of a hook, preventing subsequent hooks (at lower priority) from performing redundant or conflicting processing. This is critical for testing and special cases.</p>
+</blockquote>
+<h3 id="example-override-default-processing">Example: Override Default Processing</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Default plugin (priority=1) handles text normally</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">default_handler</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Default processing...</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># YOUR plugin (priority=100) overrides it</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_override</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Override default - runs FIRST due to higher priority.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># Your custom processing instead</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">custom_process</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Mark as done, default never runs</span>
+</code></pre></div>
+<h3 id="the-done-pattern">The <code>done</code> Pattern</h3>
+<p>For processing hooks like <code>handle_text_foreground</code>, use the <code>done</code> flag:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_handler</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="c1"># Check if already handled by higher-priority hook</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="k">return</span> <span class="n">done</span>  <span class="c1"># Pass through, don&#39;t re-process</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># Your processing logic</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">success</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">return</span> <span class="n">success</span>  <span class="c1"># True = handled, False = let others try</span>
+</code></pre></div>
+<h2 id="hook-types">Hook Types</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Pipeable (transform data)</label><label for="__tabbed_1_2">Side-effect (no piping)</label><label for="__tabbed_1_3">Processing (done pattern)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">clean</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">return</span> <span class="n">phone</span>  <span class="c1"># Required! Returns to next hook</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;rag2f_bootstrap_embedders&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;my_emb&quot;</span><span class="p">,</span> <span class="n">MyEmbedder</span><span class="p">())</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="c1"># No return needed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;handle_text_foreground&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="k">return</span> <span class="n">done</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="c1"># Process...</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Mark as handled</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="priority-guidelines">Priority Guidelines</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Use Case</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>100+</code></td>
+<td>Override everything</td>
+<td>Testing, special cases</td>
+</tr>
+<tr>
+<td><code>50-99</code></td>
+<td>Custom primary impl</td>
+<td>Your main processing</td>
+</tr>
+<tr>
+<td><code>10-49</code></td>
+<td>Standard plugins</td>
+<td>Normal plugins</td>
+</tr>
+<tr>
+<td><code>1-9</code></td>
+<td>Fallback/default</td>
+<td>Core defaults</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Higher = First</p>
+<p>Priority <code>100</code> runs <strong>before</strong> priority <code>1</code>.</p>
+</div>
+<h2 id="defining-hooks">Defining Hooks</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">hook</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Explicit name</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;my_hook&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># Function name as hook name</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nd">@hook</span><span class="p">(</span><span class="n">priority</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_hook</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># Default priority (1)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="nd">@hook</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_hook</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="k">return</span> <span class="n">phone</span>
+</code></pre></div>
+<h2 id="executing-hooks">Executing Hooks</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># From your application</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">phone</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+</code></pre></div>
+<p>If no hooks registered → returns input unchanged.</p>
+<h2 id="return-value-rules">Return Value Rules</h2>
+<table>
+<thead>
+<tr>
+<th>Return</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value</td>
+<td>Passed to next hook</td>
+</tr>
+<tr>
+<td><code>None</code></td>
+<td>Previous value continues</td>
+</tr>
+<tr>
+<td><code>True/False</code></td>
+<td>For done-pattern hooks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="built-in-hooks">Built-in Hooks</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">🚀 Bootstrap</label><label for="__tabbed_2_2">📥 Johnny5 (Input)</label><label for="__tabbed_2_3">🔍 IndianaJones (Retrieval)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Signature</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rag2f_bootstrap_embedders</code></td>
+<td><code>(*, rag2f)</code></td>
+<td>Register embedders/repos at startup</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Signature</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_id_input_text</code></td>
+<td><code>(track_id, text, *, rag2f)</code></td>
+<td>Generate/retrieve input ID</td>
+</tr>
+<tr>
+<td><code>check_duplicated_input_text</code></td>
+<td><code>(is_dup, track_id, text, *, rag2f)</code></td>
+<td>Check duplicate input</td>
+</tr>
+<tr>
+<td><code>handle_text_foreground</code></td>
+<td><code>(done, track_id, text, *, rag2f)</code></td>
+<td>Process/store/embed input</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Signature</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>indiana_jones_retrieve</code></td>
+<td><code>(result, query, k, *, rag2f)</code></td>
+<td>Vector retrieval</td>
+</tr>
+<tr>
+<td><code>indiana_jones_search</code></td>
+<td><code>(result, query, k, mode, kwargs, *, rag2f)</code></td>
+<td>Search + LLM synthesis</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>See <a href="../hooks-reference/">Hooks Reference</a> for complete documentation with examples.</p>
+<h2 id="custom-hooks">Custom Hooks</h2>
+<p>Define your own hooks for custom pipelines:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Plugin A defines the hook</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;my_custom_pipeline&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">step_one</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;step1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Plugin B extends it</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;my_custom_pipeline&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">step_two</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;step2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1"># Execute in your app</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;my_custom_pipeline&quot;</span><span class="p">,</span> <span class="p">{},</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1"># phone = {&quot;step1&quot;: True, &quot;step2&quot;: True}</span>
+</code></pre></div>
+<h2 id="testing-hooks">Testing Hooks</h2>
+<p>Hooks are plain functions — test directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">MagicMock</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_my_hook</span><span class="p">():</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">phone</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;  hello  &quot;</span><span class="p">}</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">MagicMock</span><span class="p">())</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;hello&quot;</span>
+</code></pre></div>
 
 
 
@@ -1218,7 +1519,7 @@ If you need a soft-fail behavior, return a sentinel in <code>phone</code> and le
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1070,10 +1106,10 @@ Instead, it defines <strong>minimal contracts</strong> and lets repositories opt
 <p>"The truth is out there."
 - The X-Files</p>
 </blockquote>
-<pre><code>  \  |  /
-   .-*-.
-  /  |  \   XFiles
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  \  |  /
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   .-*-.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  /  |  \   XFiles
+</code></pre></div>
 <h2 id="repository-protocols">Repository protocols</h2>
 <p>A repository plugin implements one or more of these contracts:</p>
 <ul>
@@ -1084,6 +1120,20 @@ Instead, it defines <strong>minimal contracts</strong> and lets repositories opt
 </ul>
 <p>Use <strong>capabilities</strong> to determine what you can safely call.</p>
 <h2 id="capabilities">Capabilities</h2>
+<pre class="mermaid"><code>flowchart TD
+    Repo[Repository]
+    Caps{Check capabilities}
+    Vec[vector_search]
+    Query[find with QuerySpec]
+    Graph[traverse]
+
+    Repo --&gt; Caps
+    Caps --&gt;|vector_search=true| Vec
+    Caps --&gt;|queryable=true| Query
+    Caps --&gt;|graph_traversal=true| Graph</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> Capabilities avoid the "lowest common denominator" problem: instead of forcing all repositories to implement methods they don't support (e.g. vector search on pure SQL), each repo explicitly declares what it can do. This makes plugins more honest and prevents runtime errors.</p>
+</blockquote>
 <p>Repositories declare capabilities (e.g. supports vector search, supports graph traversal).
 XFiles validates that the repository methods match the declared capabilities.</p>
 <p>This makes it harder to:
@@ -1091,32 +1141,32 @@ XFiles validates that the repository methods match the declared capabilities.</p
 - ship a plugin that claims features it doesn’t implement.</p>
 <h3 id="capability-driven-calling">Capability-driven calling</h3>
 <p>Before calling advanced methods, check capabilities or guard in your app:</p>
-<pre><code class="language-python">result = xfiles.execute_get(&quot;users_db&quot;)
-if result.is_ok() and result.repository:
-    repo = result.repository
-    if repo.capabilities.get(&quot;vector_search&quot;):
-        repo.vector_search(...)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;users_db&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">repository</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">repo</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">repository</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">if</span> <span class="n">repo</span><span class="o">.</span><span class="n">capabilities</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vector_search&quot;</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">repo</span><span class="o">.</span><span class="n">vector_search</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
 <p>Example capability declaration (conceptual):</p>
-<pre><code class="language-python">capabilities = {
-    &quot;queryable&quot;: True,
-    &quot;vector_search&quot;: False,
-    &quot;graph_traversal&quot;: False,
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">capabilities</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="s2">&quot;queryable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s2">&quot;vector_search&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">&quot;graph_traversal&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="queryspec">QuerySpec</h2>
 <p>Queryable repositories accept a <code>QuerySpec</code> structure to express filters, pagination and projection.
 The exact shape lives in <code>rag2f.core.xfiles.types</code>, but conceptually:</p>
-<pre><code class="language-python">from rag2f.core.xfiles import QuerySpec, eq, and_
-
-query = QuerySpec(
-    select=[&quot;id&quot;, &quot;email&quot;],
-    where=and_(eq(&quot;status&quot;, &quot;active&quot;), eq(&quot;tier&quot;, &quot;pro&quot;)),
-    order_by=[&quot;-created_at&quot;],
-    limit=10,
-)
-rows = repo.find(query)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.xfiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuerySpec</span><span class="p">,</span> <span class="n">eq</span><span class="p">,</span> <span class="n">and_</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">query</span> <span class="o">=</span> <span class="n">QuerySpec</span><span class="p">(</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">select</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">],</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">where</span><span class="o">=</span><span class="n">and_</span><span class="p">(</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;active&quot;</span><span class="p">),</span> <span class="n">eq</span><span class="p">(</span><span class="s2">&quot;tier&quot;</span><span class="p">,</span> <span class="s2">&quot;pro&quot;</span><span class="p">)),</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">order_by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-created_at&quot;</span><span class="p">],</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">rows</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="minimal-repository-shape">Minimal repository shape</h2>
 <p>At minimum, a repository should provide:</p>
 <ul>
@@ -1129,9 +1179,9 @@ rows = repo.find(query)
 <p>If you implement richer protocols, document the expected payloads in your plugin README.</p>
 <h2 id="native-access">Native access</h2>
 <p>For advanced use, repositories can expose native handles:</p>
-<pre><code class="language-python">client = repo.native(&quot;primary&quot;)
-# now you're in backend-specific territory
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">client</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">native</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># now you&#39;re in backend-specific territory</span>
+</code></pre></div>
 <p>This “escape hatch” is deliberate:
 - rag2f keeps contracts minimal,
 - you can still use vendor-specific power when you want it.</p>
@@ -1142,22 +1192,22 @@ pattern, so check the returned <code>RegisterResult</code> instead of catching e
 <p>See <a href="../architecture/">Architecture</a> for how XFiles sits in the overall system.</p>
 <h2 id="repository-metadata">Repository metadata</h2>
 <p>Use metadata to help your app select the right backend:</p>
-<pre><code class="language-python">users_result = xfiles.execute_register(
-    &quot;users_db&quot;,
-    users_repo,
-    meta={&quot;type&quot;: &quot;postgresql&quot;, &quot;domain&quot;: &quot;users&quot;},
-)
-if users_result.is_error():
-    raise ValueError(users_result.detail.message)
-
-papers_result = xfiles.execute_register(
-    &quot;papers&quot;,
-    papers_repo,
-    meta={&quot;type&quot;: &quot;vector&quot;, &quot;domain&quot;: &quot;research&quot;},
-)
-if papers_result.is_error():
-    raise ValueError(papers_result.detail.message)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">users_result</span> <span class="o">=</span> <span class="n">xfiles</span><span class="o">.</span><span class="n">execute_register</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="s2">&quot;users_db&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">users_repo</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;postgresql&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">},</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">if</span> <span class="n">users_result</span><span class="o">.</span><span class="n">is_error</span><span class="p">():</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">users_result</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">papers_result</span> <span class="o">=</span> <span class="n">xfiles</span><span class="o">.</span><span class="n">execute_register</span><span class="p">(</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="s2">&quot;papers&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">papers_repo</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vector&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;research&quot;</span><span class="p">},</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">if</span> <span class="n">papers_result</span><span class="o">.</span><span class="n">is_error</span><span class="p">():</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">papers_result</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div>
 <p>Metadata is not enforced by the core, but it provides a stable filter surface for your application.</p>
 
 
@@ -1216,7 +1266,7 @@ if papers_result.is_error():
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

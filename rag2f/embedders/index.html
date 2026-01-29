@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -701,10 +737,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#registration-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registration Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-embedder-protocol" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Embedder protocol
+        The Embedder Protocol
       
     </span>
   </a>
@@ -712,38 +759,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#registering-embedders" class="md-nav__link">
+  <a href="#quick-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering embedders
+        Quick Example
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Registering embedders">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#override-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Override policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#batching-and-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Batching and performance
+        Override Policy
       
     </span>
   </a>
@@ -751,32 +792,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecting-the-default-embedder" class="md-nav__link">
+  <a href="#default-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selecting the default embedder
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#normalization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Normalization
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registry-inspection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registry inspection
+        Default Selection
       
     </span>
   </a>
@@ -938,10 +957,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#registration-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registration Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-embedder-protocol" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Embedder protocol
+        The Embedder Protocol
       
     </span>
   </a>
@@ -949,38 +979,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#registering-embedders" class="md-nav__link">
+  <a href="#quick-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering embedders
+        Quick Example
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Registering embedders">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#override-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Override policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#batching-and-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Batching and performance
+        Override Policy
       
     </span>
   </a>
@@ -988,32 +1012,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecting-the-default-embedder" class="md-nav__link">
+  <a href="#default-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selecting the default embedder
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#normalization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Normalization
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registry-inspection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registry inspection
+        Default Selection
       
     </span>
   </a>
@@ -1041,70 +1043,86 @@
 
 
 <h1 id="embedders-optimusprime">Embedders (OptimusPrime)</h1>
-<p>OptimusPrime is the embedder registry.</p>
-<p>Embedders are contributed by plugins and must satisfy the <code>Embedder</code> protocol (structural typing / duck typing).</p>
-<blockquote>
-<p>"Freedom is the right of all sentient beings."
-- Optimus Prime, Transformers</p>
-</blockquote>
-<pre><code> [====]
- | [] |  Optimus
- | || |  Prime
- [____]
-</code></pre>
-<h2 id="the-embedder-protocol">The <code>Embedder</code> protocol</h2>
-<p>An embedder must expose:</p>
-<ul>
-<li><code>size</code> (property): embedding vector length</li>
-<li><code>getEmbedding(text: str, normalize: bool = False) -&gt; list[float]</code></li>
-</ul>
-<p>Minimal example:</p>
-<pre><code class="language-python">class MyEmbedder:
-    size = 3
+<p>OptimusPrime is the embedder registry. Embedders are contributed by plugins and must satisfy the <code>Embedder</code> protocol.</p>
+<h2 id="registration-flow">Registration Flow</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Plugin
+    participant Morpheus
+    participant OP as OptimusPrime
 
-    def getEmbedding(self, text: str, normalize: bool = False) -&gt; list[float]:
-        vec = [0.1, 0.2, 0.3]
-        if normalize:
-            scale = sum(v * v for v in vec) ** 0.5
-            vec = [v / scale for v in vec]
-        return vec
-</code></pre>
-<h2 id="registering-embedders">Registering embedders</h2>
-<p>Plugins typically register an embedder instance with a name/id:</p>
-<pre><code class="language-python"># inside your plugin activation or hook
-rag2f.optimus_prime.register(&quot;my_embedder&quot;, MyEmbedder(...))
-</code></pre>
-<p>OptimusPrime enforces protocol compliance and prevents accidental overrides.</p>
-<h3 id="override-policy">Override policy</h3>
+    Plugin-&gt;&gt;Morpheus: @hook rag2f_bootstrap_embedders
+    Morpheus-&gt;&gt;Plugin: execute hook
+    Plugin-&gt;&gt;OP: register("name", embedder)
+    OP-&gt;&gt;OP: validate protocol
+    OP--&gt;&gt;Plugin: registered</code></pre>
+<h2 id="the-embedder-protocol">The <code>Embedder</code> Protocol</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Embedder</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Vector dimension (e.g., 1536).&quot;&quot;&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="o">...</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getEmbedding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return embedding vector.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="o">...</span>
+</code></pre></div>
+<h2 id="quick-example">Quick Example</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># In your plugin hooks.py</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;rag2f_bootstrap_embedders&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">register_embedder</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">spock</span><span class="o">.</span><span class="n">get_plugin_config</span><span class="p">(</span><span class="s2">&quot;my_embedder&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;my_embedder&quot;</span><span class="p">,</span> <span class="n">MyEmbedder</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># In your app</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">vector</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="api-reference">API Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>register(key, embedder)</code></td>
+<td>Register embedder (validates protocol)</td>
+</tr>
+<tr>
+<td><code>get(key)</code></td>
+<td>Get by key (or <code>None</code>)</td>
+</tr>
+<tr>
+<td><code>get_default()</code></td>
+<td>Get default (config: <code>rag2f.embedder_default</code>)</td>
+</tr>
+<tr>
+<td><code>has(key)</code></td>
+<td>Check existence</td>
+</tr>
+<tr>
+<td><code>list_keys()</code></td>
+<td>List all registered</td>
+</tr>
+<tr>
+<td><code>unregister(key)</code></td>
+<td>Remove embedder</td>
+</tr>
+</tbody>
+</table>
+<h2 id="override-policy">Override Policy</h2>
 <ul>
-<li>Registering the <em>same instance</em> under the same key is allowed (idempotent).</li>
-<li>Registering a <em>different instance</em> under an existing key raises <code>ValueError</code>.</li>
+<li>Same instance + same key → OK (idempotent)</li>
+<li>Different instance + existing key → <code>ValueError</code></li>
 </ul>
-<p>This prevents accidental replacement of an embedder at runtime.</p>
-<h2 id="batching-and-performance">Batching and performance</h2>
-<p>If your backend supports batch embedding, consider exposing a second helper method in your plugin module (not the protocol) and wrap it with a hook.
-This keeps the core contract simple while letting you optimize for throughput.</p>
-<h2 id="selecting-the-default-embedder">Selecting the default embedder</h2>
-<p>Default embedder selection uses Spock config:</p>
-<ul>
-<li><code>rag2f.embedder_default = "&lt;name&gt;"</code></li>
-</ul>
-<p>If exactly one embedder is registered, rag2f may treat it as default automatically.
-If multiple embedders are registered and no default is configured, <code>get_default()</code> raises a <code>LookupError</code>.</p>
-<p>Usage:</p>
-<pre><code class="language-python">embedder = rag2f.optimus_prime.get_default()
-vec = embedder.getEmbedding(&quot;hello&quot;)
-</code></pre>
-<h2 id="normalization">Normalization</h2>
-<p>If you implement <code>normalize=True</code>, document whether you:
-- L2-normalize vectors,
-- or apply another scaling/standardization.</p>
-<p>Downstream vector search engines often expect normalized embeddings for cosine similarity.</p>
-<h2 id="registry-inspection">Registry inspection</h2>
-<p>You can inspect the registry for debugging:</p>
-<pre><code class="language-python">rag2f.optimus_prime.list_keys()
-rag2f.optimus_prime.has(&quot;my_embedder&quot;)
-</code></pre>
+<h2 id="default-selection">Default Selection</h2>
+<ol>
+<li>Single embedder → automatic default</li>
+<li>Multiple → requires <code>rag2f.embedder_default</code> in config</li>
+<li>No embedders → <code>LookupError</code></li>
+</ol>
 
 
 
@@ -1162,7 +1180,7 @@ rag2f.optimus_prime.has(&quot;my_embedder&quot;)
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

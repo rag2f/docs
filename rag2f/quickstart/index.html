@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1175,273 +1211,288 @@
 <h1 id="quickstart">Quickstart</h1>
 <p>This page shows the smallest “hello world” you can run with rag2f.</p>
 <h2 id="1-install">1) Install</h2>
-<pre><code class="language-bash"># Recommended: Dev Container (VS Code / devcontainers CLI)
-# - Open the repo in the dev container and wait for the container to build
-pip install -e .
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Recommended: Dev Container (VS Code / devcontainers CLI)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># - Open the repo in the dev container and wait for the container to build</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
 <p>(If you prefer a local venv instead of a dev container: <code>python -m venv .venv &amp;&amp; source .venv/bin/activate</code>.)</p>
 <h2 id="2-create-a-config-optional">2) Create a config (optional)</h2>
 <p>rag2f can run with an empty config, but most real usage needs at least an embedder and one repository.</p>
 <p>Create <code>config.json</code>:</p>
-<pre><code class="language-json">{
-  &quot;rag2f&quot;: {
-    &quot;embedder_default&quot;: &quot;my_embedder&quot;
-  },
-  &quot;plugins&quot;: {
-    &quot;my_embedder_plugin&quot;: {
-      &quot;api_key&quot;: &quot;...&quot;
-    }
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;rag2f&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;embedder_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_embedder&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;plugins&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;my_embedder_plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="3-add-a-tiny-local-plugin-optional">3) Add a tiny local plugin (optional)</h2>
 <p>Local plugins are the fastest way to test hooks and registries.</p>
 <p>Create a plugin folder:</p>
-<pre><code>plugins/
-  hello_plugin/
-    plugin.json
-    hello_plugin.py
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>plugins/
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  hello_plugin/
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    plugin.json
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    hello_plugin.py
+</code></pre></div>
 <p>Example <code>plugin.json</code>:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;hello_plugin&quot;,
-  &quot;name&quot;: &quot;Hello Plugin&quot;,
-  &quot;version&quot;: &quot;0.1.0&quot;,
-  &quot;module&quot;: &quot;hello_plugin.py&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello_plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello Plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello_plugin.py&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
 <p>Example <code>hello_plugin.py</code>:</p>
-<pre><code class="language-python">from rag2f.core.morpheus.decorators.hook import hook
-
-@hook(&quot;preprocess&quot;, priority=5)
-def add_tag(phone, *, rag2f):
-    phone[&quot;tags&quot;] = phone.get(&quot;tags&quot;, []) + [&quot;hello&quot;]
-    return phone
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators.hook</span><span class="w"> </span><span class="kn">import</span> <span class="n">hook</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">add_tag</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;tags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phone</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tags&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="k">return</span> <span class="n">phone</span>
+</code></pre></div>
 <h2 id="4-start-an-instance-and-discover-plugins">4) Start an instance and discover plugins</h2>
-<pre><code class="language-python">import asyncio
-from rag2f.core.rag2f import RAG2F
+<pre class="mermaid"><code>flowchart TD
+    App[Your app]
+    Create[RAG2F.create]
+    Plugin[Discover plugins]
+    Reg[Registries ready]
+    Hook[Execute hooks]
 
-async def main():
-    rag2f = await RAG2F.create(
-        plugins_folder=&quot;plugins/&quot;,    # optional; defaults to ./plugins
-        config_path=&quot;config.json&quot;,    # optional
-    )
-
-    # Embedder
-    embedder = rag2f.optimus_prime.get_default()
-    v = embedder.getEmbedding(&quot;hello rag2f&quot;)
-
-    print(len(v), v[:5])
-
-asyncio.run(main())
-</code></pre>
+    App --&gt; Create
+    Create --&gt; Plugin
+    Plugin --&gt; Reg
+    Reg --&gt; Hook
+    Hook --&gt; App</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> The create → discover → register → execute cycle keeps clean separation between setup (async) and runtime (sync), allowing early validation and fail-fast if configuration or plugins have issues.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.rag2f</span><span class="w"> </span><span class="kn">import</span> <span class="n">RAG2F</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">rag2f</span> <span class="o">=</span> <span class="k">await</span> <span class="n">RAG2F</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="n">plugins_folder</span><span class="o">=</span><span class="s2">&quot;plugins/&quot;</span><span class="p">,</span>    <span class="c1"># optional; defaults to ./plugins</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span>    <span class="c1"># optional</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="c1"># Embedder</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">v</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="s2">&quot;hello rag2f&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">v</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
 <h2 id="5-compose-a-minimal-pipeline">5) Compose a minimal pipeline</h2>
 <p>rag2f does not impose a pipeline; you compose one with hooks and registries:</p>
-<pre><code class="language-python">phone = {&quot;text&quot;: &quot;hello rag2f&quot;}
-phone = rag2f.morpheus.execute_hook(&quot;preprocess&quot;, phone, rag2f=rag2f)
-phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f)
-phone = rag2f.morpheus.execute_hook(&quot;rerank&quot;, phone, rag2f=rag2f)
-phone = rag2f.morpheus.execute_hook(&quot;generate&quot;, phone, rag2f=rag2f)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">phone</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;hello rag2f&quot;</span><span class="p">}</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;preprocess&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;retrieve&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;rerank&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;generate&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+</code></pre></div>
 <p>Hooks are optional. If no plugin implements a hook, the phone passes through unchanged.</p>
 <h2 id="6-use-repositories-xfiles">6) Use repositories (XFiles)</h2>
 <p>Once a repository plugin is registered, you can fetch it by name/id and call protocol methods based on capabilities.</p>
 <p>Conceptually:</p>
-<pre><code class="language-python">repo_result = rag2f.xfiles.execute_get(&quot;primary&quot;)
-if not repo_result.is_ok() or not repo_result.repository:
-    raise LookupError(&quot;Repository 'primary' not found&quot;)
-repo = repo_result.repository
-
-# Minimal CRUD
-await repo.insert({&quot;id&quot;: &quot;1&quot;, &quot;text&quot;: &quot;hello&quot;})
-
-# Optional query / vector search if supported by the repository
-rows = await repo.find({&quot;where&quot;: {&quot;field&quot;: &quot;text&quot;, &quot;op&quot;: &quot;contains&quot;, &quot;value&quot;: &quot;hello&quot;}})
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s2">&quot;Repository &#39;primary&#39; not found&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">repo</span> <span class="o">=</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Minimal CRUD</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">await</span> <span class="n">repo</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">})</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Optional query / vector search if supported by the repository</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">rows</span> <span class="o">=</span> <span class="k">await</span> <span class="n">repo</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;where&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;contains&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">}})</span>
+</code></pre></div>
 <p>See <a href="../repositories/">Repositories (XFiles)</a> for the real contracts and <code>QuerySpec</code> shapes.</p>
 <h2 id="example-walkthrough-tiny-in-memory-notes-rag">Example walkthrough: tiny in-memory "notes RAG"</h2>
 <p>This walkthrough is fully local (no external APIs) and touches the main pieces: plugins, embedders, repositories, and a hook-based retrieval step. You can run it end-to-end to verify the repo works on your machine.</p>
 <h3 id="1-create-a-local-demo-plugin">1) Create a local demo plugin</h3>
-<pre><code>plugins/
-  tiny_demo/
-    plugin.json
-    tiny_demo.py
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>plugins/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  tiny_demo/
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    plugin.json
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    tiny_demo.py
+</code></pre></div>
 <p><code>plugins/tiny_demo/plugin.json</code>:</p>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;tiny_demo&quot;,
-  &quot;name&quot;: &quot;Tiny Demo Plugin&quot;,
-  &quot;version&quot;: &quot;0.1.0&quot;,
-  &quot;module&quot;: &quot;tiny_demo.py&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tiny_demo&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tiny Demo Plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tiny_demo.py&quot;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</code></pre></div>
 <p><code>plugins/tiny_demo/tiny_demo.py</code>:</p>
-<pre><code class="language-python">from rag2f.core.morpheus.decorators import hook, plugin
-from rag2f.core.xfiles import BaseRepository, minimal_crud_capabilities
-
-
-class InMemoryRepo(BaseRepository):
-    def __init__(self, name=&quot;tiny_repo&quot;):
-        self._name = name
-        self._rows = {}
-
-    @property
-    def name(self) -&gt; str:
-        return self._name
-
-    def capabilities(self):
-        return minimal_crud_capabilities()
-
-    def get(self, id, select=None):
-        return self._rows[id]
-
-    def insert(self, id, item):
-        self._rows[id] = item
-
-    def update(self, id, patch):
-        self._rows[id] = {**self._rows[id], **patch}
-
-    def delete(self, id):
-        self._rows.pop(id, None)
-
-    def all(self):
-        return list(self._rows.values())
-
-    def _get_native_handle(self, kind: str):
-        raise NotImplementedError(&quot;Native handles not supported in this demo&quot;)
-
-
-class TinyEmbedder:
-    &quot;&quot;&quot;Toy embedder for the demo: keyword presence vector.&quot;&quot;&quot;
-
-    _keys = (&quot;password&quot;, &quot;refund&quot;, &quot;hours&quot;)
-
-    @property
-    def size(self) -&gt; int:
-        return len(self._keys)
-
-    def getEmbedding(self, text: str, *, normalize: bool = False):
-        text = text.lower()
-        vec = [1.0 if key in text else 0.0 for key in self._keys]
-        if normalize:
-            norm = (sum(v * v for v in vec) ** 0.5) or 1.0
-            vec = [v / norm for v in vec]
-        return vec
-
-
-@plugin
-def activated(plugin, rag2f):
-    &quot;&quot;&quot;Lifecycle hook: register the demo embedder + repo.&quot;&quot;&quot;
-    if not rag2f.optimus_prime.has(&quot;tiny_embedder&quot;):
-        rag2f.optimus_prime.register(&quot;tiny_embedder&quot;, TinyEmbedder())
-
-    if not rag2f.xfiles.has(&quot;tiny_repo&quot;):
-        result = rag2f.xfiles.execute_register(
-            &quot;tiny_repo&quot;,
-            InMemoryRepo(),
-            meta={&quot;type&quot;: &quot;memory&quot;, &quot;domain&quot;: &quot;demo&quot;},
-        )
-        if result.is_error():
-            raise RuntimeError(result.detail.message)
-
-
-@hook(&quot;retrieve&quot;, priority=10)
-def retrieve(phone, *, rag2f):
-    &quot;&quot;&quot;Naive retrieval: cosine over keyword vectors.&quot;&quot;&quot;
-    repo_result = rag2f.xfiles.execute_get(&quot;tiny_repo&quot;)
-    repo = repo_result.repository if repo_result.is_ok() else None
-    embedder = rag2f.optimus_prime.get(&quot;tiny_embedder&quot;)
-    if repo is None or embedder is None:
-        return phone
-
-    query_vec = embedder.getEmbedding(phone[&quot;query&quot;], normalize=True)
-    results = []
-    for row in repo.all():
-        score = sum(a * b for a, b in zip(query_vec, row[&quot;embedding&quot;], strict=False))
-        results.append({&quot;id&quot;: row[&quot;id&quot;], &quot;text&quot;: row[&quot;text&quot;], &quot;score&quot;: score})
-
-    results.sort(key=lambda r: r[&quot;score&quot;], reverse=True)
-    phone[&quot;results&quot;] = results[: phone.get(&quot;top_k&quot;, 3)]
-    return phone
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">hook</span><span class="p">,</span> <span class="n">plugin</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.xfiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRepository</span><span class="p">,</span> <span class="n">minimal_crud_capabilities</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">InMemoryRepo</span><span class="p">(</span><span class="n">BaseRepository</span><span class="p">):</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tiny_repo&quot;</span><span class="p">):</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="nd">@property</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">capabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        <span class="k">return</span> <span class="n">minimal_crud_capabilities</span><span class="p">()</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">patch</span><span class="p">):</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">[</span><span class="nb">id</span><span class="p">],</span> <span class="o">**</span><span class="n">patch</span><span class="p">}</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_get_native_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Native handles not supported in this demo&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>
+<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>
+<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="k">class</span><span class="w"> </span><span class="nc">TinyEmbedder</span><span class="p">:</span>
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Toy embedder for the demo: keyword presence vector.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>
+<a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>    <span class="n">_keys</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;refund&quot;</span><span class="p">,</span> <span class="s2">&quot;hours&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>
+<a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>    <span class="nd">@property</span>
+<a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">)</span>
+<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>
+<a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getEmbedding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>        <span class="n">vec</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">else</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">]</span>
+<a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>        <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+<a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a>            <span class="n">norm</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="ow">or</span> <span class="mf">1.0</span>
+<a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>            <span class="n">vec</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="o">/</span> <span class="n">norm</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>
+<a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>        <span class="k">return</span> <span class="n">vec</span>
+<a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>
+<a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a>
+<a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a><span class="nd">@plugin</span>
+<a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a><span class="k">def</span><span class="w"> </span><span class="nf">activated</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Lifecycle hook: register the demo embedder + repo.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;tiny_embedder&quot;</span><span class="p">):</span>
+<a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a>        <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;tiny_embedder&quot;</span><span class="p">,</span> <span class="n">TinyEmbedder</span><span class="p">())</span>
+<a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a>
+<a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;tiny_repo&quot;</span><span class="p">):</span>
+<a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_register</span><span class="p">(</span>
+<a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a>            <span class="s2">&quot;tiny_repo&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a>            <span class="n">InMemoryRepo</span><span class="p">(),</span>
+<a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a>            <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span><span class="p">},</span>
+<a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a>        <span class="p">)</span>
+<a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_error</span><span class="p">():</span>
+<a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a>
+<a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a>
+<a id="__codelineno-10-70" name="__codelineno-10-70" href="#__codelineno-10-70"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;retrieve&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-10-71" name="__codelineno-10-71" href="#__codelineno-10-71"></a><span class="k">def</span><span class="w"> </span><span class="nf">retrieve</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-10-72" name="__codelineno-10-72" href="#__codelineno-10-72"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Naive retrieval: cosine over keyword vectors.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-73" name="__codelineno-10-73" href="#__codelineno-10-73"></a>    <span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;tiny_repo&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-74" name="__codelineno-10-74" href="#__codelineno-10-74"></a>    <span class="n">repo</span> <span class="o">=</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span> <span class="k">if</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-10-75" name="__codelineno-10-75" href="#__codelineno-10-75"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tiny_embedder&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-76" name="__codelineno-10-76" href="#__codelineno-10-76"></a>    <span class="k">if</span> <span class="n">repo</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">embedder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-10-77" name="__codelineno-10-77" href="#__codelineno-10-77"></a>        <span class="k">return</span> <span class="n">phone</span>
+<a id="__codelineno-10-78" name="__codelineno-10-78" href="#__codelineno-10-78"></a>
+<a id="__codelineno-10-79" name="__codelineno-10-79" href="#__codelineno-10-79"></a>    <span class="n">query_vec</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="n">phone</span><span class="p">[</span><span class="s2">&quot;query&quot;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-10-80" name="__codelineno-10-80" href="#__codelineno-10-80"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-10-81" name="__codelineno-10-81" href="#__codelineno-10-81"></a>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">repo</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<a id="__codelineno-10-82" name="__codelineno-10-82" href="#__codelineno-10-82"></a>        <span class="n">score</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">query_vec</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;embedding&quot;</span><span class="p">],</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<a id="__codelineno-10-83" name="__codelineno-10-83" href="#__codelineno-10-83"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">],</span> <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">score</span><span class="p">})</span>
+<a id="__codelineno-10-84" name="__codelineno-10-84" href="#__codelineno-10-84"></a>
+<a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a>    <span class="n">results</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-10-86" name="__codelineno-10-86" href="#__codelineno-10-86"></a>    <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:</span> <span class="n">phone</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;top_k&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<a id="__codelineno-10-87" name="__codelineno-10-87" href="#__codelineno-10-87"></a>    <span class="k">return</span> <span class="n">phone</span>
+</code></pre></div>
 <p>Note: the lifecycle function must be named <code>activated</code> to run on plugin load.</p>
 <h3 id="2-create-a-runnable-script">2) Create a runnable script</h3>
 <p><code>examples/tiny_demo.py</code>:</p>
-<pre><code class="language-python">import asyncio
-from rag2f.core.rag2f import RAG2F
-
-
-async def main():
-    rag2f = await RAG2F.create(plugins_folder=&quot;plugins/&quot;)
-
-    repo_result = rag2f.xfiles.execute_get(&quot;tiny_repo&quot;)
-    repo = repo_result.repository if repo_result.is_ok() else None
-    embedder = rag2f.optimus_prime.get(&quot;tiny_embedder&quot;)
-    if repo is None or embedder is None:
-        raise RuntimeError(&quot;Demo plugin did not load&quot;)
-
-    docs = {
-        &quot;pwd_reset&quot;: &quot;Reset your password in the account settings.&quot;,
-        &quot;refund_policy&quot;: &quot;Refunds are available within 30 days.&quot;,
-        &quot;support_hours&quot;: &quot;Support hours are Mon-Fri 9-5.&quot;,
-    }
-
-    for doc_id, text in docs.items():
-        repo.insert(
-            doc_id,
-            {
-                &quot;id&quot;: doc_id,
-                &quot;text&quot;: text,
-                &quot;embedding&quot;: embedder.getEmbedding(text, normalize=True),
-            },
-        )
-
-    phone = {&quot;query&quot;: &quot;I forgot my password&quot;, &quot;top_k&quot;: 2}
-    phone = rag2f.morpheus.execute_hook(&quot;retrieve&quot;, phone, rag2f=rag2f)
-
-    for hit in phone[&quot;results&quot;]:
-        print(f&quot;{hit['id']} (score={hit['score']:.2f}): {hit['text']}&quot;)
-
-
-asyncio.run(main())
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.rag2f</span><span class="w"> </span><span class="kn">import</span> <span class="n">RAG2F</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">rag2f</span> <span class="o">=</span> <span class="k">await</span> <span class="n">RAG2F</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">plugins_folder</span><span class="o">=</span><span class="s2">&quot;plugins/&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="n">repo_result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_get</span><span class="p">(</span><span class="s2">&quot;tiny_repo&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">repo</span> <span class="o">=</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">repository</span> <span class="k">if</span> <span class="n">repo_result</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">embedder</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">optimus_prime</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tiny_embedder&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="k">if</span> <span class="n">repo</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">embedder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Demo plugin did not load&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="n">docs</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>        <span class="s2">&quot;pwd_reset&quot;</span><span class="p">:</span> <span class="s2">&quot;Reset your password in the account settings.&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>        <span class="s2">&quot;refund_policy&quot;</span><span class="p">:</span> <span class="s2">&quot;Refunds are available within 30 days.&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>        <span class="s2">&quot;support_hours&quot;</span><span class="p">:</span> <span class="s2">&quot;Support hours are Mon-Fri 9-5.&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    <span class="p">}</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    <span class="k">for</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">docs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>        <span class="n">repo</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>            <span class="n">doc_id</span><span class="p">,</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>            <span class="p">{</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">doc_id</span><span class="p">,</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>                <span class="s2">&quot;embedding&quot;</span><span class="p">:</span> <span class="n">embedder</span><span class="o">.</span><span class="n">getEmbedding</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>            <span class="p">},</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>        <span class="p">)</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>    <span class="n">phone</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;I forgot my password&quot;</span><span class="p">,</span> <span class="s2">&quot;top_k&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>    <span class="n">phone</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">execute_hook</span><span class="p">(</span><span class="s2">&quot;retrieve&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">rag2f</span><span class="o">=</span><span class="n">rag2f</span><span class="p">)</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>    <span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]:</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hit</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (score=</span><span class="si">{</span><span class="n">hit</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">hit</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
 <h3 id="3-run-it">3) Run it</h3>
-<pre><code class="language-bash">python examples/tiny_demo.py
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python<span class="w"> </span>examples/tiny_demo.py
+</code></pre></div>
 <p>Expected: <code>pwd_reset</code> should be the top hit (score ~1.00).</p>
 <h2 id="7-add-a-simple-repository-plugin-sketch">7) Add a simple repository plugin (sketch)</h2>
 <p>Repository plugins register themselves in activation or via hooks:</p>
-<pre><code class="language-python">from rag2f.core.xfiles import BaseRepository
-
-class MemoryRepo(BaseRepository):
-    capabilities = {&quot;queryable&quot;: False, &quot;vector_search&quot;: False, &quot;graph_traversal&quot;: False}
-    def __init__(self):
-        self._rows = {}
-    def insert(self, data):
-        self._rows[data[&quot;id&quot;]] = data
-    def get(self, id):
-        return self._rows.get(id)
-    def update(self, id, data):
-        self._rows[id] = {**self._rows.get(id, {}), **data}
-    def delete(self, id):
-        self._rows.pop(id, None)
-
-def activate(rag2f):
-    result = rag2f.xfiles.execute_register(
-        &quot;memory&quot;,
-        MemoryRepo(),
-        meta={&quot;type&quot;: &quot;memory&quot;, &quot;domain&quot;: &quot;demo&quot;},
-    )
-    if result.is_error():
-        raise ValueError(result.detail.message)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.xfiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRepository</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">MemoryRepo</span><span class="p">(</span><span class="n">BaseRepository</span><span class="p">):</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">capabilities</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;queryable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;vector_search&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;graph_traversal&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="p">{}),</span> <span class="o">**</span><span class="n">data</span><span class="p">}</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">activate</span><span class="p">(</span><span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">rag2f</span><span class="o">.</span><span class="n">xfiles</span><span class="o">.</span><span class="n">execute_register</span><span class="p">(</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>        <span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>        <span class="n">MemoryRepo</span><span class="p">(),</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>        <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;demo&quot;</span><span class="p">},</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>    <span class="p">)</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_error</span><span class="p">():</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="8-add-a-track-id-for-idempotency">8) Add a track ID for idempotency</h2>
 <p>If your input pipeline needs idempotency or tracing, include a track ID in your phone payload
 and let downstream hooks keep it attached to results:</p>
-<pre><code class="language-python">import uuid
-phone = {&quot;id&quot;: uuid.uuid4().hex, &quot;text&quot;: &quot;hello rag2f&quot;}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">phone</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;hello rag2f&quot;</span><span class="p">}</span>
+</code></pre></div>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Configure rag2f with <a href="../configuration/">Spock</a></li>
@@ -1505,7 +1556,7 @@ phone = {&quot;id&quot;: uuid.uuid4().hex, &quot;text&quot;: &quot;hello rag2f&q
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

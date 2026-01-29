@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -544,94 +580,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-from-source-dev" class="md-nav__link">
+  <a href="#install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install from source (dev)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Install from source (dev)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dev-container-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dev Container notes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-as-a-dependency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install as a dependency
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Install as a dependency">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#optional-extras" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optional extras
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pinning-and-upgrades" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pinning and upgrades
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pinning and upgrades">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recommended-versioning-practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended versioning practice
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout-expectations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project layout expectations
+        Install
       
     </span>
   </a>
@@ -639,10 +591,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cli-scripts" class="md-nav__link">
+  <a href="#project-layout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI / scripts
+        Project Layout
       
     </span>
   </a>
@@ -650,21 +602,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#local-plugins-folder" class="md-nav__link">
+  <a href="#quick-verify" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local plugins folder
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment variables
+        Quick Verify
       
     </span>
   </a>
@@ -679,45 +620,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#no-plugins-loaded" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “No plugins loaded”
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#entry-point-plugin-path-returned-site-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “Entry point plugin path returned site-packages”
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-embedders-registered-but-no-default-configured" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “Multiple embedders registered but no default configured”
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1055,94 +957,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-from-source-dev" class="md-nav__link">
+  <a href="#install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install from source (dev)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Install from source (dev)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dev-container-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dev Container notes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-as-a-dependency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install as a dependency
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Install as a dependency">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#optional-extras" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optional extras
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pinning-and-upgrades" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pinning and upgrades
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pinning and upgrades">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recommended-versioning-practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended versioning practice
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout-expectations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project layout expectations
+        Install
       
     </span>
   </a>
@@ -1150,10 +968,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cli-scripts" class="md-nav__link">
+  <a href="#project-layout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI / scripts
+        Project Layout
       
     </span>
   </a>
@@ -1161,21 +979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#local-plugins-folder" class="md-nav__link">
+  <a href="#quick-verify" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local plugins folder
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment variables
+        Quick Verify
       
     </span>
   </a>
@@ -1190,45 +997,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#no-plugins-loaded" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “No plugins loaded”
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#entry-point-plugin-path-returned-site-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “Entry point plugin path returned site-packages”
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-embedders-registered-but-no-default-configured" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        “Multiple embedders registered but no default configured”
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1255,88 +1023,71 @@
 <h1 id="installation">Installation</h1>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>Python <strong>3.12+</strong> (rag2f declares <code>requires-python = "&gt;=3.12"</code>)</li>
-<li>A Dev Container (recommended for consistent toolchains)</li>
+<li>Python <strong>3.12+</strong></li>
 </ul>
-<h2 id="install-from-source-dev">Install from source (dev)</h2>
-<pre><code class="language-bash">git clone &lt;your-rag2f-repo&gt;
-cd rag2f
-# Recommended: Dev Container (VS Code / devcontainers CLI)
-# - Open the repo in the dev container and wait for the container to build
-pip install -e &quot;.[dev]&quot;
-</code></pre>
-<p>(If you prefer a local venv instead of a dev container: <code>python -m venv .venv &amp;&amp; source .venv/bin/activate</code>.)</p>
-<h3 id="dev-container-notes">Dev Container notes</h3>
-<ul>
-<li>The container runs the same bootstrap script as local setup.</li>
-<li>You still get a <code>.venv</code> inside the workspace for consistent tooling.</li>
-<li>Use it for deterministic Python versions and tooling across the team.</li>
-</ul>
-<p>Alternatively, the repo ships a bootstrap script:</p>
-<pre><code class="language-bash">bash scripts/bootstrap-venv.sh
-source .venv/bin/activate
-</code></pre>
-<h2 id="install-as-a-dependency">Install as a dependency</h2>
-<p>If you publish rag2f to an index, install it like any other Python package:</p>
-<pre><code class="language-bash">pip install rag2f
-</code></pre>
-<h3 id="optional-extras">Optional extras</h3>
-<p>rag2f keeps the core small, so most heavy dependencies live in plugins.
-Install plugin packages separately, or include them in your own app.</p>
-<h2 id="pinning-and-upgrades">Pinning and upgrades</h2>
-<p>Because rag2f is designed to keep integrations in plugins, the core can remain small and stable.
-Still, for production systems:</p>
-<ul>
-<li>Pin rag2f and plugin versions together.</li>
-<li>Upgrade in a staging environment where you can validate the plugin contracts.</li>
-<li>Keep plugin dependencies isolated to avoid cross-plugin conflicts.</li>
-</ul>
-<h3 id="recommended-versioning-practice">Recommended versioning practice</h3>
-<ul>
-<li>Pin <code>rag2f</code> and plugin packages in the same requirements lock.</li>
-<li>Record the <code>rag2f</code> version that each plugin was last tested with.</li>
-<li>Use CI to run plugin contract tests against new core versions.</li>
-</ul>
-<h2 id="project-layout-expectations">Project layout expectations</h2>
-<p>rag2f assumes a “project root” (current working directory) and uses it to locate a default plugin folder:</p>
-<ul>
-<li>default plugins folder: <code>./plugins</code> (relative to <code>os.getcwd()</code>)</li>
-</ul>
-<p>You can override this by passing <code>plugins_folder=...</code> when creating the <code>RAG2F</code> instance.</p>
-<h2 id="cli-scripts">CLI / scripts</h2>
-<p>If your app has a CLI entry point, make sure it sets the working directory to the project root or passes an explicit <code>plugins_folder</code> so local plugins are consistently resolved.</p>
-<h2 id="local-plugins-folder">Local plugins folder</h2>
-<p>For local development, create:</p>
-<pre><code>your_app/
-  config.json
-  plugins/
-    my_plugin/
-      plugin.json
-      my_plugin.py
-</code></pre>
-<p>Then:</p>
-<pre><code class="language-python">rag2f = await RAG2F.create(plugins_folder=&quot;plugins&quot;, config_path=&quot;config.json&quot;)
-</code></pre>
-<h2 id="environment-variables">Environment variables</h2>
-<p>Spock reads env vars with the <code>RAG2F__</code> prefix:</p>
-<pre><code>RAG2F__RAG2F__EMBEDDER_DEFAULT=my_embedder
-RAG2F__PLUGINS__MY_PLUGIN__API_KEY=sk-...
-</code></pre>
-<p>Env overrides config files, so it is the best place for secrets.</p>
+<h2 id="install">Install</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">From Source (dev)</label><label for="__tabbed_1_2">As Dependency</label><label for="__tabbed_1_3">With Bootstrap</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;your-rag2f-repo&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>rag2f
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>rag2f
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>scripts/bootstrap-venv.sh
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="project-layout">Project Layout</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>your_app/
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── config.json          # Spock config
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── plugins/             # Local plugins folder
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│   └── my_plugin/
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│       ├── plugin.json  # Plugin metadata
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│       └── my_plugin.py # Hooks/tools
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>└── main.py
+</code></pre></div>
+<h2 id="quick-verify">Quick Verify</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f</span><span class="w"> </span><span class="kn">import</span> <span class="n">RAG2F</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">rag2f</span> <span class="o">=</span> <span class="k">await</span> <span class="n">RAG2F</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="n">plugins_folder</span><span class="o">=</span><span class="s2">&quot;plugins&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rag2f</span><span class="o">.</span><span class="n">morpheus</span><span class="o">.</span><span class="n">plugins</span><span class="p">)</span><span class="si">}</span><span class="s2"> plugins&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="no-plugins-loaded">“No plugins loaded”</h3>
-<ul>
-<li>Ensure your <code>plugins_folder</code> exists (or that you installed plugins via pip with entry points).</li>
-<li>Check that each plugin has metadata (<code>plugin.json</code> and/or <code>pyproject.toml</code>) and Python files that define hooks/tools.</li>
-</ul>
-<h3 id="entry-point-plugin-path-returned-site-packages">“Entry point plugin path returned site-packages”</h3>
-<p>Some plugins may accidentally return the <code>site-packages</code> directory instead of their own plugin directory.
-rag2f tries to detect and recover from this, but the plugin should fix its <code>get_plugin_path()</code> factory.</p>
-<h3 id="multiple-embedders-registered-but-no-default-configured">“Multiple embedders registered but no default configured”</h3>
-<ul>
-<li>Set <code>rag2f.embedder_default</code> in config or env.</li>
-<li>If only one embedder is expected, ensure only that plugin is installed.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No plugins loaded</td>
+<td><code>plugins_folder</code> exists, has <code>plugin.json</code></td>
+</tr>
+<tr>
+<td>Multiple embedders</td>
+<td>Set <code>rag2f.embedder_default</code> in config</td>
+</tr>
+<tr>
+<td>Wrong plugin path</td>
+<td>Plugin's <code>get_plugin_path()</code> returns its own dir</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="../configuration/">Configuration</a> for env vars and <a href="../plugins/">Plugins</a> for plugin setup.</p>
 
 
 
@@ -1394,7 +1145,7 @@ rag2f tries to detect and recover from this, but the plugin should fix its <code
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

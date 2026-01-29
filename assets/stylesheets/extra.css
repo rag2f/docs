@@ -1,43 +1,54 @@
 :root {
   --rag2f-font-sans: "Avenir Next", "Avenir", "Segoe UI", "Trebuchet MS", sans-serif;
   --rag2f-font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
-  --rag2f-ink: #1f1913;
-  --rag2f-ink-soft: #4b4037;
-  --rag2f-accent: #ff6b35;
-  --rag2f-accent-2: #1cb6a8;
-  --rag2f-surface: #fff6ee;
-  --rag2f-card: #ffffff;
-  --rag2f-border: rgba(31, 25, 19, 0.12);
-  --rag2f-hero-bg: radial-gradient(1200px 400px at 10% 0%, rgba(255, 197, 156, 0.35), transparent 60%),
-    radial-gradient(900px 320px at 90% 10%, rgba(46, 194, 182, 0.18), transparent 55%),
-    linear-gradient(180deg, #fff3e8 0%, #ffffff 70%);
-  --rag2f-shadow: 0 14px 40px rgba(25, 18, 10, 0.12);
-  --rag2f-shadow-hover: 0 20px 45px rgba(25, 18, 10, 0.2);
+  --rag2f-ink: #1a1f24;
+  --rag2f-ink-soft: #4b5563;
+  --rag2f-accent: #00e5ff;
+  --rag2f-accent-2: #ff8a3d;
+  --rag2f-surface: #eef1f5;
+  --rag2f-card: #f7f9fc;
+  --rag2f-border: rgba(36, 43, 52, 0.16);
+  --rag2f-hero-bg: radial-gradient(1200px 420px at 10% 0%, rgba(255, 138, 61, 0.22), transparent 60%),
+    radial-gradient(900px 360px at 92% 12%, rgba(0, 229, 255, 0.18), transparent 55%),
+    linear-gradient(180deg, #e9edf2 0%, #f7f9fc 70%);
+  --rag2f-shadow: 0 14px 40px rgba(16, 20, 25, 0.12);
+  --rag2f-shadow-hover: 0 20px 45px rgba(16, 20, 25, 0.2);
 
-  --md-primary-fg-color: #231b15;
-  --md-accent-fg-color: var(--rag2f-accent);
+  --md-primary-fg-color: #242b34;
+  --md-primary-bg-color: #e6edf3;
+  --md-accent-fg-color: var(--rag2f-accent-2);
+  --md-default-bg-color: var(--rag2f-surface);
+  --md-default-fg-color: var(--rag2f-ink);
+  --md-typeset-a-color: var(--rag2f-accent-2);
+  --md-code-bg-color: rgba(36, 43, 52, 0.08);
+  --md-code-fg-color: var(--rag2f-ink);
   --md-text-font: var(--rag2f-font-sans);
   --md-code-font: "SFMono-Regular", "Cascadia Code", "Courier New", monospace;
   --md-content-max-width: 1100px;
 }
 
 [data-md-color-scheme="slate"] {
-  --rag2f-ink: #f6efe7;
-  --rag2f-ink-soft: #cec4ba;
-  --rag2f-accent: #ff8a55;
-  --rag2f-accent-2: #34d5c6;
-  --rag2f-surface: #16110e;
-  --rag2f-card: #221a15;
-  --rag2f-border: rgba(255, 255, 255, 0.12);
-  --rag2f-hero-bg: radial-gradient(1200px 400px at 10% 0%, rgba(255, 130, 72, 0.22), transparent 60%),
-    radial-gradient(900px 320px at 90% 10%, rgba(52, 213, 198, 0.2), transparent 55%),
-    linear-gradient(180deg, #140f0c 0%, #1d1612 70%);
+  --rag2f-ink: #e6edf3;
+  --rag2f-ink-soft: #b6c2cf;
+  --rag2f-accent: #00e5ff;
+  --rag2f-accent-2: #ff8a3d;
+  --rag2f-surface: #15181d;
+  --rag2f-card: #1c2128;
+  --rag2f-border: rgba(230, 237, 243, 0.12);
+  --rag2f-hero-bg: radial-gradient(1200px 420px at 10% 0%, rgba(255, 138, 61, 0.18), transparent 60%),
+    radial-gradient(900px 360px at 92% 12%, rgba(0, 229, 255, 0.16), transparent 55%),
+    linear-gradient(180deg, #111419 0%, #15181d 70%);
   --rag2f-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
   --rag2f-shadow-hover: 0 28px 55px rgba(0, 0, 0, 0.55);
 
-  --md-primary-fg-color: #f2e9df;
-  --md-accent-fg-color: var(--rag2f-accent);
-  --md-default-bg-color: #120e0b;
+  --md-primary-fg-color: #1c2128;
+  --md-primary-bg-color: #e6edf3;
+  --md-accent-fg-color: var(--rag2f-accent-2);
+  --md-default-bg-color: var(--rag2f-surface);
+  --md-default-fg-color: var(--rag2f-ink);
+  --md-typeset-a-color: var(--rag2f-accent-2);
+  --md-code-bg-color: rgba(230, 237, 243, 0.06);
+  --md-code-fg-color: var(--rag2f-ink);
 }
 
 body {
@@ -61,14 +72,14 @@ body {
 }
 
 .md-typeset a {
-  color: var(--rag2f-accent);
+  color: var(--rag2f-accent-2);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.18em;
 }
 
 .md-typeset a:hover,
 .md-typeset a:focus-visible {
-  color: var(--rag2f-accent-2);
+  color: var(--rag2f-accent);
 }
 
 .md-typeset .md-button {
@@ -84,15 +95,15 @@ body {
 }
 
 .md-typeset .md-button--primary {
-  background: var(--rag2f-accent);
-  color: #1a120c;
+  background: var(--rag2f-accent-2);
+  color: #101419;
   border-color: transparent;
 }
 
 .md-typeset .md-button--primary:hover,
 .md-typeset .md-button--primary:focus-visible {
-  background: var(--rag2f-accent-2);
-  color: #0f0b08;
+  background: var(--rag2f-accent);
+  color: #0b0f14;
 }
 
 .md-header {
@@ -231,18 +242,18 @@ body {
 .card:focus-visible {
   transform: translateY(-4px);
   box-shadow: var(--rag2f-shadow-hover);
-  border-color: rgba(255, 107, 53, 0.5);
+  border-color: rgba(255, 138, 61, 0.55);
 }
 
 .card__icon {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 12px;
-  background: rgba(255, 107, 53, 0.12);
+  background: rgba(255, 138, 61, 0.14);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--rag2f-accent);
+  color: var(--rag2f-accent-2);
 }
 
 .card__title {

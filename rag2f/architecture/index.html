@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -757,6 +793,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#high-level-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -844,6 +891,17 @@
     <span class="md-ellipsis">
       
         Data flow (conceptual)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-vs-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core vs Plugins
       
     </span>
   </a>
@@ -982,6 +1040,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#high-level-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1076,6 +1145,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#core-vs-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core vs Plugins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#extension-points" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1131,34 +1211,58 @@
 <h1 id="architecture">Architecture</h1>
 <p>rag2f is a kernel: it gives you the smallest stable set of components needed to compose RAG systems.</p>
 <p>Everything volatile lives outside the core — in plugins or your application.</p>
+<h2 id="system-overview">System Overview</h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph APP["Your Application"]
+        A[App Code]
+    end
+
+    subgraph RAG2F["RAG2F Kernel"]
+        S[Spock&lt;br/&gt;config]
+        M[Morpheus&lt;br/&gt;plugins/hooks]
+        J[Johnny5&lt;br/&gt;input]
+        I[IndianaJones&lt;br/&gt;retrieval]
+        OP[OptimusPrime&lt;br/&gt;embedders]
+        XF[XFiles&lt;br/&gt;repositories]
+
+        S --&gt; M
+        M --&gt; J
+        M --&gt; I
+        M --&gt; OP
+        M --&gt; XF
+    end
+
+    subgraph PLUGINS["Plugins"]
+        P1[Embedder Plugin]
+        P2[Repository Plugin]
+        P3[Custom Hooks]
+    end
+
+    A --&gt; RAG2F
+    PLUGINS --&gt; M</code></pre>
 <blockquote>
-<p>"No disassemble!"
-- Johnny 5, Short Circuit</p>
+<p><strong>Design Note:</strong> The kernel stays small and stable. All volatile code (embedders, repositories, custom logic) lives in plugins, not core.</p>
 </blockquote>
-<pre><code>  .-.
- [o_o]  Johnny5
- /| |\  input
-</code></pre>
 <h2 id="high-level-diagram">High-level diagram</h2>
-<pre><code class="language-text">               +-----------------------+
-               |   Your Application    |
-               +-----------+-----------+
-                           |
-                        RAG2F
-                           |
-        +------------------+------------------+
-        |                  |                  |
-      Spock             Morpheus          Johnny5
- (config manager)   (plugins &amp; hooks)  (input manager)
-        |                  |
-        |            +-----+--------------------------+
-        |            |                                |
-   OptimusPrime    entry points                  filesystem
- (embedder registry) (rag2f.plugins)             ./plugins
-        |
-      XFiles
- (repository registry)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>               +-----------------------+
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>               |   Your Application    |
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>               +-----------+-----------+
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                           |
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                        RAG2F
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                           |
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        +------------------+------------------+
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        |                  |                  |
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>      Spock             Morpheus          Johnny5
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> (config manager)   (plugins &amp; hooks)  (input manager)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        |                  |
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        |            +-----+--------------------------+
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        |            |                                |
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>   OptimusPrime    entry points                  filesystem
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> (embedder registry) (rag2f.plugins)             ./plugins
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        |
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>      XFiles
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a> (repository registry)
+</code></pre></div>
 <h2 id="what-lives-in-core-vs-plugins">What lives in core vs plugins</h2>
 <h3 id="core-stable">Core (stable)</h3>
 <ul>
@@ -1189,7 +1293,23 @@ Instead, you build pipelines by composing:
 - registries (get the embedder/repository you need)
 - your own application code</p>
 <h2 id="startup-sequence">Startup sequence</h2>
-<p>A typical startup flow looks like this:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant App
+    participant RAG2F
+    participant Spock
+    participant Morpheus
+    participant Plugin
+
+    App-&gt;&gt;RAG2F: await RAG2F.create()
+    RAG2F-&gt;&gt;Spock: load config (JSON + env)
+    RAG2F-&gt;&gt;Morpheus: find_plugins()
+    Morpheus-&gt;&gt;Plugin: scan entry points
+    Morpheus-&gt;&gt;Plugin: scan filesystem
+    Plugin-&gt;&gt;Morpheus: @plugin activated()
+    Plugin-&gt;&gt;Morpheus: register @hook functions
+    Morpheus-&gt;&gt;RAG2F: ready
+    RAG2F-&gt;&gt;App: instance</code></pre>
+<p>A typical startup flow:</p>
 <ol>
 <li><strong>Spock loads configuration</strong> from JSON + env (env wins).</li>
 <li><strong>Morpheus discovers plugins</strong> (entry points, then filesystem).</li>
@@ -1197,12 +1317,52 @@ Instead, you build pipelines by composing:
 <li><strong>Registries validate</strong> implementations and enforce contracts.</li>
 <li>Your app composes a pipeline with hooks and registry lookups.</li>
 </ol>
-<p>This order keeps configuration and discovery deterministic across environments.</p>
 <h2 id="data-flow-conceptual">Data flow (conceptual)</h2>
-<pre><code class="language-text">Input -&gt; Johnny5 -&gt; hooks (preprocess/retrieve/rerank) -&gt; embedder/repo -&gt; response
-</code></pre>
+<pre class="mermaid"><code>flowchart LR
+    Input[User Input] --&gt; J5[Johnny5]
+    J5 --&gt; |hooks| Embed[OptimusPrime]
+    Embed --&gt; Store[XFiles]
+
+    Query[Query] --&gt; IJ[IndianaJones]
+    IJ --&gt; |retrieve hook| Search[Vector Search]
+    Search --&gt; |search hook| Response[Response]</code></pre>
 <p>Johnny5 accepts input, then Morpheus runs the hook pipeline. The pipeline uses
 registries to fetch embedders or repositories as needed.</p>
+<h2 id="core-vs-plugins">Core vs Plugins</h2>
+<table>
+<thead>
+<tr>
+<th>Core (stable)</th>
+<th>Plugins (volatile)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spock (config)</td>
+<td>Embedders (Azure, OpenAI, local)</td>
+</tr>
+<tr>
+<td>Morpheus (plugins/hooks)</td>
+<td>Repositories (Qdrant, Postgres, etc.)</td>
+</tr>
+<tr>
+<td>OptimusPrime (registry)</td>
+<td>Custom pipelines</td>
+</tr>
+<tr>
+<td>XFiles (registry)</td>
+<td>App-specific hooks</td>
+</tr>
+<tr>
+<td>Johnny5 (input)</td>
+<td></td>
+</tr>
+<tr>
+<td>IndianaJones (retrieval)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="extension-points">Extension points</h2>
 <p>Where you can extend rag2f safely:</p>
 <ul>
@@ -1282,7 +1442,7 @@ registries to fetch embedders or repositories as needed.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

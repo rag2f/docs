@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -61,7 +64,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,6 +121,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -1280,11 +1316,27 @@
 <p>"You take the red pill, you stay in Wonderland."
 - Morpheus, The Matrix</p>
 </blockquote>
-<pre><code>  ____
- / __ \  Morpheus
- \_\_\_\  pill
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  ____
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> / __ \  Morpheus
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> \_\_\_\  pill
+</code></pre></div>
 <h2 id="discovery-model">Discovery model</h2>
+<pre class="mermaid"><code>flowchart TD
+    Start[Morpheus.discover_plugins]
+    EP[Scan entry points]
+    FS[Scan filesystem ./plugins]
+    Merge[Merge plugins]
+
+    Start --&gt; EP
+    EP --&gt; FS
+    FS --&gt; Merge
+
+    Merge --&gt; Load[Load each plugin]
+    Load --&gt; Validate[Validate manifest]
+    Validate --&gt; Register[Register hooks]</code></pre>
+<blockquote>
+<p><strong>Design Note:</strong> The entry points → filesystem order ensures that installed plugins (production) win over local versions (dev), avoiding ambiguity in deployments. This makes discovery deterministic and predictable.</p>
+</blockquote>
 <p>rag2f discovers plugins in two places (in this precedence order):</p>
 <ol>
 <li><strong>Python entry points</strong> (installed packages)</li>
@@ -1298,9 +1350,9 @@
 </ul>
 <p>The entry point must be <strong>callable</strong> and must return a <strong>string path</strong> to the plugin directory.</p>
 <p>Conceptual <code>pyproject.toml</code> snippet (in the <em>plugin</em> package):</p>
-<pre><code class="language-toml">[project.entry-points.&quot;rag2f.plugins&quot;]
-rag2f-azure-openai-embedder = &quot;rag2f_azure_openai_embedder:get_plugin_path&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[project.entry-points.</span><span class="s2">&quot;rag2f.plugins&quot;</span><span class="k">]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">rag2f-azure-openai-embedder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rag2f_azure_openai_embedder:get_plugin_path&quot;</span>
+</code></pre></div>
 <p>Where <code>get_plugin_path()</code> returns the on-disk folder that contains your <code>plugin.json</code> and plugin code.</p>
 <h3 id="filesystem-plugins">Filesystem plugins</h3>
 <p>For local development, Morpheus loads plugins from:</p>
@@ -1329,13 +1381,13 @@ rag2f-azure-openai-embedder = &quot;rag2f_azure_openai_embedder:get_plugin_path&
 </ul>
 <p>Use a short, lowercase id (e.g. <code>azure_openai_embedder</code>).</p>
 <h3 id="minimal-pluginjson">Minimal <code>plugin.json</code></h3>
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;hello_plugin&quot;,
-  &quot;name&quot;: &quot;Hello Plugin&quot;,
-  &quot;version&quot;: &quot;0.1.0&quot;,
-  &quot;module&quot;: &quot;hello_plugin.py&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello_plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello Plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello_plugin.py&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</code></pre></div>
 <p>Common optional fields:</p>
 <ul>
 <li><code>description</code>, <code>license</code>, <code>keywords</code></li>
@@ -1344,12 +1396,12 @@ rag2f-azure-openai-embedder = &quot;rag2f_azure_openai_embedder:get_plugin_path&
 <li><code>min_rag2f_version</code>, <code>max_rag2f_version</code></li>
 </ul>
 <h3 id="suggested-folder-layout">Suggested folder layout</h3>
-<pre><code>plugins/
-  hello_plugin/
-    plugin.json
-    hello_plugin.py
-    README.md
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>plugins/
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  hello_plugin/
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    plugin.json
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    hello_plugin.py
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    README.md
+</code></pre></div>
 <p>If your plugin is packaged, the entry point should return the folder that contains <code>plugin.json</code>.</p>
 <h2 id="plugin-scoped-dependencies">Plugin-scoped dependencies</h2>
 <p>Plugins can ship their own dependencies via a local <code>requirements.txt</code>. Morpheus installs those requirements on activation so the core stays lean and plugins stay isolated.</p>
@@ -1361,14 +1413,14 @@ rag2f-azure-openai-embedder = &quot;rag2f_azure_openai_embedder:get_plugin_path&
 </ul>
 <h2 id="writing-hooks">Writing hooks</h2>
 <p>A hook is a Python function decorated with <code>@hook</code>.</p>
-<pre><code class="language-python">from rag2f.core.morpheus.decorators.hook import hook
-
-@hook(&quot;search&quot;, priority=10)
-def my_search_hook(phone, *, rag2f):
-    # phone is the “pipe” value that flows through hooks
-    phone[&quot;results&quot;].append(&quot;hello&quot;)
-    return phone
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rag2f.core.morpheus.decorators.hook</span><span class="w"> </span><span class="kn">import</span> <span class="n">hook</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_search_hook</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rag2f</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="c1"># phone is the “pipe” value that flows through hooks</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">phone</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">return</span> <span class="n">phone</span>
+</code></pre></div>
 <h3 id="hook-piping-model">Hook piping model</h3>
 <p>If a hook takes at least one argument, Morpheus will <strong>pipe</strong> the first argument (<code>phone</code>) through all registered hook functions in priority order.</p>
 <p>If a hook takes <strong>no arguments</strong> (besides <code>rag2f</code>), it runs for side effects.</p>
@@ -1446,7 +1498,7 @@ This is useful in dev workflows when you are iterating on local plugins.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
