@@ -19,6 +19,18 @@ flowchart LR
 
 The first positional argument (`phone`) flows through all hooks in **priority order** (higher first).
 
+### Phone vs Done (Quick Mental Model)
+
+**Phone** is the *payload* that moves through a hook pipeline. Each hook can transform it and pass it on.
+**Done** is a *handled flag* used only for processing hooks (like `handle_text_foreground`) to avoid duplicate work.
+
+| Concept | What it is | When it matters | Typical return |
+|---------|------------|-----------------|----------------|
+| `phone` | Pipeable payload (usually a dict) | Transform pipelines (`preprocess`, `retrieve`, etc.) | Updated payload |
+| `done` | Boolean “already handled” flag | Processing pipelines (`handle_text_foreground`) | `True`/`False` |
+
+**Rule of thumb:** if a hook is about *transforming data*, you’re working with `phone`. If it’s about *claiming the work* (store/embed/index once), you’re working with `done`.
+
 ## Overriding Default Behavior
 
 !!! tip "The Override Pattern"
