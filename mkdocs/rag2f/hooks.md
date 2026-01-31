@@ -19,18 +19,6 @@ flowchart LR
 
 The first positional argument (`phone`) flows through all hooks in **priority order** (higher first).
 
-### Phone vs Done (Quick Mental Model)
-
-**Phone** is the *payload* that moves through a hook pipeline. Each hook can transform it and pass it on.
-**Done** is a *handled flag* used only for processing hooks (like `handle_text_foreground`) to avoid duplicate work.
-
-| Concept | What it is | When it matters | Typical return |
-|---------|------------|-----------------|----------------|
-| `phone` | Pipeable payload (usually a dict) | Transform pipelines (`preprocess`, `retrieve`, etc.) | Updated payload |
-| `done` | Boolean “already handled” flag | Processing pipelines (`handle_text_foreground`) | `True`/`False` |
-
-**Rule of thumb:** if a hook is about *transforming data*, you’re working with `phone`. If it’s about *claiming the work* (store/embed/index once), you’re working with `done`.
-
 ## Overriding Default Behavior
 
 !!! tip "The Override Pattern"
@@ -184,8 +172,8 @@ If no hooks registered → returns input unchanged.
 === "🔍 IndianaJones (Retrieval)"
     | Hook | Signature | Purpose |
     |------|-----------|---------|
-    | `indiana_jones_retrieve` | `(result, query, k, *, rag2f)` | Vector retrieval |
-    | `indiana_jones_search` | `(result, query, k, mode, kwargs, *, rag2f)` | Search + LLM synthesis |
+    | `indiana_jones_retrieve` | `(result, query, k, return_mode, for_synthesize, *, rag2f)` | Vector retrieval |
+    | `indiana_jones_synthesize` | `(result, retrieve_result, return_mode, kwargs, *, rag2f)` | Synthesize response from retrieved items |
 
 See [Hooks Reference](hooks-reference.md) for complete documentation with examples.
 
