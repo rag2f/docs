@@ -20,7 +20,7 @@ Complete reference of all available hooks with signatures and examples.
     | Hook | Purpose |
     |------|---------|
     | [`indiana_jones_retrieve`](#indiana_jones_retrieve) | Vector retrieval |
-    | [`indiana_jones_search`](#indiana_jones_search) | Search + synthesis |
+    | [`indiana_jones_synthesize`](#indiana_jones_synthesize) | Synthesize response from retrieved items |
 
 ## Hook Flow Overview
 
@@ -39,7 +39,7 @@ flowchart TB
 
     subgraph INDIANA["🔍 IndianaJones - Retrieval"]
         I1[indiana_jones_retrieve]
-        I2[indiana_jones_search]
+        I2[indiana_jones_synthesize]
     end
 
     BOOTSTRAP --> JOHNNY5
@@ -226,24 +226,40 @@ Transform or implement retrieval logic.
 |----------|-------|
 | **Module** | IndianaJones |
 | **Piped** | Yes (`result: RetrieveResult`) |
-| **Signature** | `(result, query, k, *, rag2f)` |
+| **Signature** | `(result, query, k, return_mode, for_synthesize, *, rag2f)` |
 | **Default** | Empty result if no hook implements |
 
+!!! info "New Parameters"
+    - `return_mode`: Requested return mode (`WITH_ITEMS` or `MINIMAL`)
+    - `for_synthesize`: `True` when called by `execute_search()`, allowing plugins to adjust retrieval behavior (e.g., different reranking or over-fetching)
+
 ```python
-from rag2f.core.dto.indiana_jones_dto import RetrieveResult, RetrievedItem
+from rag2f.core.dto.indiana_jones_dto import RetrieveResult, RetrievedItem, ReturnMode
 
 @hook("indiana_jones_retrieve", priority=10)
-def vector_retrieval(result, query, k, *, rag2f):
-    """Implement vector search retrieval."""
+def vector_retrieval(result, query, k, return_mode, for_synthesize, *, rag2f):
+    """Implement vector search retrieval.
+    
+    Args:
+        result: Initial RetrieveResult (query set, items empty).
+        query: The search query.
+        k: Max items to retrieve.
+        return_mode: Requested return mode.
+        for_synthesize: True if called by execute_search().
+        rag2f: RAG2F instance.
+    """
     embedder = rag2f.optimus_prime.get_default()
     repo_result = rag2f.xfiles.execute_get("vectors")
     
     if not repo_result.is_ok():
         return result  # Pass through
     
+    # Optionally over-fetch for synthesis
+    effective_k = k * 2 if for_synthesize else k
+    
     # Embed query and search
     query_vec = embedder.getEmbedding(query)
-    results = repo_result.repository.vector_search(query_vec, k)
+    results = repo_result.repository.vector_search(query_vec, effective_k)
     
     items = [
         RetrievedItem(
@@ -252,7 +268,7 @@ def vector_retrieval(result, query, k, *, rag2f):
             score=r.get("score"),
             metadata=r.get("metadata", {})
         )
-        for r in results
+        for r in results[:k]
     ]
     
     return RetrieveResult.success(query=query, items=items)
@@ -262,7 +278,7 @@ def vector_retrieval(result, query, k, *, rag2f):
 
 ```python
 @hook("indiana_jones_retrieve", priority=100)
-def my_retrieval(result, query, k, *, rag2f):
+def my_retrieval(result, query, k, return_mode, for_synthesize, *, rag2f):
     """Override default retrieval completely."""
     # Your custom retrieval logic
     items = my_custom_search(query, k)
@@ -271,47 +287,55 @@ def my_retrieval(result, query, k, *, rag2f):
 
 ---
 
-### `indiana_jones_search`
+### `indiana_jones_synthesize`
 
-Transform or implement search (retrieve + synthesize) logic.
+Synthesize a response from retrieved items. Called by `execute_search()` after the retrieval step.
 
 | Property | Value |
 |----------|-------|
 | **Module** | IndianaJones |
 | **Piped** | Yes (`result: SearchResult`) |
-| **Signature** | `(result, query, k, return_mode, kwargs, *, rag2f)` |
+| **Signature** | `(result, retrieve_result, return_mode, kwargs, *, rag2f)` |
 | **Default** | Empty result if no hook implements |
+
+!!! info "Architecture Note"
+    `execute_search()` is built on top of `execute_retrieve()`:
+    
+    1. Calls `execute_retrieve(for_synthesize=True)` to get items
+    2. Runs the `indiana_jones_synthesize` hook to generate a response
+    3. Applies `return_mode` policy (keeps or drops items)
 
 ```python
 from rag2f.core.dto.indiana_jones_dto import SearchResult, ReturnMode
 
-@hook("indiana_jones_search", priority=10)
-def rag_search(result, query, k, return_mode, kwargs, *, rag2f):
-    """Implement RAG search with LLM synthesis."""
-    # 1. Retrieve relevant chunks
-    retrieve_result = rag2f.indiana_jones.execute_retrieve(query, k)
+@hook("indiana_jones_synthesize", priority=10)
+def rag_synthesize(result, retrieve_result, return_mode, kwargs, *, rag2f):
+    """Synthesize response from retrieved items.
     
-    if not retrieve_result.is_ok():
-        return result
+    Args:
+        result: Initial SearchResult (query and items from retrieve_result).
+        retrieve_result: The full RetrieveResult from the retrieval step.
+        return_mode: Requested return mode (items policy applied after hook).
+        kwargs: Additional parameters from execute_search().
+        rag2f: RAG2F instance.
+    """
+    items = retrieve_result.items
     
-    # 2. Build context from chunks
+    # Build context from chunks
     context = "\n\n".join([
         f"[{item.id}]: {item.text}" 
-        for item in retrieve_result.items
+        for item in items
     ])
     
-    # 3. Generate response (your LLM call)
+    # Generate response (your LLM call)
     response = generate_with_llm(
-        f"Based on:\n{context}\n\nAnswer: {query}"
+        f"Based on:\n{context}\n\nAnswer: {result.query}"
     )
     
-    # 4. Return result
-    return SearchResult.success(
-        query=query,
-        response=response,
-        used_source_ids=[item.id for item in retrieve_result.items],
-        items=retrieve_result.items if return_mode == ReturnMode.WITH_ITEMS else None
-    )
+    # Update result
+    result.response = response
+    result.used_source_ids = [item.id for item in items]
+    return result
 ```
 
 ---
@@ -351,7 +375,7 @@ sequenceDiagram
 | Duplicate check | `check_duplicated_input_text` | > default | Return `True`/`False` |
 | Input processing | `handle_text_foreground` | > 1 | Check `done`, return `True` |
 | Retrieval | `indiana_jones_retrieve` | > existing | Return `RetrieveResult` |
-| Search/RAG | `indiana_jones_search` | > existing | Return `SearchResult` |
+| Synthesis | `indiana_jones_synthesize` | > existing | Return `SearchResult` |
 | Embedder registration | `rag2f_bootstrap_embedders` | Any | Side-effect only |
 
 ### Override Examples
@@ -380,7 +404,7 @@ sequenceDiagram
 === "Custom Retrieval Backend"
     ```python
     @hook("indiana_jones_retrieve", priority=100)
-    def elasticsearch_retrieval(result, query, k, *, rag2f):
+    def elasticsearch_retrieval(result, query, k, return_mode, for_synthesize, *, rag2f):
         """Use Elasticsearch instead of vector DB."""
         from elasticsearch import Elasticsearch
         es = Elasticsearch()

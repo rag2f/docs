@@ -172,8 +172,8 @@ If no hooks registered → returns input unchanged.
 === "🔍 IndianaJones (Retrieval)"
     | Hook | Signature | Purpose |
     |------|-----------|---------|
-    | `indiana_jones_retrieve` | `(result, query, k, *, rag2f)` | Vector retrieval |
-    | `indiana_jones_search` | `(result, query, k, mode, kwargs, *, rag2f)` | Search + LLM synthesis |
+    | `indiana_jones_retrieve` | `(result, query, k, return_mode, for_synthesize, *, rag2f)` | Vector retrieval |
+    | `indiana_jones_synthesize` | `(result, retrieve_result, return_mode, kwargs, *, rag2f)` | Synthesize response from retrieved items |
 
 See [Hooks Reference](hooks-reference.md) for complete documentation with examples.
 
