@@ -15,6 +15,10 @@ flowchart TD
     
     Config --> C1[Check config_path]
     Config --> C2[Verify env prefix]
+
+    P1 --> P1a[Folder exists]
+    P1 --> P1b[Readable permissions]
+    H1 --> H1a[Decorator import path correct]
 ```
 
 ## Debug Checklist

@@ -8,10 +8,19 @@ Instead, it defines **minimal contracts** and lets repositories opt into richer 
 > "The truth is out there."
 > - The X-Files
 
-```
-  \  |  /
-   .-*-.
-  /  |  \   XFiles
+## Registration Flow
+
+```mermaid
+sequenceDiagram
+    participant Plugin
+    participant Morpheus
+    participant XF as XFiles
+    
+    Plugin->>Morpheus: @hook rag2f_bootstrap_embedders
+    Morpheus->>Plugin: execute hook
+    Plugin->>XF: execute_register("users_db", repo, meta)
+    XF->>XF: validate + cache
+    XF-->>Plugin: RegisterResult
 ```
 
 ## Repository protocols
@@ -121,6 +130,26 @@ registration calls (depending on your plugin design). Registration uses the Resu
 pattern, so check the returned `RegisterResult` instead of catching exceptions.
 
 See [Architecture](architecture.md) for how XFiles sits in the overall system.
+
+## API Reference
+
+| Method | Description |
+|--------|-------------|
+| `execute_register(id, repo, meta=None)` | Register repository instance |
+| `execute_get(id)` | Fetch repository by ID |
+| `execute_search_by_meta(**criteria)` | Search repositories by metadata |
+| `execute_search_by_capability(predicate)` | Search repositories by capability predicate |
+| `has(id)` | Check existence |
+| `list_ids()` | List all registered IDs |
+| `unregister(id)` | Remove repository |
+| `get_typed(id, protocol)` | Return repo only if it matches protocol |
+| `get_meta(id)` | Get stored metadata |
+| `get_capabilities(id)` | Get declared capabilities |
+
+## Registration policy
+
+- Same instance + same ID → OK (idempotent)
+- Different instance + existing ID → error (use a new ID or unregister first)
 
 ## Repository metadata
 

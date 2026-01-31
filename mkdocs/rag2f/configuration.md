@@ -29,6 +29,17 @@ flowchart LR
 | 3 | Config dict | Programmatic defaults |
 | 4 | Defaults | Fallback values |
 
+## Environment Variables
+
+**Naming**: `RAG2F__<SECTION>__<KEY>__<SUBKEY>`
+
+| Example | Overrides |
+|---------|-----------|
+| `RAG2F__RAG2F__EMBEDDER_DEFAULT=azure` | `rag2f.embedder_default` |
+| `RAG2F__PLUGINS__MY_PLUGIN__API_KEY=xxx` | `plugins.my_plugin.api_key` |
+
+**Type inference**: `true/false` → bool, numbers → int/float, JSON strings → parsed
+
 ## Config File
 
 === "Minimal"
