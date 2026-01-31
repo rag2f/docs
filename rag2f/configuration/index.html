@@ -630,6 +630,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-variables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#loading" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1001,6 +1012,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-variables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#loading" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1161,6 +1183,27 @@
 </div>
 </div>
 </div>
+<h2 id="environment-variables_1">Environment Variables</h2>
+<p><strong>Naming</strong>: <code>RAG2F__&lt;SECTION&gt;__&lt;KEY&gt;__&lt;SUBKEY&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Overrides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RAG2F__RAG2F__EMBEDDER_DEFAULT=azure</code></td>
+<td><code>rag2f.embedder_default</code></td>
+</tr>
+<tr>
+<td><code>RAG2F__PLUGINS__MY_PLUGIN__API_KEY=xxx</code></td>
+<td><code>plugins.my_plugin.api_key</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Type inference</strong>: <code>true/false</code> → bool, numbers → int/float, JSON strings → parsed</p>
 <h2 id="loading">Loading</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># From file</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">rag2f</span> <span class="o">=</span> <span class="k">await</span> <span class="n">RAG2F</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>

@@ -689,23 +689,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How Hooks Work">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phone-vs-done-quick-mental-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phone vs Done (Quick Mental Model)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1054,23 +1037,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How Hooks Work">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phone-vs-done-quick-mental-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phone vs Done (Quick Mental Model)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1235,34 +1201,6 @@
 <p><strong>Design Note:</strong> The pipeline pattern with <code>phone</code> enables functional composition: each hook transforms the input and passes it to the next. Priority ordering ensures that high-priority overrides can block or transform before standard plugins.</p>
 </blockquote>
 <p>The first positional argument (<code>phone</code>) flows through all hooks in <strong>priority order</strong> (higher first).</p>
-<h3 id="phone-vs-done-quick-mental-model">Phone vs Done (Quick Mental Model)</h3>
-<p><strong>Phone</strong> is the <em>payload</em> that moves through a hook pipeline. Each hook can transform it and pass it on.
-<strong>Done</strong> is a <em>handled flag</em> used only for processing hooks (like <code>handle_text_foreground</code>) to avoid duplicate work.</p>
-<table>
-<thead>
-<tr>
-<th>Concept</th>
-<th>What it is</th>
-<th>When it matters</th>
-<th>Typical return</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>phone</code></td>
-<td>Pipeable payload (usually a dict)</td>
-<td>Transform pipelines (<code>preprocess</code>, <code>retrieve</code>, etc.)</td>
-<td>Updated payload</td>
-</tr>
-<tr>
-<td><code>done</code></td>
-<td>Boolean “already handled” flag</td>
-<td>Processing pipelines (<code>handle_text_foreground</code>)</td>
-<td><code>True</code>/<code>False</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Rule of thumb:</strong> if a hook is about <em>transforming data</em>, you’re working with <code>phone</code>. If it’s about <em>claiming the work</em> (store/embed/index once), you’re working with <code>done</code>.</p>
 <h2 id="overriding-default-behavior">Overriding Default Behavior</h2>
 <div class="admonition tip">
 <p class="admonition-title">The Override Pattern</p>
@@ -1483,13 +1421,13 @@
 <tbody>
 <tr>
 <td><code>indiana_jones_retrieve</code></td>
-<td><code>(result, query, k, *, rag2f)</code></td>
+<td><code>(result, query, k, return_mode, for_synthesize, *, rag2f)</code></td>
 <td>Vector retrieval</td>
 </tr>
 <tr>
-<td><code>indiana_jones_search</code></td>
-<td><code>(result, query, k, mode, kwargs, *, rag2f)</code></td>
-<td>Search + LLM synthesis</td>
+<td><code>indiana_jones_synthesize</code></td>
+<td><code>(result, retrieve_result, return_mode, kwargs, *, rag2f)</code></td>
+<td>Synthesize response from retrieved items</td>
 </tr>
 </tbody>
 </table>
