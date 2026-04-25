@@ -2,6 +2,10 @@
 
 Guide to installing, configuring, and using plugins to extend RAG2F.
 
+This document should help a code agent answer two questions quickly:
+- which manager a plugin should register into
+- how to verify that the plugin was discovered and is usable at runtime
+
 ## Plugin Discovery Order
 
 RAG2F discovers plugins from **two sources** in this priority order:
@@ -166,19 +170,45 @@ if rag2f.xfiles.has("vectors"):
     print(f"Vector search supported: {caps.vector_search.supported}")
 ```
 
+### Check Agents (ATeam)
+
+```python
+# List registered agents
+print("Agents:", rag2f.a_team.list_keys())
+
+# Get default agent for a plugin
+writer = rag2f.a_team.get_default("writer_plugin")
+
+# Get raw agent
+raw_writer = rag2f.a_team.get_raw("writer_plugin.writer")
+print(raw_writer)
+```
+
 ---
 
 ## Plugin Loading Lifecycle
 
 When `RAG2F.create()` is called:
 
-1. **Initialize core modules** — Spock, Johnny5, IndianaJones, OptimusPrime, XFiles, Morpheus
+1. **Initialize core modules** — Spock, Johnny5, IndianaJones, Morpheus, ATeam, OptimusPrime, XFiles
 2. **Load configuration** — JSON file first, then ENV overrides
 3. **morpheus.find_plugins()** discovers plugins:
   - Load from entry points (pip packages) → `plugin.activate()` for each
   - Load from filesystem (`plugins/`) → `plugin.activate()` for each (skip if ID already exists)
   - During `plugin.activate()`, Morpheus loads hooks/overrides and runs the plugin lifecycle override `activated` if present
 4. **refresh_caches()** — Index all hooks by name, sort by priority (higher first)
+
+### Agent Code Verification Order
+
+When a code agent installs or creates a plugin, verify in this order:
+
+1. `rag2f.morpheus.plugin_exists(plugin_id)`
+2. expected hooks appear in `rag2f.morpheus.hooks`
+3. expected registry keys appear in `a_team`, `optimus_prime`, or `xfiles`
+4. the configured default resolves without raising
+
+For a prescriptive implementation checklist, see
+[plugin_agent_playbook.txt](./plugin_agent_playbook.txt).
 
 ---
 
@@ -254,6 +284,61 @@ if result.is_ok() and result.repository:
     
     # Native access
     client = repo.native("client")
+
+  ### Agents (ATeam)
+
+  Plugins register agent adapters during plugin activation.
+
+  ```python
+  # plugins/writer_plugin/plugin_overrides.py
+  from rag2f.core.morpheus.decorators.plugin_decorator import plugin
+
+
+  @plugin
+  def activated(plugin, rag2f_instance):
+    adapter = MyAgentAdapter(...)
+    rag2f_instance.a_team.register(
+      f"{plugin.id}.writer",
+      adapter,
+      plugin_id=plugin.id,
+      is_default=True,
+    )
+
+
+  # Execute the plugin default agent
+  from rag2f.core.dto import AgentRunRequest
+
+  result = rag2f.a_team.execute_run(
+    AgentRunRequest(
+      input="Draft release notes",
+      plugin_id="writer_plugin",
+      purpose="draft",
+      caller="app.pipeline",
+    )
+  )
+
+  print(result.output)
+
+  # Execute a specific agent explicitly
+  review = await rag2f.a_team.execute_run_async(
+    AgentRunRequest(
+      input="Review this draft",
+      agent_key="writer_plugin.reviewer",
+      purpose="review",
+      caller="app.pipeline",
+    )
+  )
+  ```
+
+  ATeam-specific config keys:
+  - `rag2f.a_team_default`
+  - `plugins.<plugin_id>.default_agent`
+
+  ATeam-specific hooks:
+  - `agent_collect_prompt_fragments`
+  - `agent_finalize_prompt`
+
+  See [a_team.txt](./a_team.txt) for the detailed contract.
 ```
 
 ### Processing Pipeline
